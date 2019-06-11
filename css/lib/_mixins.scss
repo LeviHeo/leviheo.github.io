@@ -1,0 +1,85 @@
+@mixin test {
+	border:1px solid red;
+}
+
+@mixin ani($speed:0.3s) {
+	-moz-transition: all $speed ease;
+	-o-transition: all $speed ease;
+	-webkit-transition: all $speed ease;
+	transition: all $speed ease;
+}
+
+@mixin clfix {
+	&:after {
+		content: "";
+		clear: both;
+		display: block;
+	}
+}
+@mixin center($width:100%, $mwidth:$width) {
+	width:$width;
+	max-width:$mwidth;
+	margin: 0 auto;
+}
+
+$img:'../img/';
+@mixin bgimg($filename,$position:0 0,$repeat: no-repeat) {
+	background: transparent url(#{$imagedir}#{$filename}.jpg) $repeat $position;
+}
+
+@mixin box-sizing ($p: border-box){
+	-webkit-box-sizing: $p; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: $p;    /* Firefox, other Gecko */
+	box-sizing: $p;         /* Opera/IE 8+ */
+}
+
+@mixin transform ($transforms) {
+	-moz-transform: $transforms;
+	-o-transform: $transforms;
+	-ms-transform: $transforms;
+	-webkit-transform: $transforms;
+	transform: $transforms;
+}
+
+@mixin rotate ($deg) {
+	@include transform(rotate(#{$deg}deg));
+}
+
+// Media Queries
+
+//
+//  Values:
+//  - phones -> up to $break-mobile
+//  - tablets -> from $break-mobile to $break-tablet
+//  - not-desktop, phablets, phones-tablets -> up to $break-tablet
+// 
+//  Usage example:
+//  @include respond-to(tablets) {
+//  	...
+//  }
+
+$break-mobile: 768px;
+$break-tablet: 1024px;
+$devices: not-desktop phablets phones-tablets;
+@mixin respond-to($media) {
+	@if index($devices, $media) {
+		@media only screen and (max-width: $break-tablet - 1) { @content; }
+	}
+	@else if $media == phones {
+		@media only screen and (max-width: $break-mobile - 1) { @content; }
+	}
+	@else if $media == tablets {
+		@media only screen and (min-width: $break-mobile) and (max-width: $break-tablet - 1) { @content; }
+	}
+	@else if $media == desktop {
+		@media only screen and (min-width: $break-tablet) { @content; }
+	}
+	@else if $media == not-phones {
+        @media only screen and (min-width: $break-mobile) { @content; }
+    }
+}
+
+// Custom mixin for mediaqueries
+@mixin media-to( $media-min, $media-max ) {
+	 @media only screen and (min-width: $media-min) and (max-width: $media-max) { @content; }
+}

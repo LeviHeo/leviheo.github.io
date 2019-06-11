@@ -1,0 +1,73 @@
+$color1:#666666;
+$maw:100%;
+$mainbgColor: #ffffff;
+$maintxtColor: #666666;
+
+html, body, section, #wrap, a {
+	background-color:$mainbgColor;
+	color: $maintxtColor;
+}
+
+a {
+	cursor: pointer;
+	text-decoration: none;
+	&:hover, &:focus {
+		text-decoration: none;
+	}
+}
+
+img {
+	display:block;
+	@include center(auto, 100%);
+}
+
+section {
+	position: relative;
+	z-index: 1;
+	width: 100%;
+	min-height: 450px;
+	padding: 2% 15px 4%;
+	@media only screen and (max-width: 580px), screen and (max-width: 736px) and (orientation: landscape) {
+		position: relative;
+		z-index: 1;
+		width: 100%;
+		padding: 2% 0% 4%;
+		min-height: 200px;
+		min-width: 0;
+	}
+}
+
+textarea {
+	resize: none;
+}
+
+$dpi:1800 1600 1400 1366 1200 1024 1023 960 892 768 767 480 375 374 320;
+@each $item in $dpi {
+	.br#{$item} {
+		display: block !important;
+	}
+	.view#{$item} {
+		display: none !important;
+	}
+	@media only screen and (max-width: #{$item}px) {
+		.br#{$item} { display: none !important; }
+		.view#{$item} { display: block !important; }
+	}
+}
+
+#wrap {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden;
+	min-width: 300px;
+	&:after {
+		clear: both;
+		content: "";
+		display: block;
+	}
+}
+
+.test {border:1px solid red;}
+.center {margin: 0 auto;}
+.clfix {&:after {clear:both;content:"";display:block;}}
