@@ -1,0 +1,10 @@
+@font-face {
+  font-family: 'NeoDunggeunmo';
+  src: url('/src/fonts/fonts/NeoDunggeunmo.eot') format('embedded-opentype'), 
+    url('/src/fonts/NeoDunggeunmo.woff') format('woff'), 
+    url('/src/fonts/NeoDunggeunmo.svg#NeoDunggeunmo') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+$font-dos:'NeoDunggeunmo', 'Consolas', Arial, sans-serif !important;

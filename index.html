@@ -1,7 +1,7 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
 	<title>Levi Heo</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="canonical" href="//www.leviheo.com">
@@ -28,20 +28,62 @@
 	<meta property="og:description" content="Levi Heo's Profile and Portfolio Web Site"/>
 	<meta property="og:country-name" content="hk"/>    
 
-	<meta itemprop="name" content="Samsung hk">
+	<meta itemprop="name" content="Levi Heo">
 	<meta itemprop="image" content="//www.leviheo.com/assets/img/seo-cover.jpg">
 	<meta itemprop="url" content="//www.leviheo.com">
 	<meta itemprop="description" content="Levi Heo's Profile and Portfolio Web Site">
 	<meta itemprop="keywords" content="Levi, Levi Heo, Portfolio, Web Develop, Web Design">
-
-	<link rel="stylesheet" type="text/css" href="./assets/css/style.css" media="all" />
-	<!--[if lt IE 9]>
-		<script src="/assets/js/html5.js"></script>
-	<![endif]-->
 </head>
-
 <body>
-	<div id="app">Levi Heo</div>
-	<script type="text/javascript" src="./assets/js/app.js"></script>
+    
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#config-web-app -->
+
+    <script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyD4V_CltRSL8aslqSNeWWloW3u-FzGvDh0",
+        authDomain: "leviheo-github-io.firebaseapp.com",
+        databaseURL: "https://leviheo-github-io.firebaseio.com",
+        projectId: "leviheo-github-io",
+        storageBucket: "",
+        messagingSenderId: "314402354072",
+        appId: "1:314402354072:web:73f6d12e45fb70f6"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
+
+    <link rel="stylesheet" href="./src/style.css">
+    <div class="wrap">
+        &nbsp;__&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_&nbsp;&nbsp;&nbsp;&nbsp;_____&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br/>
+        |&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;___&nbsp;_&nbsp;_|_|&nbsp;&nbsp;|&nbsp;&nbsp;|&nbsp;&nbsp;|___&nbsp;___&nbsp;<br/>
+        |&nbsp;&nbsp;|__|&nbsp;-_|&nbsp;|&nbsp;|&nbsp;|&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;-_|&nbsp;.&nbsp;|<br/>
+        |_____|___|\_/|_|&nbsp;&nbsp;|__|__|___|___|              
+ 
+        <br/><br/>
+        <div id="loading"></div>
+    </div>
+    <script src='//code.jquery.com/jquery-3.3.1.min.js'></script>
+    <script>
+        // Loading Animation
+        var loadingTxt = 'Loading···';
+        var i = 0;
+        setInterval(function () { 
+            i++;
+            var loading = ['/', '-','·', '\\', '|'];
+            $("#loading").html(loadingTxt + loading[i]);
+            if(i == loading.length)
+            {
+                $("#loading").html(loadingTxt + loading[0]);
+                i = 0;
+            }
+        }, 200);
+    </script>
+
 </body>
 </html>

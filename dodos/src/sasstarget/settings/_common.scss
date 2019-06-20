@@ -1,0 +1,42 @@
+$color1:#ffffff;
+$color2:#e6b436;
+$maw:100%;
+$mainbgColor: #181818;
+$maintxtColor: #ffffff;
+
+$dpi:1800 1600 1440 1400 1339 1366 1200 1024 1023 960 892 768 767 580 480 375 374 320;
+@each $item in $dpi {
+	.br#{$item} {
+		display: block !important;
+	}
+	.view#{$item} {
+		display: none !important;
+	}
+	@media only screen and (max-width: #{$item}px) {
+		.br#{$item} { display: none !important; }
+		.view#{$item} { display: block !important; }
+	}
+}
+
+html {
+	background-color:$mainbgColor;
+	color: $maintxtColor;
+}
+
+html, body {
+	font:16px/1 $font-dos;
+}
+
+a {
+	cursor: pointer;
+	text-decoration: none;
+	&:hover, &:focus {
+		cursor: pointer;
+		text-decoration: none;
+	}
+}
+
+img {
+	display:block;
+	@include center(auto, 100%);
+}
