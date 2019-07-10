@@ -25,7 +25,7 @@
     &nbsp;
     <a
       href="#"
-      onclick="if ('parentIFrame' in window) window.parentIFrame.size(250);return false;"
+      id="BtSubmitCampaign"
       >Size(250)</a
     >
     &nbsp;
@@ -102,6 +102,9 @@
           alert(message, parentIFrame.getId())
         }
       }
+      $('#BtSubmitCampaign').on('click', function(){
+        if ('parentIFrame' in window) window.parentIFrame.size(250);return false;
+      });
     </script>
 
     <script type="text/javascript" defer>
