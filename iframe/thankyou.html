@@ -67,7 +67,8 @@ https://support-prc.samsung.com/seuk_microsites_customers/Pages/campaign2014.asp
 
         <script>
             $('.eeeeeeeeee').on('click', function(){
-                window.parentIFrame.scrollTop()
+                $(this).css('color', 'red');
+                if ('parentIFrame' in window) window.parentIFrame.scrollTop ;return false;
             });
         </script>
 
