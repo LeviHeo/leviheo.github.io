@@ -249,7 +249,7 @@ Sys.WebForms.PageRequestManager._initialize('ScriptManager1', 'form1', [], [], [
                     <input type="submit" name="BtSubmitCampaign" value="登記" onclick="" id="BtSubmitCampaign" />
 
 
-                    <input type="submit" name="" value="登記" onclick="" id="goregi" />
+                    <input type="submit" name="" value="登記" onclick="if ('parentIFrame' in window) window.parentIFrame.sendMessage('form-unpacked');return false;" id="goregi" />
                 </div>
 
             
