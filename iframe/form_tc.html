@@ -442,21 +442,27 @@ document.getElementById('form_output6_rfvNumeric').dispose = function() {
 <style>
     input[type=text] {border-bottom:1px solid #ccc;border-top:3px solid transparent;border-left:3px solid transparent;border-right:3px solid transparent;width:100%;margin:25px 0px;padding:20px 0px 22px 8px}
     input[type=text]:focus {padding:20px 0px 20px 8px}
+    select {border:1px solid #ccc;height:inherit;padding:5px}
     select option {font-family:Arial !important;}
+    label[for="form_output9_chkBox"]:before {margin-top:-5px;}
     #form_output3_radList {margin:20px 0px;}
     #form_output3_lblRadList {margin-left:10px;}
-    #form_output4_dropList {float: left;width: 50%;margin-left: 2%;margin-top: 20px;margin-bottom: 20px;}
+    #form_output4_dropList {float: left;width: 50%;margin-left: 2%;margin-top: 50px;margin-bottom: 20px;}
+    #form_output7_dropList {margin:30px auto 50px;}
     #form_output8_ckBox {margin:15px auto;}
     .sCheck-label-checkbox {padding:0 !important;margin:0 !important}
     .sCheck-label-checkbox:before {position:relative;top:inherit;left:inherit;float:left;margin-right:15px;margin-bottom:5px;margin-left:0px;}
-    label[for="form_output9_chkBox"]:before {margin-top:-5px;}
     @media only screen and (max-width:767px){
+        input[type=text] {margin-left:0px;}
+        select{-webkit-appearance: menulist;  -moz-appearance: menulist;   appearance: menulist; }
+        label[for="form_output9_chkBox"]:before {margin-top:0px;}
+        input[type=checkbox] {left:0px;}
         #pnlOuter {width:100%}
         #contents {padding:0px !important;}
         #form_output9_ckBox {clear:both;}
+        #form_output7_dropList {margin:0px auto 20px;}
+        #form_output4_dropList {clear:both;width:100%;margin-top:20px;margin-left:0px;margin-bottom:0px;}
         #form_output5_txtEmail1{margin-top:0px;}
-        label[for="form_output9_chkBox"]:before {margin-top:0px;}
-        input[type=checkbox] {left:0px;}
     }
 </style>
 
