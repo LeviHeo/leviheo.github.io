@@ -438,7 +438,6 @@ document.getElementById('form_output6_rfvNumeric').dispose = function() {
 
 
 
-<script>var iFrameResizer={onMessage:function(e){alert(e,parentIFrame.getId())}};$("#BtSubmitCampaign").on("click",function(){return"parentIFrame"in window&&window.parentIFrame.sendMessage("form-unpacked"),!1});</script>
 <style>
     input[type=text] {border-bottom:1px solid #ccc;border-top:3px solid transparent;border-left:3px solid transparent;border-right:3px solid transparent;width:100%;margin:25px 0px;padding:20px 0px 22px 8px}
     input[type=text]:focus {padding:20px 0px 20px 8px}
@@ -454,7 +453,7 @@ document.getElementById('form_output6_rfvNumeric').dispose = function() {
     .sCheck-label-checkbox:before {position:relative;top:inherit;left:inherit;float:left;margin-right:15px;margin-bottom:5px;margin-left:0px;}
     @media only screen and (max-width:767px){
         input[type=text] {margin-left:0px;}
-        select{-webkit-appearance: menulist;  -moz-appearance: menulist;   appearance: menulist; }
+        select{-webkit-appearance: menulist !important;  -moz-appearance: menulist !important;   appearance: menulist !important; }
         label[for="form_output9_chkBox"]:before {margin-top:0px;}
         input[type=checkbox] {left:0px;}
         #pnlOuter {width:100%}
@@ -465,7 +464,6 @@ document.getElementById('form_output6_rfvNumeric').dispose = function() {
         #form_output5_txtEmail1{margin-top:0px;}
     }
 </style>
-
 
 <style>
     .thankyouDiv {position:relative;top:inherit;left:inherit;}
