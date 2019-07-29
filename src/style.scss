@@ -32,8 +32,59 @@ body {
     }
 }
 
-.wrap {
+.lh-wrap {
     position: relative;
     z-index: 10;
     padding:20px;
+}
+
+$color_highlight:#424242;
+$color_shadow:#000000;
+
+/* Contact Form */
+#lh-contact {
+    .lh-form {
+        .lh-form_tit {
+            margin-bottom:5px;
+            border-top:2px solid $color_highlight;
+            border-bottom:2px solid #000000;
+            background:rgba(0,0,0,0.2);
+            padding:10px 0px;
+            margin-bottom: 20px;
+        }
+        .lh-form-group {
+            display: block;
+            margin-bottom:10px;
+        }
+        .lh-form-label {
+            display: block;
+            margin-bottom:5px;
+        }
+    }
+    .lh-msg-thx {
+        display: none;
+    }
+    input, textarea, button {
+        display:block;
+        width: 100%;
+        padding:5px;
+    }
+
+    input, textarea {
+        background:rgba(0,0,0,0.5);
+        border:1px solid #000000;
+        color:#ffffff;
+    }
+}
+
+button, a {
+    color: #ffffff;
+    background:rgba(0,0,0,0.5);
+    border-top:2px solid $color_highlight;
+    border-right:2px solid $color_shadow;
+    border-bottom:2px solid $color_highlight;
+    border-left:2px solid $color_shadow;
+    &:hover {
+        
+    }
 }
