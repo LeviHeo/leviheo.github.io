@@ -67,58 +67,70 @@
 
         <h2 class="lh-tit">CONTACT ME</h2>
         <div id="lh-contact">                
-                <div class="lh-form_input">
-                    <form id="contact" class="lh-form" action="https://script.google.com/macros/s/AKfycbzuU5v27icwG8Yzg2zy6EmtAsxb3bs1DdvL8cQJ/exec" method="POST" data-email="leviheo@gmail.com">
-                        <fieldset class="lh-form-group">
-                            <label for="name" class="lh-form-label">NAME :</label>
-                            <input type="text" id="name" name="name" autocomplete="off" placeholder="" required>
-                        </fieldset>
-                        <fieldset class="lh-form-group">
-                            <label for="email" class="lh-form-label">EMAIL :</label>
-                            <input type="email" id="email" name="email" autocomplete="off" placeholder="" required>
-                        </fieldset>
-                        <fieldset class="lh-form-group">
-                            <label for="phone" class="lh-form-label">PHONE :</label>
-                            <input type="text" id="phone" name="phone" autocomplete="off" placeholder="">
-                        </fieldset>
-                        <fieldset class="lh-form-group">
-                            <label for="message" class="lh-form-label">MESSAGE :</label>
-                            <textarea type="text" id="message" name="message" rows="5" autocomplete="off" placeholder="" required></textarea>
-                        </fieldset>
-                    </form>
-                    <button>SEND</button>
-                </div>            
+            <form id="contact" class="lh-form" action="https://script.google.com/macros/s/AKfycbzuU5v27icwG8Yzg2zy6EmtAsxb3bs1DdvL8cQJ/exec" method="POST" data-email="leviheo@gmail.com">
+                <fieldset class="lh-form-group">
+                    <label for="name" class="lh-form-label">NAME :</label>
+                    <input type="text" id="name" name="name" autocomplete="off" placeholder="" required>
+                </fieldset>
+                <fieldset class="lh-form-group">
+                    <label for="email" class="lh-form-label">EMAIL :</label>
+                    <input type="email" id="email" name="email" autocomplete="off" placeholder="" required>
+                </fieldset>
+                <fieldset class="lh-form-group">
+                    <label for="phone" class="lh-form-label">PHONE :</label>
+                    <input type="text" id="phone" name="phone" autocomplete="off" placeholder="">
+                </fieldset>
+                <fieldset class="lh-form-group">
+                    <label for="message" class="lh-form-label">MESSAGE :</label>
+                    <textarea type="text" id="message" name="message" rows="5" autocomplete="off" placeholder="" required></textarea>
+                </fieldset>
+                <fieldset class="lh-form-group hidden">
+                    <input type="text" id="sendtime" name="sendtime" value=""></input>
+                </fieldset>
+            </form>
+            <button>SEND</button>           
         </div>
 
     </div>
     <script src='//code.jquery.com/jquery-3.3.1.min.js'></script>
     <script>
-        // Loading Animation
-
-        function loading(txt, target) {
+        // Message Temp
+        function msg(id,txt, target, type) {
             var i = 0;
-            var boxid = txt,
-                boxTemp = '<div id="'+boxid+'"></div>';
+            var boxid = id,
+                boxTemp = '<div id="'+boxid+'" class="lh-msg"></div>';
             target.append(boxTemp);
-            setInterval(function () { 
-                i++;
-                var box = $('#'+boxid),
-                    loading = ['/', '-','·', '\\', '|'];
-                box.html(txt + '···' + loading[i]);
-                if(i == loading.length)
-                {
-                    box.html(txt + '···' + loading[0]);
-                    i = 0;
-                }
-            }, 200);
+
+            if(type == 'loading') {
+                setInterval(function () { 
+                    i++;
+                    var box = $('#'+boxid);
+                    var loading = ['/', '-','·', '\\', '|'];
+                    box.html(txt + '···' + loading[i]);
+                    if(i == loading.length)
+                    {
+                        box.html(txt + '···' + loading[0]);
+                        i = 0;
+                    }
+                }, 200);
+            }else{
+                var box = $('#'+boxid);
+                box.html(txt);
+                setTimeout(function(){
+                    box.fadeOut(300, function(){
+                        $(this).remove();
+                    });
+                }, 2000);
+            }
         }
 
-        loading('Loading', $('body .lh-wrap'));
-        loading('Sending', $('body .lh-wrap'));
-        
-        // CONTACT
-        var txt_thankyou = 'Thanks for contacting me! I will get back to you soon!';
+        // GET DATE
+        var date = new Date(),
+            month = date.getMonth() + 1,
+            day = date.getDate(),
+            now = date.getFullYear() + (month < 10 ? '0' : '') + month + (day < 10 ? '0' : '') + day;
 
+        // CONTACT
         var formWrap = $('#lh-contact'),
             form = formWrap.find('#contact'),
             url = form.attr("action"),
@@ -128,9 +140,10 @@
             var _ = $(this),
                 arr = [],
                 cnt = 0;
+
             _.blur();
-            
-            //Validation
+
+            // VALIDATION
             $('#lh-contact').find('[required]').each(function(i){
                 var _ = $(this),
                     gr = $('.lh-form-group'),
@@ -143,9 +156,11 @@
                     var pos = cnt - 1;
                     arr[pos] = _.attr('name');
                     tg.addClass(er);
-                    el.keyup(function(){  
+                    el.keyup(function(){
                         if(_.val().length > 0){
                             tg.removeClass(er);
+                        }else if(_.val().length < 1){
+                            tg.addClass(er);
                         }
                     });
                 }else {
@@ -153,9 +168,12 @@
                 }
             });
             
-            if(cnt  < 1) {
-                var formData = new FormData(form[0]);
+            if(cnt < 1) {
+                $('input[name=sendtime]').val(date);
+                msg('sending', 'Sending', formWrap, 'loading');
                 formWrap.addClass('progress');
+                formWrap.find('button').addClass('progress');
+                var formData = new FormData(form[0]);
                 $.ajax({
                     url : url,
                     type: method,
@@ -164,14 +182,18 @@
                     contentType: false,
                     processData:false,
                 }).done(function(response){ 
-                    console.log('done');
                     form[0].reset();
+                    $('.lh-msg').fadeOut(300, function(){
+                        $(this).remove();
+                    });
+                    msg('thx', 'Thanks for contacting me!<br/> I will get back to you soon!', formWrap, 'text');
                     formWrap.removeClass('progress');
+                    formWrap.find('button').removeClass('progress');
                 });
             }else{
                 $('[id='+arr[0]+']').focus();
             }
-        });       
+        });
     </script>
 
 </body>

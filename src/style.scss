@@ -63,6 +63,7 @@ body {
         border:1px solid #000000;
         color:#ffffff;
         padding:10px;
+        resize: none;
         @include ani;
         @include box-sizing;
         &:focus {
@@ -116,14 +117,23 @@ body {
 
     .progress {
         pointer-events: none;
-        opacity:0.5;
-        @include ani;
+        .lh-form, button {
+            opacity:0.5;
+            @include ani;
+        }
+    }
+
+    .hidden {
+        display:none !important;
     }
 }
 
 /* Contact Form */
-#lh-contact {    
+#lh-contact {
+    position: relative;
     .lh-form {
+        position: relative;
+        z-index: 50;
         .lh-form-group {
             display: block;
             margin-bottom:10px;
@@ -133,4 +143,16 @@ body {
             margin-bottom:5px;
         }
     }
+}
+
+/* Message popup */
+.lh-msg {
+    position:absolute;
+    z-index: 99;
+    top:50%;
+    left:50%;
+    width:auto;
+    height:auto;
+    transform: translateX(-50%) translateY(-50%);
+    text-align: center;
 }
