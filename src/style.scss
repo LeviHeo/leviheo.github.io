@@ -1,6 +1,11 @@
 @import './sasstarget/lib/all';
 @import './sasstarget/settings/all';
 
+$color_base:#000000;
+$color_highlight:#424242;
+$color_shadow:#202020;
+$color_focus:#e9dc2a;
+
 body {
     position: relative;
     * {
@@ -30,28 +35,95 @@ body {
         background: rgba(255, 255, 255, 0.99);
         color:#000000;
     }
+
+    h2 {
+        font-weight: normal;
+        margin-bottom:5px;
+        border-top:2px solid lighten( $color_base, 30% );
+        border-bottom:2px solid darken( $color_base, 30% );
+        background:rgba(0,0,0,0.2);
+        padding:14px 0px;
+        margin-bottom: 20px;
+        text-shadow: 1px 1px 0px rgba(0, 0, 0, 1);
+    }
 }
 
 .lh-wrap {
     position: relative;
     z-index: 10;
     padding:20px;
+
+    input, textarea, button {
+        display:block;
+        width: 100%;
+    }
+    
+    input, textarea {
+        background:rgba(0,0,0,0.5);
+        border:1px solid #000000;
+        color:#ffffff;
+        padding:10px;
+        @include ani;
+        @include box-sizing;
+        &:focus {
+            background:rgba(0,0,0,0.9);
+        }
+    }
+    
+    button, a {
+        position: relative;
+        color: #ffffff;
+        padding:10px;
+        background:rgba(0,0,0,0.5);
+        border:2px solid #000000;
+        @include box-sizing;
+        &:after {
+            content:"";
+            position: absolute;
+            top:0;
+            left:0;
+            width: 100%;
+            height: 100%;
+            border-top:2px solid lighten( $color_base, 30% );
+            border-right:2px solid darken( $color_base, 30% );
+            border-bottom:2px solid darken( $color_base, 30% );
+            border-left:2px solid lighten( $color_base, 30% );
+            @include box-sizing;
+        }
+        &:focus {
+            color:#000000;
+            background:#ffffff;
+        }
+        &:hover {
+            color:#000000;
+            border-top:2px solid lighten( $color_focus, 30% );
+            border-right:2px solid darken( $color_focus, 30% );
+            border-bottom:2px solid darken( $color_focus, 30% );
+            border-left:2px solid lighten( $color_focus, 30% );
+            background:$color_focus;
+        }
+    }
+
+    .error {
+        label {
+            color:$color_focus;
+        }
+        input, textarea {
+            border:1px solid $color_focus;
+            @include ani;
+        }
+    }
+
+    .progress {
+        pointer-events: none;
+        opacity:0.5;
+        @include ani;
+    }
 }
 
-$color_highlight:#424242;
-$color_shadow:#000000;
-
 /* Contact Form */
-#lh-contact {
+#lh-contact {    
     .lh-form {
-        .lh-form_tit {
-            margin-bottom:5px;
-            border-top:2px solid $color_highlight;
-            border-bottom:2px solid #000000;
-            background:rgba(0,0,0,0.2);
-            padding:10px 0px;
-            margin-bottom: 20px;
-        }
         .lh-form-group {
             display: block;
             margin-bottom:10px;
@@ -60,31 +132,5 @@ $color_shadow:#000000;
             display: block;
             margin-bottom:5px;
         }
-    }
-    .lh-msg-thx {
-        display: none;
-    }
-    input, textarea, button {
-        display:block;
-        width: 100%;
-        padding:5px;
-    }
-
-    input, textarea {
-        background:rgba(0,0,0,0.5);
-        border:1px solid #000000;
-        color:#ffffff;
-    }
-}
-
-button, a {
-    color: #ffffff;
-    background:rgba(0,0,0,0.5);
-    border-top:2px solid $color_highlight;
-    border-right:2px solid $color_shadow;
-    border-bottom:2px solid $color_highlight;
-    border-left:2px solid $color_shadow;
-    &:hover {
-        
     }
 }
