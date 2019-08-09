@@ -1,5 +1,5 @@
-@import './sasstarget/lib/all';
-@import './sasstarget/settings/all';
+@import '../sasstarget/lib/all';
+@import '../sasstarget/settings/all';
 
 $color_base:#000000;
 $color_highlight:#424242;
@@ -25,7 +25,7 @@ body {
         -webkit-box-shadow: inset 0px 0px 72px 0px rgba(0,0,0,0.95);
         -moz-box-shadow: inset 0px 0px 72px 0px rgba(0,0,0,0.95);
         box-shadow: inset 0px 0px 72px 0px rgba(0,0,0,0.95);
-        background: url('./line.png') repeat;
+        background: url('../images/line.png') repeat;
     }
     ::selection {
         background: rgba(255, 255, 255, 0.99);
@@ -53,6 +53,10 @@ body {
     z-index: 10;
     padding:20px;
 
+    section {
+        margin:10px auto 50px;
+    }
+
     input, textarea, button {
         display:block;
         width: 100%;
@@ -64,6 +68,8 @@ body {
         color:#ffffff;
         padding:10px;
         resize: none;
+        -webkit-border-radius:0; 
+        border-radius:0;
         @include ani;
         @include box-sizing;
         &:focus {
@@ -77,6 +83,8 @@ body {
         padding:10px;
         background:rgba(0,0,0,0.5);
         border:2px solid #000000;
+        -webkit-border-radius:0; 
+        border-radius:0;
         @include box-sizing;
         &:after {
             content:"";
@@ -153,6 +161,85 @@ body {
     left:0%;
     width:100%;
     height:auto;
-    transform: translateX(-50%) translateY(-50%);
+    transform: translateY(-50%);
     text-align: center;
+}
+
+/* Project thumb */ 
+.lh-img-thumb {
+    position: relative;
+    display:inline-block;
+    z-index: 1;
+    width:250px;
+    height:100px;
+    [data-block] {
+        position:absolute;
+        display:block;
+        @include ani;
+    }
+
+    @for $i from 1 through 100 {
+        [data-block]:nth-child(#{$i}) {
+            transition-delay: 0.01s * $i;
+        }
+    }
+
+    &:hover, &:focus {
+        cursor: pointer;
+        [data-block] {
+            opacity: 0.1;
+            @include ani;
+        }
+        @for $i from 1 through 100 {
+            [data-block]:nth-child(#{$i}) {
+                transition-delay: 0.01s * $i;
+            }
+        }
+        .thumb_tit {
+            opacity: 1;
+            width: 100%;
+            height:100%;
+            top:0px;
+            left:0px;
+            @include ani;
+            transition-delay: 0.2s
+        }
+    }
+
+    .thumb_img {
+        position: relative;
+        z-index: 0;
+    }
+
+    .thumb_tit {
+        position: absolute;
+        z-index: 1;
+        top:2px;
+        left:2px;
+        width:calc(100% - 4px);
+        height:calc(100% - 4px);
+        border-top:1px solid lighten( $color_focus, 30% );
+        border-right:1px solid darken( $color_focus, 30% );
+        border-bottom:1px solid darken( $color_focus, 30% );
+        border-left:1px solid lighten( $color_focus, 30% );
+        background: rgba($color_focus, 0.03);
+        border-radius:3px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        opacity: 0;
+        @include ani;
+        > div {
+            width:100%;
+            color:$color_focus;
+            text-shadow: 1px 1px 0px rgba(0, 0, 0, 1);
+            text-transform: capitalize;
+        }
+    }
+    .thumb_subtit {
+        display:block;
+        margin:10px auto 0px;
+        font-size:9px;
+        
+    }
 }
