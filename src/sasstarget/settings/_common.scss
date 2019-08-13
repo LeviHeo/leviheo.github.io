@@ -17,26 +17,3 @@ $dpi:1800 1600 1440 1400 1339 1366 1200 1024 1023 960 892 768 767 580 480 375 37
 		.view#{$item} { display: block !important; }
 	}
 }
-
-html {
-	background-color:$mainbgColor;
-	color: $maintxtColor;
-}
-
-html, body {
-	font:16px/1 $font-dos;
-}
-
-a {
-	cursor: pointer;
-	text-decoration: none;
-	&:hover, &:focus {
-		cursor: pointer;
-		text-decoration: none;
-	}
-}
-
-img {
-	display:block;
-	@include center(auto, 100%);
-}
