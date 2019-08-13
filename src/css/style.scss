@@ -88,9 +88,9 @@ body {
     }
 
     article {
-        width:500px;
-        margin:0 auto;
         max-width:95%;
+        margin:0 auto;
+        width:500px;
     }
 
     input, textarea, button {
@@ -338,10 +338,11 @@ $varw-half:$varw/2;
     position: relative;
     width:410px;
     height:100px;
-    margin:0 auto;
+    margin:0 auto 40px;
     @include box-sizing;
-    @include transform(scale(0.48));
-
+    @include transform(scale(1));
+    zoom: 0.393; 
+    transform-origin: center center;
     &.outline {
         > div {
             background:none;
