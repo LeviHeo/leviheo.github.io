@@ -72,6 +72,22 @@ body {
         text-shadow: 1px 1px 0px rgba($color_base, 1);
         border-radius: $radius;
     }
+
+    .lh-ico {
+        font-family: $font-ico;
+        font-style: normal;
+        font-weight: normal;
+        display: inline-block;
+        text-decoration: inherit;
+        margin-right: .2em;
+        text-align: center;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1em;        
+        margin-left: .2em;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
 }
 
 .lh-wrap {
@@ -112,8 +128,12 @@ body {
             background:rgba(darken( $color_base, 7% ),0.9);
         }
     }
-    
+
     button, a {
+        color: #ffffff;
+    }
+    
+    .lh-btn-encased {
         position: relative;
         color: #ffffff;
         padding:10px;
@@ -573,4 +593,32 @@ $varw-half:$varw/2;
     text-align: center;
     font-size: 12px;
     letter-spacing:1px;
+}
+
+/*
+     NOTE: Footer link
+*/
+
+.lh-footer-link{
+    text-align: center;
+    a {
+        border:none;
+        padding:0px;
+        margin:0px;
+        &:after {
+            display: none;
+        }
+        @include ani;
+
+        &:focus, &:hover {
+            color:$color_focus;
+            margin:0;
+            padding:0px;
+            border:none;
+            &:after {
+                display: none;
+            }
+            @include ani;
+        }
+    }
 }
