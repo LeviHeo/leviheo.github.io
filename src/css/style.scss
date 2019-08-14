@@ -73,6 +73,12 @@ body {
         border-radius: $radius;
     }
 
+    p {
+        line-height: 1.4;
+        font-weight: normal;
+        margin-bottom:5px;
+    }
+
     .lh-ico {
         font-family: $font-ico;
         font-style: normal;
@@ -356,11 +362,13 @@ $varw-half:$varw/2;
 
 .lh-logo {
     position: relative;
+    left:50%;
     width:410px;
     height:100px;
-    margin:0 auto 40px;
+    margin-bottom:30px;
     @include box-sizing;
     @include transform(scale(1));
+    @include transform(translateX(-50%));
     zoom: 0.393; 
     transform-origin: center center;
     &.outline {
@@ -390,7 +398,9 @@ $varw-half:$varw/2;
 
     > div {
         display: block;
-        background-color:#ffff;
+        //background-color:#ffffff;
+        border-top:1px solid rgba(255,255,255,0);
+        border-bottom:1px solid rgba(255,255,255,0);
         position:absolute;
         @include ani;
         @include box-sizing;
@@ -402,7 +412,7 @@ $varw-half:$varw/2;
                     position: absolute;
                     width:2px;
                     height:160%;
-                    top:-30%;
+                    top:-100%;
                     opacity: 0;
                     @include gradient-v;
                     @include ani;
@@ -530,7 +540,7 @@ $varw-half:$varw/2;
 
         &:nth-child(17){
             top:0px;
-            left:$varw *12.6;
+            left:$varw *12.55;
             @include line-w;
             @include logo-r;
         }
@@ -546,11 +556,11 @@ $varw-half:$varw/2;
     > div {
         @for $i from 1 through 100 {
             &:nth-child(#{$i}) {
-                transition-delay: 0.02s * $i;
+                transition-delay: 0.03s * $i;
                 &:not(.line-r){
                     > div {
                         &:before, &:after {
-                            transition-delay: 0.02s * $i;
+                            transition-delay: 0.1s * $i;
                         }
                     }
                 }
@@ -558,9 +568,9 @@ $varw-half:$varw/2;
         }
     }
 
-    &:hover {
+    &.ani-line {
        > div {
-            background-color:rgba($color_focus, 0);
+            background-color:rgba($color_focus, 0.1);
             border-top:1px solid $color_focus;
             border-bottom:1px solid $color_focus;
             @include ani;
@@ -575,11 +585,78 @@ $varw-half:$varw/2;
 
             @for $i from 1 through 100 {
                 &:nth-child(#{$i}) {
-                    transition-delay: 0.02s * $i;
+                    transition-delay: 0.06s * $i;
                     &:not(.line-r){
                         > div {
                             &:before, &:after {
-                                transition-delay: 0.02s * $i;
+                                top:-30%;
+                                transition-delay: 0.05s * $i;
+                            }
+                        }
+                    }
+                }
+            }
+       }
+    }
+
+    &.ani-color {
+        > div {
+            background-color:rgba(#ffffff, 1);
+            border-top:1px solid rgba(255,255,255,0);
+            border-bottom:1px solid rgba(255,255,255,0);
+            @include ani;
+            &:not(.line-r){
+                > div {
+                    &:before, &:after {
+                        opacity: 1;
+                        @include ani;
+                    }
+                }
+            }
+
+            @for $i from 1 through 100 {
+                &:nth-child(#{$i}) {
+                    transition-delay: 0.06s * $i;
+                    &:not(.line-r){
+                        > div {
+                            &:before, &:after {
+                                top:80%;
+                                opacity:0;
+                                transition-delay: 0.05s * $i;
+                            }
+                        }
+                    }
+                }
+            }
+       }
+       &:hover {
+            > div {
+                background-color:rgba($color_base, 1);
+                border-top:1px solid $color_focus;
+                border-bottom:1px solid $color_focus;
+                -webkit-box-shadow: inset 0px 0px 10px 0px rgba(68,233,129,1);
+                -moz-box-shadow: inset 0px 0px 10px 0px rgba(68,233,129,1);
+                box-shadow: inset 0px 0px 10px 0px rgba(68,233,129,1);
+                @include ani;
+                &:not(.line-r){
+                    > div {
+                        &:before, &:after {
+                            opacity: 1;
+                            @include ani;
+                        }
+                    }
+                }
+
+                @for $i from 1 through 100 {
+                    &:nth-child(#{$i}) {
+                        transition-delay: 0.06s * $i;
+                        &:not(.line-r){
+                            > div {
+                                &:before, &:after {
+                                    top:-30%;
+                                    opacity:1;
+                                    transition-delay: 0.05s * $i;
+                                }
                             }
                         }
                     }

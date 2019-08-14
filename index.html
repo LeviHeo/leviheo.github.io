@@ -110,7 +110,19 @@
                     <div class="line-r"><div></div></div>
                     <div class="line-r"><div></div></div>
                 </div>
-                <div class="lh-logo-desc">LEVI HEO | WEB DEVELOPER</div>
+                <!-- <div class="lh-logo-desc">LEVI HEO | WEB DEVELOPER</div> -->
+            </article>
+        </section>
+
+        <section>
+            <article>
+                <p> Hi, I'm Levi<i>!</i></p>
+                <p>
+                    I'm a front-end web developer.<br/>
+                    For the past 11 years, I've been web developing and digital design for APAC Countries.<br/>
+                    I'm able to provide a full range of FDFM(From Design to Front-end and Digital Marketing Assets) services for my client & company.
+                    My goal is to provide better design and perfect performance optimized for online and mobile service.
+                </p>
             </article>
         </section>
 
@@ -162,6 +174,14 @@
 
     <script src='//code.jquery.com/jquery-3.3.1.min.js'></script>
     <script>
+        // logo
+        setInterval(function(){ 
+            $('.lh-logo').attr('class', 'lh-logo ani-line');
+            setTimeout(function(){
+                $('.lh-logo').attr('class', 'lh-logo ani-color') ;
+            }, 5000)
+        }, 1000);
+
         // Thumbnail 
         function aniThumb(){
             $('.lh-img-thumb').each(function(){
