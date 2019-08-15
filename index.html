@@ -127,12 +127,15 @@
         </section>
 
         <!-- <section>
-            <h2 class="lh-tit">Thumb</h2>
-            <div id="lh-project">
-                <div class="lh-img-thumb has-detail" data-thumb-img="./src/project/brand/name_date/thumb.jpg" data-thumb-tit="Brand or Project Name"></div>
-            </div>
-        </section>
-        -->
+            <article>
+                <h2 class="lh-tit">COMPLETED PROJECT WORK</h2>
+                <div id="lh-project">
+                    <div class="lh-img-thumb has-detail" data-id="newproject" data-thumb-img="./src/project/brand/name_date/thumb.jpg" data-thumb-tit="Samsung Mobile Offer"></div>
+                    <div class="lh-img-thumb has-detail" data-id="newproject" data-thumb-img="./src/project/brand/name_date/thumb.jpg" data-thumb-tit="Brand or Project Name"></div>
+                </div>
+            </article>
+        </section> -->
+       
 
         <section>
             <article>
@@ -172,16 +175,35 @@
         </section>
     </div>
 
+    <div class="lh-popup" data-id="newproject">
+       <div class="lh-popup_inner">
+            <div class="lh-pj-header" style="background:url('./src/project/brand/name_date/header.jpg') center top no-repeat;background-size:100% auto; "></div>
+        
+            test
+       </div>
+    </div>
+    <div class="lh-dimmed"></div>
+
     <script src='//code.jquery.com/jquery-3.3.1.min.js'></script>
     <script>
-        // logo
-        setTimeout(function(){ 
-            $('.lh-logo').attr('class', 'lh-logo ani-line');
-        }, 500);
+        // logo Animation
+        function logAni(){
+            setTimeout(function(){ 
+                $('.lh-logo').attr('class', 'lh-logo ani-line');
+            }, 500);
 
-        setTimeout(function(){
-            $('.lh-logo').attr('class', 'lh-logo ani-color');
-        }, 3000);
+            setTimeout(function(){
+                $('.lh-logo').attr('class', 'lh-logo ani-color');
+            }, 2500);
+
+            setTimeout(function(){
+                $('.lh-logo').attr('class', 'lh-logo');
+            }, 10000);
+        }
+        logAni();
+        setInterval(function(){
+            logAni();
+        }, 10100);
 
         // Thumbnail 
         function aniThumb(){
@@ -230,8 +252,49 @@
 
         // Thumb Detail 
         $('.has-detail').on('click', function(){
-            
+            var _ = $(this),
+                id = _.data('id');
+                popupOpen(id);
         });
+
+        // Popup detail
+        function popupOpen(c){
+            var target = $('.lh-popup[data-id="'+ c +'"]'),
+                mask = $('.lh-dimmed');
+            target.fadeIn(300);
+            setTimeout(function(){
+                target.addClass('active');
+            },200);
+            mask.fadeIn(500);
+        }
+
+        function popupCenter(k){
+            $(k).css({
+                "position" : "fixed",
+                "marginTop": "-" + $(k).outerHeight() / 2 + "px",
+                "marginLeft": "-" + $(k).outerWidth() / 2 + "px",
+            });
+        }
+
+        function popupClose(){
+            var target = $('.lh-popup'),
+                mask = $('.lh-dimmed');
+            target.removeClass('active');
+            setTimeout(function(){
+                target.fadeOut(300);
+            },200);
+            mask.fadeOut(500);
+        }
+
+        $('.lh-dimmed').on('click', function(){
+            popupClose();
+        });
+
+        document.onkeydown=function(e){
+            if(window.event.keyCode == 27) {
+                popupClose();
+            }
+        }
         
         // Message Temp
         function msg(id,txt, target, type) {
