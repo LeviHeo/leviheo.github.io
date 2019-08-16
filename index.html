@@ -136,7 +136,6 @@
             </article>
         </section> -->
        
-
         <section>
             <article>
                 <h2 class="lh-tit">CONTACT ME</h2>
@@ -177,9 +176,20 @@
 
     <div class="lh-popup" data-id="newproject">
        <div class="lh-popup_inner">
-            <div class="lh-pj-header" style="background:url('./src/project/brand/name_date/header.jpg') center top no-repeat;background-size:100% auto; "></div>
-        
-            test
+            <div class="lh-pj-header" data-desk-img="./src/project/brand/name_date/header.jpg" data-mobile-img="./src/project/brand/name_date/header_m.jpg"></div>
+            <div class="lh-pj-content">
+                <div class="pj-content_wrap">
+                    
+                    <div class="content_inner">
+                        www<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                    </div>
+
+                </div>
+            </div>
+            <div class="lh-pj-footer">
+                
+            </div>
+            
        </div>
     </div>
     <div class="lh-dimmed"></div>
@@ -295,6 +305,27 @@
                 popupClose();
             }
         }
+
+        function popupHeaderImg(){
+            $('.lh-pj-header').each(function(){
+                var _ = $(this),
+                    imgDesktop = _.data('desk-img'),
+                    imgMobile = _.data('mobile-img'),
+                    windowW = $(window).width();
+                if(windowW > 767) {
+                    _.css('background-image', 'url("'+imgDesktop+'")');
+                }else{
+                    _.css('background-image', 'url("'+imgMobile+'")');
+                }
+            });
+        }
+
+        popupHeaderImg();
+        $(window).resize(function(){
+            popupHeaderImg();
+        });
+
+        
         
         // Message Temp
         function msg(id,txt, target, type) {
