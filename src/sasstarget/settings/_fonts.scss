@@ -18,7 +18,10 @@
   font-style: normal;
 }
 
+@import url('https://fonts.googleapis.com/css?family=Cairo&display=swap');
+
 $font-dos:'NeoDunggeunmo', 'Consolas', Arial, sans-serif !important;
+$font-tech:'Cairo', 'Consolas', Arial, sans-serif !important;
 $font-ico:'fontello';
 
 [class^="icon-"]:before, [class*=" icon-"]:before {

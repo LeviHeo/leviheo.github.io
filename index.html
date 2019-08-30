@@ -76,17 +76,9 @@
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NQWNPRD"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
-    
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
 
-    <!-- TODO: Add SDKs for Firebase products that you want to use
-        https://firebase.google.com/docs/web/setup#config-web-app -->
-
-    
     <link rel="stylesheet" href="./src/css/style.css">
     <div class="lh-wrap">
-        
         <section>
             <article>
                 <div class="lh-logo">
@@ -120,7 +112,7 @@
                 <p>
                     I'm a front-end web developer.<br/>
                     For the past 11 years, I've been web developing and digital design for APAC Countries.<br/>
-                    I'm able to provide a full range of FDFM(From Design to Front-end and Digital Marketing Assets) services for my client & company.
+                    I'm able to provide a full range of From Design to Front-end and Digital Marketing Assets services for my client & company.
                     My goal is to provide better design and perfect performance optimized for online and mobile service.
                 </p>
             </article>
@@ -128,11 +120,8 @@
 
         <!-- <section>
             <article>
-                <h2 class="lh-tit">COMPLETED PROJECT WORK</h2>
-                <div id="lh-project">
-                    <div class="lh-img-thumb has-detail" data-id="newproject" data-thumb-img="./src/project/brand/name_date/thumb.jpg" data-thumb-tit="Samsung Mobile Offer"></div>
-                    <div class="lh-img-thumb has-detail" data-id="newproject" data-thumb-img="./src/project/brand/name_date/thumb.jpg" data-thumb-tit="Brand or Project Name"></div>
-                </div>
+                <h2 class="lh-tit">LATEST WORK</h2>
+                <div id="lh-project"></div>
             </article>
         </section> -->
        
@@ -174,260 +163,11 @@
         </section>
     </div>
 
-    <!-- <div class="lh-popup" data-id="newproject">
-       <div class="lh-popup_inner">
-            <div class="lh-pj-header" data-desk-img="./src/project/brand/name_date/header.jpg" data-mobile-img="./src/project/brand/name_date/header_m.jpg"></div>
-            <div class="lh-pj-content">
-                <div class="pj-content_wrap">
-                    
-                    <div class="content_inner">
-                        www<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
-                    </div>
-
-                </div>
-            </div>
-            <div class="lh-pj-footer">
-                
-            </div>
-            
-       </div>
-    </div>
-    <div class="lh-dimmed"></div> -->
+    <div id="lh-pj-navi"></div>
+    <div class="lh-dimmed"></div>
 
     <script src='//code.jquery.com/jquery-3.3.1.min.js'></script>
-    <script>
-        // logo Animation
-        function logAni(){
-            setTimeout(function(){ 
-                $('.lh-logo').attr('class', 'lh-logo ani-line');
-            }, 500);
-
-            setTimeout(function(){
-                $('.lh-logo').attr('class', 'lh-logo ani-color');
-            }, 2500);
-
-            setTimeout(function(){
-                $('.lh-logo').attr('class', 'lh-logo');
-            }, 10000);
-        }
-        logAni();
-        setInterval(function(){
-            logAni();
-        }, 10100);
-
-        // Thumbnail 
-        function aniThumb(){
-            $('.lh-img-thumb').each(function(){
-                var _ = $(this),
-                    blockR = 5, 
-                    blockH = _.outerHeight() / blockR,
-                    blockW = _.outerWidth() / blockR,
-                    block = "",
-                    title = "",
-                    max = blockR*blockR,
-                    txt = _.data('thumb-tit'),
-                    bg = _.data('thumb-img');
-
-                block += '<div class="thumb_img">';
-                for (var i = 0; i < max; i++) {
-                    block += '<div data-block="'+(i+1)+'" style="';
-                    block += 'background-image: url('+bg+');background-size:'+(blockR*100)+'% '+(blockR*100)+'%;';
-                    block += 'width:'+blockW+'px;height:'+blockH+'px;"></div>';
-                }
-                block += '</div>';
-                _.append(block);
-
-                title += '<div class="thumb_tit"><div>';
-                title += txt + '<div class="thumb_subtit">D&nbsp;&nbsp;E&nbsp;&nbsp;T&nbsp;&nbsp;A&nbsp;&nbsp;I&nbsp;&nbsp;L&nbsp;&nbsp;</div>';
-                title += '</div></div>';
-                _.append(title);
-
-                for (var c = 0; c < blockR+1; c++) {
-                    for (var i = 0; i < blockR; i++) {
-                        var dis = (i*blockR) + c;
-                        var leftDis = blockW*(c-1);
-                        var topDis = blockH*i;
-                        _.find('[data-block]:nth-child('+dis+')').css(
-                            {
-                                'top': topDis,
-                                'left': leftDis,
-                                'background-position': '-'+leftDis+'px -'+topDis+'px',
-                            }
-                        );
-                    }
-                }
-            });
-        }
-        aniThumb();
-
-        // Thumb Detail 
-        $('.has-detail').on('click', function(){
-            var _ = $(this),
-                id = _.data('id');
-                popupOpen(id);
-        });
-
-        // Popup detail
-        function popupOpen(c){
-            var target = $('.lh-popup[data-id="'+ c +'"]'),
-                mask = $('.lh-dimmed');
-            target.fadeIn(300);
-            setTimeout(function(){
-                target.addClass('active');
-            },200);
-            mask.fadeIn(500);
-        }
-
-        function popupCenter(k){
-            $(k).css({
-                "position" : "fixed",
-                "marginTop": "-" + $(k).outerHeight() / 2 + "px",
-                "marginLeft": "-" + $(k).outerWidth() / 2 + "px",
-            });
-        }
-
-        function popupClose(){
-            var target = $('.lh-popup'),
-                mask = $('.lh-dimmed');
-            target.removeClass('active');
-            setTimeout(function(){
-                target.fadeOut(300);
-            },200);
-            mask.fadeOut(500);
-        }
-
-        $('.lh-dimmed').on('click', function(){
-            popupClose();
-        });
-
-        document.onkeydown=function(e){
-            if(window.event.keyCode == 27) {
-                popupClose();
-            }
-        }
-
-        function popupHeaderImg(){
-            $('.lh-pj-header').each(function(){
-                var _ = $(this),
-                    imgDesktop = _.data('desk-img'),
-                    imgMobile = _.data('mobile-img'),
-                    windowW = $(window).width();
-                if(windowW > 767) {
-                    _.css('background-image', 'url("'+imgDesktop+'")');
-                }else{
-                    _.css('background-image', 'url("'+imgMobile+'")');
-                }
-            });
-        }
-
-        popupHeaderImg();
-        $(window).resize(function(){
-            popupHeaderImg();
-        });
-
-        
-        
-        // Message Temp
-        function msg(id,txt, target, type) {
-            var i = 0;
-            var boxid = id,
-                boxTemp = '<div id="'+boxid+'" class="lh-msg"></div>';
-            target.append(boxTemp);
-
-            if(type == 'loading') {
-                setInterval(function () { 
-                    i++;
-                    var box = $('#'+boxid);
-                    var loading = ['/', '-','·', '\\', '|'];
-                    box.html(txt + '···' + loading[i]);
-                    if(i == loading.length)
-                    {
-                        box.html(txt + '···' + loading[0]);
-                        i = 0;
-                    }
-                }, 200);
-            }else{
-                var box = $('#'+boxid);
-                box.html(txt);
-                setTimeout(function(){
-                    box.fadeOut(300, function(){
-                        $(this).remove();
-                    });
-                }, 2000);
-            }
-        }
-
-        // GET DATE
-        var date = new Date(),
-            month = date.getMonth() + 1,
-            day = date.getDate(),
-            now = date.getFullYear() + (month < 10 ? '0' : '') + month + (day < 10 ? '0' : '') + day;
-
-        // CONTACT
-        var formWrap = $('#lh-contact'),
-            form = formWrap.find('#contact'),
-            url = form.attr("action"),
-            method = form.attr("method");
-
-        $('#lh-contact button').on('click', function(){
-            var _ = $(this),
-                arr = [],
-                cnt = 0;
-
-            _.blur();
-
-            // VALIDATION
-            $('#lh-contact').find('[required]').each(function(i){
-                var _ = $(this),
-                    gr = $('.lh-form-group'),
-                    el = $('[id='+_.attr('id')+']'),
-                    tg = el.closest(gr),
-                    er = 'error';
-
-                if(_.val().length < 1) {
-                    cnt++;
-                    var pos = cnt - 1;
-                    arr[pos] = _.attr('name');
-                    tg.addClass(er);
-                    el.keyup(function(){
-                        if(_.val().length > 0){
-                            tg.removeClass(er);
-                        }else if(_.val().length < 1){
-                            tg.addClass(er);
-                        }
-                    });
-                }else {
-                    tg.removeClass(er);
-                }
-            });
-            
-            if(cnt < 1) {
-                $('input[name=sendtime]').val(date);
-                msg('sending', 'Sending', formWrap, 'loading');
-                formWrap.addClass('progress');
-                formWrap.find('button').addClass('progress');
-                var formData = new FormData(form[0]);
-                $.ajax({
-                    url : url,
-                    type: method,
-                    data : formData,
-                    cache: false,
-                    contentType: false,
-                    processData:false,
-                }).done(function(response){ 
-                    form[0].reset();
-                    $('.lh-msg').fadeOut(300, function(){
-                        $(this).remove();
-                    });
-                    msg('thx', 'Thanks for contacting me!<br/> I will get back to you soon!', formWrap, 'text');
-                    formWrap.removeClass('progress');
-                    formWrap.find('button').removeClass('progress');
-                });
-            }else{
-                $('[id='+arr[0]+']').focus();
-            }
-        });
-    </script>
-
+    <script src='src/js/app.js'></script>
+    
 </body>
 </html>

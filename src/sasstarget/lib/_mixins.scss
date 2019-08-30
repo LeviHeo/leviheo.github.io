@@ -3,10 +3,10 @@
 }
 
 @mixin ani($speed:0.3s) {
-	-moz-transition: all $speed ease;
-	-o-transition: all $speed ease;
-	-webkit-transition: all $speed ease;
-	transition: all $speed ease;
+	-moz-transition: all $speed ease-in-out;
+	-o-transition: all $speed ease-in-out;
+	-webkit-transition: all $speed ease-in-out;
+	transition: all $speed ease-in-out;
 }
 
 @mixin clfix {
