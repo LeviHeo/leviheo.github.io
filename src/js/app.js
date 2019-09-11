@@ -52,15 +52,26 @@ function detailPopup(id) {
             '<div class=\"lh-popup\" data-idx=\"'+this.idx+'\" data-cla-id=\"'+this.client+'\" data-pj-id=\"'+this.projectId+'\">'+
             '    <div class=\"lh-popup_inner\">'+
             '            <div class=\"lh-pj-close\"><div class=\"lh-pj-close-inner\"><div></div><div></div></div></div>'+
-            '            <div class=\"lh-pj-header\" data-desk-img=\"./src/project/'+this.client+'/'+this.projectId+'/header.jpg\" data-mobile-img=\"./src/project/'+this.client+'/'+this.projectId+'/header_m.jpg\"></div>'+
+            '            <div class=\"lh-pj-header\" data-aos="fade-in" data-aos-delay="500" data-aos-duration="3000" data-desk-img=\"./src/project/'+this.client+'/'+this.projectId+'/header.jpg\" data-mobile-img=\"./src/project/'+this.client+'/'+this.projectId+'/header_m.jpg\"></div>'+
             '            <div class=\"lh-pj-content\">'+
             '                <div class=\"pj-content_wrap\">'+
-            '                    <div class=\"content_inner\">'+
-            '                        <h3>' + this.projectTitle + '</h3>' +
-            '                        <div class=\"pj-content_type\">' + this.projectType + '</div>'+
-            '                        <br/>'+
+            '                    <div class=\"content_inner\">' +
+            '                       <div class=\"pj-content_tit\">'+
+            '                           <h3 data-aos="fade-up" data-aos-delay="1000" data-aos-duration="1000">' + this.projectTitle + '</h3>' +
+            '                           <div class=\"pj-content_type\" data-aos="fade-up" data-aos-delay="1200" data-aos-duration="1000">' + this.projectDate + ' | ' + this.projectType + '</div>' +
+            '                       </div>' +
+            '                       <div id="content-anchor" class=\"pj-content_arti\" data-aos="fade-up" data-aos-delay="1500" data-aos-duration="1000">'+
                                         this.projectDetail+
-            '                        <br/>'+
+            '                       </div>';
+                                    if (this.projectSkill != 0) {
+                                        tempPopup += '<div class="pj-content_skill" data-aos="fade-up" data-aos-delay="2000" data-aos-anchor="#content-anchor" data-aos-duration="1000">';
+                                            $.each(this.projectSkill, function (i, skills) {
+                                                tempPopup +=
+                                                '<div class="item_skills ico_'+skills+'" title="'+skills+'"><span class="sound-only">'+skills+'</span></div>';
+                                            });
+                                        tempPopup += '</div>';
+                                    }
+                                tempPopup +=
             '                    </div>'+
             '                </div>'+
             '            </div>'+
@@ -74,11 +85,12 @@ function detailPopup(id) {
                                     tempPopup+= '<a href="javascript:;" class=\"lh-btn-encased-sm btn-go-item\" data-way="next" data-idx="'+(this.idx+1)+'" ><span class=\"br767\">NEXT</span><i class=\"icon-right-open view767\"></i></a>';
                                 }
                                 tempPopup+=
-            '                    </div>';
+            '                    &nbsp;</div>';
                                 tempPopup+=
             '                    <div class=\"foot-right\"><a href=\"'+this.launchUrl+'\" class=\"lh-btn-encased-sm btn-ar-r\" target="_blank">Launch Project</a></div>'+
             '                </div>'+
             '            </div>'+
+            '            <div class=\"lh-pj-content-bg\"></div>'+
             '    </div>'+
             '</div>'
         }
@@ -206,6 +218,7 @@ function popup(c) {
     target.fadeIn(500);
     projectClose();
     btnNextPrev();
+    AOS.init();
 }
 
 function popupOpen(c, x){
@@ -285,10 +298,10 @@ function btnNextPrevPageNav() {
                 popup(target);
                 pageNavi(idx);
             }, 300); 
-            
         }
     });
-}btnNextPrevPageNav();
+}
+btnNextPrevPageNav();
 
 function pageNavi(idx) {
     var item = $('#lh-pj-navi');
@@ -346,29 +359,6 @@ function popupHeaderImg(){
     });
 }
 
-$(function(){
-    aniThumb();
-    $('.has-detail').on('click', function(){
-        var _ = $(this),
-            id = _.data('pj-id'),
-            idx = _.data('idx');
-        popupOpen(id, idx);
-    });
-    $('.lh-dimmed').on('click', function(){
-        popupClose();
-    });
-    document.onkeydown=function(e){
-        if(window.event.keyCode == 27) {
-            popupClose();
-        }
-    }
-    popupHeaderImg();
-    $(window).resize(function(){
-        aniThumb();
-        popupHeaderImg();
-    });
-});
-
 // Message Temp
 function msg(id,txt, target, type) {
     var i = 0;
@@ -398,3 +388,26 @@ function msg(id,txt, target, type) {
         }, 2000);
     }
 }
+
+$(function(){
+    aniThumb();
+    $('.has-detail').on('click', function(){
+        var _ = $(this),
+            id = _.data('pj-id'),
+            idx = _.data('idx');
+        popupOpen(id, idx);
+    });
+    $('.lh-dimmed').on('click', function(){
+        popupClose();
+    });
+    document.onkeydown=function(e){
+        if(window.event.keyCode == 27) {
+            popupClose();
+        }
+    }
+    popupHeaderImg();
+    $(window).resize(function(){
+        aniThumb();
+        popupHeaderImg();
+    });
+});
