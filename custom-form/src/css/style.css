@@ -179,7 +179,7 @@ html, body { font-family: "SamsungOne", "Microsoft JhengHei", "微软雅黑", ar
 
 .s-lp-content h2 { text-align: center; font-family: "SamsungSharpSans", "Microsoft JhengHei", "微软雅黑", arial !important; font-size: 32px; line-height: 1.2; }
 
-.s-lp-content .form-intro { max-width: 95%; margin: 50px auto; }
+.s-lp-content .form-intro { max-width: 95%; }
 
 .s-lp-content .form-remark { font-family: "SamsungOne", "Microsoft JhengHei", "微软雅黑", arial !important; font-size: 12px; color: #162d9a; text-align: right; margin: 10px 0px; }
 
