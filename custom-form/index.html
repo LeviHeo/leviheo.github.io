@@ -1,0 +1,166 @@
+<html lang="zh-HK" itemscope="" class="gr__182_198_143_111">
+<head>
+	<style id="stndz-style"></style>
+
+	<title>Pre Registration | SAMSUNG香港 | 三星電子 HK</title>
+	<meta name="title" content="Pre Registration | SAMSUNG香港 | 三星電子 HK">
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+	<meta http-equiv="content-Security-Policy" content="upgrade-insecure-requests">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+</head>
+
+<body>
+
+	<!-- CONTENT START -->
+	<div id="s-lp-wrap">
+		<!--1. Header Contents -->
+		<link rel="stylesheet" href="./src/css/style.min.css">
+		<!--// 1. Header Contents -->
+	
+		<!-- 2. Body Contents -->
+		<div class="s-lp-content">
+			<div class="form-intro">
+				<!-- <h2>
+					"Pre-register below to be one of the first to receive the latest updates and get notified when details on the new Galaxy Fold are available. DON'T MISS OUT!"
+				</h2> -->
+			</div>
+			<div id="clp-regiform">
+				<div class="form-remark">All fields marked (*) are mandatory</div>   
+				<form id="regiform" class="clp-form" action="https://formtest-ea6f7.firebaseio.com/posts.json" method="POST">
+					<fieldset class="form-group">
+						<input type="text" tabindex="1" id="first-name" name="first-name" autocomplete="off" placeholder="*First Name" data-error-msg="Please fill 1" required>
+						<div class="error-msg"></div>
+					</fieldset>
+					<fieldset class="form-group">
+						<input type="text" tabindex="2" id="last-name" name="last-name" autocomplete="off" placeholder="*Last Name" data-error-msg="Please fill 2" required>
+						<div class="error-msg"></div>
+					</fieldset>
+					<fieldset class="form-group">
+						<select tabindex="3" name="gender" id="gender" class="" data-error-msg="Please fill 3" required>
+							<option value="" selected="selected">*Gender</option>
+							<option value="Male">Male</option>
+							<option value="Female">Female</option>
+						</select>
+						<div class="error-msg"></div>
+					</fieldset>
+					<fieldset class="form-group">
+						<select name="age" id="age" tabindex="4" data-error-msg="Please fill 4" required>
+							<option value="" selected="selected" >*Age</option>
+							<option value="Below 18">Below 18</option>
+							<option value="18-24">18-24</option>
+							<option value="25-34">25-34</option>
+							<option value="35-44">35-44</option>
+							<option value="45-54">45-54</option>
+							<option value="55-64">55-64</option>
+							<option value="65 or above">65 or above</option>
+						</select>
+						<div class="error-msg"></div>
+					</fieldset>
+					<fieldset class="form-group hidden">
+						<input type="text" id="blockRobot" name="blockRobot" value="">
+					</fieldset>
+				</form>
+				<a href="javascript:;" class="submit">REGISTER</a>
+			</div>
+		</div>
+		<!-- // 2. Body Contents -->
+	
+		<!-- 3. Javascript -->
+		<script type="text/javascript" src='//unpkg.com/jquery@3.3.1/dist/jquery.min.js'></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/4.1.1/iframeResizer.contentWindow.js" defer></script>
+
+		<script>
+			// Form
+			var formWrap = $('#clp-regiform'),
+				form     = formWrap.find('#regiform'),
+				url      = form.attr("action"),
+				method   = form.attr("method");
+
+			$('#clp-regiform [class*="submit"]').on('click', function(){
+				var _   = $(this),
+					arr = [],
+					cnt = 0;
+
+				_.blur();
+
+				// Validation
+				$('#regiform').find('[required]').each(function(i){
+					var _  = $(this),
+						gr = $('.form-group'),
+						el = $('[id='+_.attr('id')+']'),
+						tg = el.closest(gr),
+						er = 'error';
+
+					if(_.val().length < 1) {
+						var pos;
+						cnt++;
+						pos = cnt - 1;
+						arr[pos] = _.attr('name');
+						var msg = _.data('error-msg');
+						tg.addClass(er).find('.error-msg').html(msg);
+						el.keyup(function(){
+							if(_.val().length > 0){
+								tg.removeClass(er).find('.error-msg').html('');
+							}else if(_.val().length < 1){
+								t.addClass(er);
+							}
+						});
+						$('select').on('change', function(){
+							var _ = $(this),
+								vl = _.find("option:selected").val(),
+								gr = _.closest('.form-group');
+							if(vl.length < 1) {
+								gr.addClass(er).find('.error-msg').html(msg);
+							}
+							if(vl.length > 0) {
+								gr.removeClass(er).find('.error-msg').html('');
+							}
+						});
+					}else {
+						tg.removeClass(er).find('.error-msg').html('');
+					}
+				});
+
+				function getFormData(form){
+					var originData = form.serializeArray();
+					var exportData = {};
+					$.map(originData, function(n, i){
+						exportData[n['name']] = n['value'];
+					});
+					return exportData;
+				}
+				
+				if(cnt < 1) {
+					var form = $("#regiform"),
+						data = getFormData(form);
+
+					$.ajax({
+						url : url,
+						type: method,
+						data: JSON.stringify(data),
+						cache: false,
+						contentType: false,
+						processData:false,
+					}).done(function(response){ 
+						form[0].reset();
+						console.log('Thanks for contacting me! I will get back to you soon!');
+						if ('parentIFrame' in window) window.parentIFrame.sendMessage('timeout');return false;
+					})
+				}else{
+					$('[id='+arr[0]+']').focus();
+				}
+			});
+		</script>
+		<!-- // 3. Javascript -->
+	</div>
+	<!-- CONTENT FINISH -->
+
+</body>
+
+</html>

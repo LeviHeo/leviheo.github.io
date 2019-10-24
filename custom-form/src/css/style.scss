@@ -1,0 +1,170 @@
+@import 'sasstarget/all';
+
+@font-face {
+    font-family: 'SamsungOne';
+    src: url(../fonts/SamsungOne-400.eot);
+    src: url(../fonts/SamsungOne-400.eot?#iefix) format("embedded-opentype"),url(../fonts/SamsungOne-400.woff2) format("woff2"),url(../fonts/SamsungOne-400.woff) format("woff"),url(../fonts/SamsungOne-400.ttf) format("truetype");
+    font-weight: normal;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'SamsungOne';
+    src: url(../fonts/SamsungOne-700.eot);
+    src: url(../fonts/SamsungOne-700.eot?#iefix) format("embedded-opentype"),url(../fonts/SamsungOne-700.woff2) format("woff2"),url(../fonts/SamsungOne-700.woff) format("woff"),url(../fonts/SamsungOne-700.ttf) format("truetype");
+    font-weight: bold;
+    font-style: normal
+}
+
+@font-face {
+    font-family: 'SamsungSharpSans';
+    src: url(../fonts/SamsungSharpSansBd.eot);
+    src: url(../fonts/SamsungSharpSansBd.eot?#iefix) format("embedded-opentype"),url(../fonts/SamsungSharpSansBd.woff) format("woff");
+    font-weight: bold;
+    font-style: normal
+}
+
+$maw:1440px;
+$samsung-blue: #162d9a;   //primary color
+$color2: cadetblue;  //retailer
+$color3: #b8bee2;  //button ecased
+$color4: #a837c5; //Watch
+$font1: 'SamsungSharpSans','Microsoft JhengHei', '微软雅黑', arial !important;
+$font2: 'SamsungOne','Microsoft JhengHei', '微软雅黑', arial !important;
+$font3: 'osB', 'Microsoft JhengHei', dotum, arial !important;
+$font4: 'Microsoft JhengHei', '微软雅黑', arial !important;
+
+html, body {
+    font-family: $font2;
+}
+
+// Registration Page
+.s-lp-content {
+    width:$maw;
+    max-width:100%;
+    margin:30px auto;
+    h2 {
+        text-align: center;
+        font-family: $font1;
+        font-size: 32px;
+        line-height: 1.2;
+    }
+
+    .form-intro {
+      max-width:95%;
+      margin:50px auto;
+    }
+
+    .form-remark {
+      font-family: $font2;
+      font-size: 12px;
+      color: $samsung-blue;
+      text-align: right;
+      margin:10px 0px;
+    }
+}
+
+/* Registration Form */
+#regiform {
+    position: relative;
+    z-index: 50;
+
+    .form-group {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .form-label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .error-msg {
+      font-family: $font2;
+      font-size: 12px;
+      color: red;
+      line-height: 1;
+      height:15px;
+      margin-top:5px;
+    }
+  
+    input, textarea, button, select {
+      font-family: $font2;
+      font-size: 18px;
+      display: block;
+      width: 100%;
+    }
+
+    ::-webkit-input-placeholder { /* Edge */
+      color: #000000;
+    }
+    
+    :-ms-input-placeholder { /* Internet Explorer 10-11 */
+      color: #000000;
+    }
+    
+    ::placeholder {
+      color: #000000;
+    }
+  
+    input, textarea, select {
+        background: #ffffff;
+        border: 1px solid #cfcfcf;
+        border-top:none;
+        border-left:none;
+        border-right:none;
+        padding: 13px 13px 12px 13px;
+        resize: none;
+        @include ani;
+        @include box-sizing;
+    }
+  
+    input:focus, textarea:focus, select:focus {
+      background: rgba($samsung-blue, 0.1);
+    }
+    
+    .error {
+      label {
+        color: $samsung-blue;
+      }
+  
+      input, textarea, select {
+        border: 3px solid $samsung-blue;
+        padding: 10px 10px 10px 10px;
+        @include ani;
+      }
+    }
+    
+    .hidden {
+      display: none !important;
+    }
+  }
+
+  button {
+      border:none;
+  }
+  button, a {
+    color: #fff;
+  }
+
+  button, a {
+    font-family: $font2;
+    font-size: 18px;
+    line-height: 1;
+    position: relative;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    padding: 10px;
+    background: rgba(26, 25, 37, 1);
+    border: 1px solid #1e1d2b;
+    @include ani;
+    @include box-sizing;
+
+    &:hover, &:focus{
+      color: #ffffff;
+      background:$samsung-blue;
+      @include ani;
+    }
+  }
