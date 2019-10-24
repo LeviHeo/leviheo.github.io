@@ -1,22 +1,3 @@
-// logo Animation
-function logoAni(){
-    setTimeout(function(){ 
-        $('.lh-logo:not(.for-bg)').attr('class', 'lh-logo ani-line');
-    }, 500);
-
-    setTimeout(function(){
-        $('.lh-logo:not(.for-bg)').attr('class', 'lh-logo ani-color');
-    }, 2700);
-
-    setTimeout(function(){
-        $('.lh-logo:not(.for-bg)').attr('class', 'lh-logo');
-    }, 10300);
-}
-logoAni();
-setInterval(function(){
-    logoAni();
-}, 11000);
-
 // Project list Data
 var projectList = (function () {
     var projectList = null;
@@ -34,10 +15,10 @@ var projectList = (function () {
 
 // Project thumbnail Temp
 var thumb = "";
-var pagenavi = "<div class=\"pagenavi-inner\">";
+var pagenavi = '<div class="pagenavi-inner">';
 for (var i in projectList.project) {
-    thumb += "<a href=\"javascript:;\" class=\"lh-img-thumb has-detail\" data-idx=\""+ projectList.project[i].idx +"\" data-cla-id=\"" + projectList.project[i].client + "\" data-pj-id=\"" + projectList.project[i].projectId + "\" data-thumb-img=\"./src/project/" + projectList.project[i].client + "/" + projectList.project[i].projectId + "/thumb.jpg\" data-thumb-tit=\"" + projectList.project[i].projectTitle + "\"></a>";
-    pagenavi += "<div class=\"pagenavi-item\" data-idx=\""+projectList.project[i].idx+"\"><div></div></div>";
+    thumb += '<a href="javascript:;" class="lh-img-thumb has-detail" data-idx="'+ projectList.project[i].idx +'" data-cla-id="'+ projectList.project[i].client + '" data-pj-id="' + projectList.project[i].projectId + '" data-thumb-img="./src/project/' + projectList.project[i].client + '/' + projectList.project[i].projectId + '/thumb.jpg" data-thumb-tit="' + projectList.project[i].projectTitle + '"></a>';
+    pagenavi += '<div class="pagenavi-item" data-idx="'+projectList.project[i].idx+'"><div></div></div>';
 }
 pagenavi += "</div>";
 $("#lh-project").html(thumb);
@@ -49,19 +30,18 @@ function detailPopup(id) {
     $.each(projectList.project, function(){
         if(this.projectId == id) {
             tempPopup+=
-            '<div class=\"lh-popup\" data-idx=\"'+this.idx+'\" data-cla-id=\"'+this.client+'\" data-pj-id=\"'+this.projectId+'\">'+
-            '    <div class=\"lh-popup_inner\">'+
-            '            <div class=\"lh-pj-close\"><div class=\"lh-pj-close-inner\"><div></div><div></div></div></div>'+
-            '            <div class=\"lh-pj-header\" data-aos="fade-in" data-aos-delay="500" data-aos-duration="3000" data-desk-img=\"./src/project/'+this.client+'/'+this.projectId+'/header.jpg\" data-mobile-img=\"./src/project/'+this.client+'/'+this.projectId+'/header_m.jpg\"></div>'+
-            '            <div class=\"lh-pj-content\">'+
-            '                <div class=\"pj-content_wrap\">'+
-            '                    <div class=\"content_inner\">' +
-            '                       <div class=\"pj-content_tit\">'+
+            '<div class="lh-popup" data-idx="'+this.idx+'" data-cla-id="'+this.client+'" data-pj-id="'+this.projectId+'">'+
+            '    <div class="lh-popup_inner">'+
+            '            <div class="lh-pj-close"><div class="lh-pj-close-inner"><div></div><div></div></div></div>'+
+            '            <div class="lh-pj-header" data-aos="fade-in" data-aos-delay="500" data-aos-duration="3000" data-desk-img="./src/project/'+this.client+'/'+this.projectId+'/header.jpg" data-mobile-img="./src/project/'+this.client+'/'+this.projectId+'/header_m.jpg"></div>'+
+            '            <div class="lh-pj-content">'+
+            '                <div class="pj-content_wrap">'+
+            '                    <div class="content_inner">' +
+            '                       <div class="pj-content_tit">'+
             '                           <h3 data-aos="fade-up" data-aos-delay="1000" data-aos-duration="1000">' + this.projectTitle + '</h3>' +
-            '                           <div class=\"pj-content_type\" data-aos="fade-up" data-aos-delay="1200" data-aos-duration="1000">' + this.projectDate + ' | ' + this.projectType + '</div>' +
+            '                           <div class="pj-content_type" data-aos="fade-up" data-aos-delay="1200" data-aos-duration="1000">' + this.projectDate + ' | ' + this.projectType + '</div>' +
             '                       </div>' +
-            '                       <div id="content-anchor" class=\"pj-content_arti\" data-aos="fade-up" data-aos-delay="1500" data-aos-duration="1000">'+
-                                        this.projectDetail+
+            '                       <div id="content-anchor" class="pj-content_arti" data-aos="fade-up" data-aos-delay="1500" data-aos-duration="1000">'+
             '                       </div>';
                                     if (this.projectSkill != 0) {
                                         tempPopup += '<div class="pj-content_skill" data-aos="fade-up" data-aos-delay="2000" data-aos-anchor="#content-anchor" data-aos-duration="1000">';
@@ -75,22 +55,22 @@ function detailPopup(id) {
             '                    </div>'+
             '                </div>'+
             '            </div>'+
-            '            <div class=\"lh-pj-footer\">'+
-            '                <div class=\"content_inner\">' +
-            '                   <div class=\"foot-left\">';
+            '            <div class="lh-pj-footer">'+
+            '                <div class="content_inner">' +
+            '                   <div class="foot-left">';
                                 if((this.idx-1) != 0){
-                                    tempPopup+= '<a href="javascript:;" class=\"lh-btn-encased-sm btn-go-item\" data-way="prev" data-idx="'+(this.idx-1)+'" ><i class=\"icon-left-open view767\"></i><span class=\"br767\">PREV</span></a>&nbsp;';
+                                    tempPopup+= '<a href="javascript:;" class="lh-btn-encased-sm btn-go-item" data-way="prev" data-idx="'+(this.idx-1)+'" ><i class="icon-left-open view767"></i><span class="br767">PREV</span></a>&nbsp;';
                                 }
                                 if((this.idx+1) <= projectList.project.length){
-                                    tempPopup+= '<a href="javascript:;" class=\"lh-btn-encased-sm btn-go-item\" data-way="next" data-idx="'+(this.idx+1)+'" ><span class=\"br767\">NEXT</span><i class=\"icon-right-open view767\"></i></a>';
+                                    tempPopup+= '<a href="javascript:;" class="lh-btn-encased-sm btn-go-item" data-way="next" data-idx="'+(this.idx+1)+'" ><span class="br767">NEXT</span><i class="icon-right-open view767"></i></a>';
                                 }
                                 tempPopup+=
             '                    &nbsp;</div>';
                                 tempPopup+=
-            '                    <div class=\"foot-right\"><a href=\"'+this.launchUrl+'\" class=\"lh-btn-encased-sm btn-ar-r\" target="_blank">Launch Project</a></div>'+
+            '                    <div class="foot-right"><a href="'+this.launchUrl+'" class="lh-btn-encased-sm btn-ar-r" target="_blank">Launch Project</a></div>'+
             '                </div>'+
             '            </div>'+
-            '            <div class=\"lh-pj-content-bg\"></div>'+
+            '            <div class="lh-pj-content-bg"></div>'+
             '    </div>'+
             '</div>'
         }
@@ -212,6 +192,7 @@ function aniThumb(){
 function popup(c) {
     detailPopup(c);
     popupHeaderImg();
+    popupDetailContent(c)
     var target = $('.lh-popup[data-pj-id="'+ c +'"]'),
         body = $('body');
     body.css('overflow', 'hidden');
@@ -226,7 +207,6 @@ function popupOpen(c, x){
     pageNavi(x);
     var mask = $('.lh-dimmed');
     mask.fadeIn(500);
-
     var panvi = $('#lh-pj-navi');
     panvi.addClass('on');
 }
@@ -355,6 +335,15 @@ function popupHeaderImg(){
             _.css('background-image', 'url("'+imgDesktop+'")');
         }else{
             _.css('background-image', 'url("'+imgMobile+'")');
+        }
+    });
+}
+
+function popupDetailContent(id) {
+    $.each(projectList.project, function () {
+        if (this.projectId == id) {
+            var contentSrc = './src/project/' + this.client + '/' + this.projectId + '/index.html';
+            $( "#content-anchor" ).load(contentSrc);
         }
     });
 }

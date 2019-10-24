@@ -10,7 +10,9 @@ $color_focus2:#ff6aab;
 $radius:3px;
 
 html {
-	background-color:$color_base;
+    &:not(.cont-detail) {
+        background-color:$color_base;
+    }
 	color: $maintxtColor;
 }
 
@@ -45,6 +47,11 @@ img {
 	@include center(auto, 100%);
 }
 
+iframe {
+    width: 1px;
+    min-width: 100%;
+}
+
 body {
     position: relative;
     * {
@@ -52,20 +59,24 @@ body {
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;
     }
-    &::after {
-        content:"";
-        position: fixed;
-        z-index: 0;
-        top:0px;
-        left:0px;
-        width:100%;
-        height:100%;
-        pointer-events: none;
-        -webkit-box-shadow: inset 0px 0px 72px 0px rgba(darken( $color_base, 30% ),0.95);
-        -moz-box-shadow: inset 0px 0px 72px 0px rgba(darken( $color_base, 30% ),0.95);
-        box-shadow: inset 0px 0px 72px 0px rgba(darken( $color_base, 30% ),0.95);
-        background: url('../images/line.png') repeat;
+
+    &:not(.cont-detail) {
+        &::after {
+            content:"";
+            position: fixed;
+            z-index: 0;
+            top:0px;
+            left:0px;
+            width:100%;
+            height:100%;
+            pointer-events: none;
+            -webkit-box-shadow: inset 0px 0px 72px 0px rgba(darken( $color_base, 30% ),0.95);
+            -moz-box-shadow: inset 0px 0px 72px 0px rgba(darken( $color_base, 30% ),0.95);
+            box-shadow: inset 0px 0px 72px 0px rgba(darken( $color_base, 30% ),0.95);
+            background: url('../images/line.png') repeat;
+        }
     }
+    
     ::selection {
         background: rgba(255, 255, 255, 0.99);
         color:#000000;
