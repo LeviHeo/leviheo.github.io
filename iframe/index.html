@@ -49,6 +49,23 @@
       >Close</a
     >
 
+
+
+    <br/>
+    <a
+      href="#"
+      onclick="if ('parentIFrame' in window) window.parentIFrame.sendMessage('timeout');return false;"
+      >time out</a
+    >
+    <br/>
+    <a
+      href="#"
+      onclick="if ('parentIFrame' in window) window.parentIFrame.sendMessage('quotafull');return false;"
+      >quota full</a
+    >
+
+
+
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -90,7 +107,7 @@
       matters to this principle of selection: he rejects pleasures to secure
       other greater pleasures, or else he endures pains to avoid worse pains.
     </p>
-
+<!-- 
     <script>
       var level = document.location.search.replace(/\?/, '') || 0
       $('#nested').attr('href', 'frame.nested.html?' + ++level)
@@ -102,7 +119,7 @@
           alert(message, parentIFrame.getId())
         }
       }
-    </script>
+    </script> -->
 
     <script
       type="text/javascript"
