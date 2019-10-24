@@ -175,7 +175,7 @@ The `sprites` mixin generates identical output to the CSS template
 
 html, body { font-family: "SamsungOne", "Microsoft JhengHei", "微软雅黑", arial !important; }
 
-.s-lp-content { width: 1440px; max-width: 100%; margin: 30px auto; }
+.s-lp-content { width: 1440px; max-width: 100%; margin: 0px auto; }
 
 .s-lp-content h2 { text-align: center; font-family: "SamsungSharpSans", "Microsoft JhengHei", "微软雅黑", arial !important; font-size: 32px; line-height: 1.2; }
 
@@ -219,4 +219,7 @@ button, a { color: #fff; }
 button, a { font-family: "SamsungOne", "Microsoft JhengHei", "微软雅黑", arial !important; font-size: 18px; line-height: 1; position: relative; display: block; text-align: center; text-decoration: none; color: #fff; padding: 10px; background: #1a1925; border: 1px solid #1e1d2b; -webkit-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out; -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */ /* Firefox, other Gecko */ box-sizing: border-box; /* Opera/IE 8+ */ }
 
 button:hover, button:focus, a:hover, a:focus { color: #ffffff; background: #162d9a; -webkit-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out; }
+
+/* Moduls */
+.limite-timer #timer { display: inline-block; }
 /*# sourceMappingURL=style.css.map */
