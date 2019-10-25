@@ -26,17 +26,19 @@ $.fn.countdown = function(milliseconds, callback) {
         }
     };
 };
-$('#timer').countdown(600 * 1000, function(){
+
+$('#timer').countdown(30 * 1000, function(){
     this.html("00:00");
+    if ('parentIFrame' in window) window.parentIFrame.sendMessage('timeout');return false;
 });
 
 // Form
-var formWrap = $('#clp-regiform'),
+var formWrap = $('#clp-form'),
     form     = formWrap.find('#regiform'),
     url      = form.attr("action"),
     method   = form.attr("method");
 
-$('#clp-regiform [class*="submit"]').on('click', function(){
+$('#clp-form [class*="submit"]').on('click', function(){
     var _   = $(this),
         arr = [],
         cnt = 0;
@@ -51,7 +53,7 @@ $('#clp-regiform [class*="submit"]').on('click', function(){
             tg = el.closest(gr),
             er = 'error';
 
-        if(_.val().length < 1) {
+        if(!_.val()) {
             var pos;
             cnt++;
             pos = cnt - 1;
@@ -62,7 +64,7 @@ $('#clp-regiform [class*="submit"]').on('click', function(){
                 if(_.val().length > 0){
                     tg.removeClass(er).find('.error-msg').html('');
                 }else if(_.val().length < 1){
-                    t.addClass(er);
+                    tg.addClass(er).find('.error-msg').html(msg);
                 }
             });
             $('select').on('change', function(){
@@ -76,11 +78,37 @@ $('#clp-regiform [class*="submit"]').on('click', function(){
                     gr.removeClass(er).find('.error-msg').html('');
                 }
             });
+            
         }else {
             tg.removeClass(er).find('.error-msg').html('');
         }
     });
 
+    $('#regiform').find('[type=checkbox]').each(function () {
+        var _  = $(this),
+            gr = $('.form-group'),
+            el = $('[id='+_.attr('id')+']'),
+            tg = el.closest(gr),
+            er = 'error';
+        
+        if(_.prop('checked')) {
+            console.log("Checked Box Selected");
+        } else {
+            cnt++;
+            var msg = _.data('error-msg');
+            tg.addClass(er).find('.error-msg').html(msg);
+            console.log("Checked Box deselect");
+        }
+
+        _.on('change', function () {
+            if (_.prop('checked')) {
+                tg.removeClass(er).find('.error-msg').html('');
+            } else {
+                tg.addClass(er).find('.error-msg').html(msg);
+            }
+        });
+    });
+    
     function getFormData(form){
         var originData = form.serializeArray();
         var exportData = {};
@@ -90,6 +118,7 @@ $('#clp-regiform [class*="submit"]').on('click', function(){
         return exportData;
     }
 
+    //console.log(cnt);
     if(cnt < 1) {
         var form = $("#regiform"),
             data = getFormData(form);
@@ -100,11 +129,10 @@ $('#clp-regiform [class*="submit"]').on('click', function(){
             data: JSON.stringify(data),
             cache: false,
             contentType: false,
-            processData:false,
-        }).done(function(response){ 
+            processData: false,
+            
+        }).done(function(data){ 
             form[0].reset();
-            console.log('Thanks for contacting me! I will get back to you soon!');
-            if ('parentIFrame' in window) window.parentIFrame.sendMessage('timeout');return false;
         })
     }else{
         $('[id='+arr[0]+']').focus();

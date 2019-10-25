@@ -1,65 +1,86 @@
 @import 'sasstarget/all';
 
 @font-face {
-    font-family: 'SamsungOne';
-    src: url(../fonts/SamsungOne-400.eot);
-    src: url(../fonts/SamsungOne-400.eot?#iefix) format("embedded-opentype"),url(../fonts/SamsungOne-400.woff2) format("woff2"),url(../fonts/SamsungOne-400.woff) format("woff"),url(../fonts/SamsungOne-400.ttf) format("truetype");
-    font-weight: normal;
-    font-style: normal
+  font-family: 'SamsungOne';
+  src: url(../fonts/SamsungOne-400.eot);
+  src: url(../fonts/SamsungOne-400.eot?#iefix) format("embedded-opentype"), url(../fonts/SamsungOne-400.woff2) format("woff2"), url(../fonts/SamsungOne-400.woff) format("woff"), url(../fonts/SamsungOne-400.ttf) format("truetype");
+  font-weight: normal;
+  font-style: normal
 }
 
 @font-face {
-    font-family: 'SamsungOne';
-    src: url(../fonts/SamsungOne-700.eot);
-    src: url(../fonts/SamsungOne-700.eot?#iefix) format("embedded-opentype"),url(../fonts/SamsungOne-700.woff2) format("woff2"),url(../fonts/SamsungOne-700.woff) format("woff"),url(../fonts/SamsungOne-700.ttf) format("truetype");
-    font-weight: bold;
-    font-style: normal
+  font-family: 'SamsungOne';
+  src: url(../fonts/SamsungOne-700.eot);
+  src: url(../fonts/SamsungOne-700.eot?#iefix) format("embedded-opentype"), url(../fonts/SamsungOne-700.woff2) format("woff2"), url(../fonts/SamsungOne-700.woff) format("woff"), url(../fonts/SamsungOne-700.ttf) format("truetype");
+  font-weight: bold;
+  font-style: normal
 }
 
 @font-face {
-    font-family: 'SamsungSharpSans';
-    src: url(../fonts/SamsungSharpSansBd.eot);
-    src: url(../fonts/SamsungSharpSansBd.eot?#iefix) format("embedded-opentype"),url(../fonts/SamsungSharpSansBd.woff) format("woff");
-    font-weight: bold;
-    font-style: normal
+  font-family: 'SamsungSharpSans';
+  src: url(../fonts/SamsungSharpSansBd.eot);
+  src: url(../fonts/SamsungSharpSansBd.eot?#iefix) format("embedded-opentype"), url(../fonts/SamsungSharpSansBd.woff) format("woff");
+  font-weight: bold;
+  font-style: normal
 }
 
 $maw:1440px;
-$samsung-blue: #162d9a;   //primary color
-$color2: cadetblue;  //retailer
-$color3: #b8bee2;  //button ecased
+$samsung-blue: #162d9a; //primary color
+$color2: cadetblue; //retailer
+$color3: #b8bee2; //button ecased
 $color4: #a837c5; //Watch
-$font1: 'SamsungSharpSans','Microsoft JhengHei', '微软雅黑', arial !important;
-$font2: 'SamsungOne','Microsoft JhengHei', '微软雅黑', arial !important;
-$font3: 'osB', 'Microsoft JhengHei', dotum, arial !important;
-$font4: 'Microsoft JhengHei', '微软雅黑', arial !important;
+$font1: 'SamsungSharpSans','Microsoft JhengHei','微软雅黑',arial !important;
+$font2: 'SamsungOne','Microsoft JhengHei','微软雅黑',arial !important;
+$font3: 'osB','Microsoft JhengHei',dotum,arial !important;
+$font4: 'Microsoft JhengHei','微软雅黑',arial !important;
 
-html, body {
-    font-family: $font2;
+html,body {
+  font-family: $font2;
+}
+// Registration Page
+#s-lp-wrap {
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+    padding: 100px 0px;
 }
 
-// Registration Page
 .s-lp-content {
-    width:$maw;
-    max-width:100%;
-    margin:0px auto;
+    position: relative;
+    width: $maw;
+    max-width: 100%;
+    margin: 0px auto;
+
     h2 {
-        text-align: center;
+
         font-family: $font1;
-        font-size: 32px;
+        font-size: 70px;
         line-height: 1.2;
+        text-align: left;
+        margin-bottom: 30px;
+    }
+
+    p {
+        font-family: $font2;
+        font-size: 24px;
+        line-height: 1.6;
+        text-align: left;
     }
 
     .form-intro {
-      max-width:95%;
+        max-width: 95%;
+
+        p {
+            font-weight: bold;
+        }
     }
 
     .form-remark {
-      font-family: $font2;
-      font-size: 12px;
-      color: $samsung-blue;
-      text-align: right;
-      margin:10px 0px;
+        font-family: $font2;
+        font-size: 14px;
+        font-weight: bold;
+        color: #000000;
+        text-align: left;
+        margin: 50px 0px;
     }
 }
 
@@ -68,110 +89,237 @@ html, body {
     position: relative;
     z-index: 50;
 
+    ::-webkit-input-placeholder {
+        /* Edge */
+        color: #000000;
+    }
+
+    :-ms-input-placeholder {
+        /* Internet Explorer 10-11 */
+        color: #000000;
+    }
+
+    ::placeholder {
+        color: #000000;
+    }
+
+    .form-row {
+        display: flex;
+        justify-content: space-between;
+
+        .form-group {
+            width: 48%;
+        }
+    }
+
     .form-group {
-      display: block;
-      margin-bottom: 10px;
+        display: block;
+        margin-bottom: 25px;
     }
 
     .form-label {
-      display: block;
-      margin-bottom: 5px;
+        display: block;
+        margin-bottom: 5px;
+        font-family: $font2;
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 15px;
     }
 
-    .error-msg {
-      font-family: $font2;
-      font-size: 12px;
-      color: red;
-      line-height: 1;
-      height:15px;
-      margin-top:5px;
-    }
-  
-    input, textarea, button, select {
-      font-family: $font2;
-      font-size: 18px;
-      display: block;
-      width: 100%;
-    }
-
-    ::-webkit-input-placeholder { /* Edge */
-      color: #000000;
-    }
-    
-    :-ms-input-placeholder { /* Internet Explorer 10-11 */
-      color: #000000;
-    }
-    
-    ::placeholder {
-      color: #000000;
-    }
-  
-    input, textarea, select {
+    input,
+    textarea,
+    select {
+        font-family: $font2;
+        font-size: 18px;
+        display: block;
+        width: 100%;
         background: #ffffff;
-        border: 1px solid #cfcfcf;
-        border-top:none;
-        border-left:none;
-        border-right:none;
+        border: 1px solid #000000;
+        border-top: none;
+        border-left: none;
+        border-right: none;
         padding: 13px 13px 12px 13px;
         resize: none;
         @include ani;
         @include box-sizing;
+
+        &:focus {
+            background: rgba($samsung-blue, 0.1);
+        }
     }
-  
-    input:focus, textarea:focus, select:focus {
-      background: rgba($samsung-blue, 0.1);
+
+    select {
+        position: relative;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
     }
-    
-    .error {
-      label {
+    select::-ms-expand {
+        display: none;
+    }
+
+    .select {
+        position: relative;
+        &:after {
+            content:"";
+            display: block;
+            position: absolute;
+            top:50%;
+            right:1%;
+            width:18px;
+            height:18px;
+            background: url('../images/arrow-down.svg') center center no-repeat;
+            background-size:100% 100%;
+            transform: translateY(-50%);
+            @include ani;
+        }
+    }
+
+    a {
         color: $samsung-blue;
-      }
-  
-      input, textarea, select {
-        border: 3px solid $samsung-blue;
-        padding: 10px 10px 10px 10px;
-        @include ani;
-      }
+        text-decoration: underline;
     }
-    
+
+    .error {
+        label {
+            color: $samsung-blue;
+        }
+
+        input,
+        textarea,
+        select {
+            border: 3px solid $samsung-blue;
+            padding: 10px 10px 10px 10px;
+            @include ani;
+        }
+
+        .checkmark {
+            border: 3px solid $samsung-blue;
+            top: 0px;
+            left: 0px;
+        }
+    }
+
+    .error-msg {
+        font-family: $font2;
+        font-size: 12px;
+        color: red;
+        line-height: 1;
+        height: 15px;
+        margin-top: 5px;
+    }
+
     .hidden {
-      display: none !important;
+        display: none !important;
     }
-  }
 
-  button {
-      border:none;
-  }
-  button, a {
-    color: #fff;
-  }
+    .check-cont {
+        display: block;
+        position: relative;
+        padding-top: 4px;
+        padding-left: 37px;
+        margin-bottom: 12px;
+        cursor: pointer;
 
-  button, a {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+        font-family: $font2;
+        font-size: 16px;
+        line-height: 1.6;
+        color: #000;
+
+        input {
+            position: absolute;
+            opacity: 0;
+            width: 0px;
+            height: 0px;
+            cursor: pointer;
+        }
+
+        .checkmark {
+            &:after {
+                left: 9px;
+                top: 5px;
+                width: 5px;
+                height: 10px;
+                border: solid white;
+                border-width: 0 3px 3px 0;
+                @include rotate(45);
+            }
+        }
+    }
+
+    .check-cont:hover input~.checkmark {
+        background-color: rgba($samsung-blue, 0.1);
+    }
+
+    .check-cont input:checked~.checkmark {
+        background-color: $samsung-blue;
+    }
+
+    .checkmark {
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        height: 24px;
+        width: 24px;
+        background-color: #ffffff;
+        border: 1px solid #000000;
+
+        &:after {
+            content: "";
+            position: absolute;
+            display: none;
+        }
+    }
+
+    .check-cont input:checked~.checkmark:after {
+        display: block;
+    }
+}
+
+button,
+a.submit {
+    position: relative;
+    display: inline-block;
+    min-width:200px;
     font-family: $font2;
     font-size: 18px;
-    line-height: 1;
-    position: relative;
-    display: block;
+    line-height: 1;   
     text-align: center;
     text-decoration: none;
-    color: #fff;
-    padding: 10px;
-    background: rgba(26, 25, 37, 1);
-    border: 1px solid #1e1d2b;
+    color: #000;
+    padding: 15px 0px;
+    background:#ffffff;
+    border: 1px solid #000000;
+    border-radius:30px;
     @include ani;
     @include box-sizing;
 
-    &:hover, &:focus{
-      color: #ffffff;
-      background:$samsung-blue;
-      @include ani;
+    &:hover,
+    &:focus {
+        color: #ffffff;
+        background: $samsung-blue;
+        @include ani;
     }
-  }
+}
 
-  /* Moduls */
-  // Timer
-  .limite-timer {
+/* Moduls */
+// Timer
+.limite-timer {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-family: $font2;
+    font-size: 18px;
+    color: #ffffff;
+    background-color: #3142ad;
+    padding: 15px;
+
     #timer {
-      display: inline-block;
+        display: inline-block;
     }
-  }
+}

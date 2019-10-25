@@ -2,7 +2,7 @@
 <head>
 	<style id="stndz-style"></style>
 
-	<title>Pre Registration | SAMSUNG香港 | 三星電子 HK</title>
+	<title>Galaxy Fold Pre Order | SAMSUNG香港 | 三星電子 HK</title>
 	<meta name="title" content="Pre Registration | SAMSUNG香港 | 三星電子 HK">
 
 	<meta charset="utf-8">
@@ -24,59 +24,86 @@
 		<!-- 2. Body Contents -->
 		<div class="s-lp-content">
 			<div class="form-intro">
-				<!-- <h2>
-					"Pre-register below to be one of the first to receive the latest updates and get notified when details on the new Galaxy Fold are available. DON'T MISS OUT!"
-				</h2> -->
+				<h2>Galaxy Fold 預購表格</h2>
+				<p>
+					歡迎您登記預購Galaxy Fold，快人一步享受影院級極限全屏幕。<br/>
+					成功登記者需於2019年11月15至21日，以 $XX,XXX，在指定地點購買。
+				</p>
 			</div>
 
-			<div class="f_cont limite-timer">
-				還有 <div id="timer"></div> 剩餘時間
+			<div class="limite-timer">
+				剩餘時間 <div id="timer"></div>
 			</div>
 
-
-			<div id="clp-regiform">
+			<div id="clp-form">
 				<div class="form-remark">*必須填寫</div>   
 				<form id="regiform" class="clp-form" action="https://formtest-ea6f7.firebaseio.com/posts.json" method="POST">
+					<div class="form-row">
+						<fieldset class="form-group">
+							<label class="form-label">*姓氏</label>
+							<input type="text" tabindex="1" id="first-name" name="first-name" autocomplete="off" data-error-msg="姓氏為必須填寫項目" required />
+							<div class="error-msg"></div>
+						</fieldset>
+						<fieldset class="form-group">
+							<label class="form-label">*名字</label>
+							<input type="text" tabindex="2" id="last-name" name="last-name" autocomplete="off" data-error-msg="名字為必須填寫項目" required />
+							<div class="error-msg"></div>
+						</fieldset>
+					</div>
+					<div class="form-row">
+						<fieldset class="form-group">
+							<label class="form-label">*年齡</label>
+							<div class="select">
+								<select name="age" id="age" tabindex="3" data-error-msg="年齡為必須填寫項目" required />
+									<option value="" selected="selected" >請選擇</option>
+									<option value="Below 18">18以下</option>
+									<option value="18-24">18-24</option>
+									<option value="25-34">25-34</option>
+									<option value="35-44">35-44</option>
+									<option value="45-54">45-54</option>
+									<option value="55-64">55-64</option>
+									<option value="65 or above">65或以上</option>
+								</select>
+							</div>
+							<div class="error-msg"></div>
+						</fieldset>
+						<fieldset class="form-group">
+							<label class="form-label">*登記電郵地址</label>
+							<input type="email" tabindex="4" id="email" name="email" autocomplete="off" data-error-msg="登記電郵地址為必須填寫項目" required />
+							<div class="error-msg"></div>
+						</fieldset>
+					</div>
+					<div class="form-row">
+						<fieldset class="form-group">
+							<label class="form-label">*領取地點</label>
+							<div class="select">
+								<select tabindex="5" name="gender" id="gender" class="" data-error-msg="領取地點為必須填寫項目" required />
+									<option value="" selected="selected">請選擇</option>
+									<option value="TST">TST</option>
+									<option value="SSP">SSP</option>
+								</select>
+							</div>
+							<div class="error-msg"></div>
+						</fieldset>
+					</div>
 					<fieldset class="form-group">
-						<input type="text" tabindex="1" id="first-name" name="first-name" autocomplete="off" placeholder="*First Name" data-error-msg="Please fill 1" required>
+						<label class="check-cont">
+							<input type="checkbox" tabindex="5" name="agree-tnc01" id="agree01" data-error-msg="必須填寫項目"/>
+							<span class="checkmark"></span>
+							* 我了解並同意上述所提供的個人資料將由三星電子香港有限公司、其關聯公司，及其第三方服務供應商 (無論在香港或海外(統稱「三星」)所收集、使用及保留用作以下目的，包括市場研究、發送有關三星產品及服務的優惠推廣、公告、推送通知及電子報；我亦明白我的個人資料將絕對保密，未經我的同意，三星將不會將我的個人資料透露給其他第三方人士或用於任何其他目的。我明白三星將根據《個人資料 (隱私) 條例》及 <a href="https://www.samsung.com/hk/info/privacy/" target="_blank">三星的隱私政策收</a>集和使用我的個人資料。
+						</label>
 						<div class="error-msg"></div>
 					</fieldset>
 					<fieldset class="form-group">
-						<input type="text" tabindex="2" id="last-name" name="last-name" autocomplete="off" placeholder="*Last Name" data-error-msg="Please fill 2" required>
+						<label class="check-cont">
+							<input type="checkbox" tabindex="6" name="agree-tnc02" id="agree02" data-error-msg="必須填寫項目"/>
+							<span class="checkmark"></span>
+							我不願意收取有關三星產品及服務的優惠推廣、公告、推送通知及電子報。
+						</label>
 						<div class="error-msg"></div>
-					</fieldset>
-					<fieldset class="form-group">
-						<select tabindex="3" name="gender" id="gender" class="" data-error-msg="Please fill 3" required>
-							<option value="" selected="selected">*Gender</option>
-							<option value="Male">Male</option>
-							<option value="Female">Female</option>
-						</select>
-						<div class="error-msg"></div>
-					</fieldset>
-					<fieldset class="form-group">
-						<select name="age" id="age" tabindex="4" data-error-msg="Please fill 4" required>
-							<option value="" selected="selected" >*Age</option>
-							<option value="Below 18">Below 18</option>
-							<option value="18-24">18-24</option>
-							<option value="25-34">25-34</option>
-							<option value="35-44">35-44</option>
-							<option value="45-54">45-54</option>
-							<option value="55-64">55-64</option>
-							<option value="65 or above">65 or above</option>
-						</select>
-						<div class="error-msg"></div>
-					</fieldset>
-					<fieldset class="form-group">
-						<div>
-							<input type="checkbox" name="agree" id="agree01">
-						</div>
-						<div class="error-msg"></div>
-					</fieldset>
-					<fieldset class="form-group hidden">
-						<input type="text" id="blockRobot" name="blockRobot" value="">
 					</fieldset>
 				</form>
-				<a href="javascript:;" class="submit">REGISTER</a>
+				<a href="javascript:;" class="submit">提&nbsp;&nbsp;交</a>
 			</div>
 		</div>
 		<!-- // 2. Body Contents -->
