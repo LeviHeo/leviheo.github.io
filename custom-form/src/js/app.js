@@ -27,7 +27,7 @@ $.fn.countdown = function(milliseconds, callback) {
     };
 };
 
-$('#timer').countdown(10 * 1000, function(){
+$('#timer').countdown(120 * 1000, function(){
     this.html("00:00");
     if ('parentIFrame' in window) window.parentIFrame.sendMessage('timeout');return false;
 });
