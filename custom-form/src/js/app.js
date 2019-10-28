@@ -27,26 +27,44 @@ $.fn.countdown = function(milliseconds, callback) {
     };
 };
 
-$('#timer').countdown(30 * 1000, function(){
+$('#timer').countdown(10 * 1000, function(){
     this.html("00:00");
     if ('parentIFrame' in window) window.parentIFrame.sendMessage('timeout');return false;
 });
 
 // Form
 var formWrap = $('#clp-form'),
-    form     = formWrap.find('#regiform'),
+    form     = $('#regiform'),
     url      = form.attr("action"),
     method   = form.attr("method");
 
+function checkedColor(target) {
+    var select ='selected';
+    target.closest('.form-group').find('.radio').removeClass(select);
+    target.closest('.radio').addClass(select);
+}
+
+form.find('[type="radio"]').on('click', function () {
+    checkedColor($(this));
+})
+
+$('.color-thumb').on('click', function () {
+    var _ = $(this),
+        tg = _.attr('for');
+    $('#'+tg).prop('checked', true);
+    checkedColor(_);
+});
+    
 $('#clp-form [class*="submit"]').on('click', function(){
-    var _   = $(this),
+    var _ = $(this),
         arr = [],
-        cnt = 0;
+        cnt = 0,
+        form = $('#regiform');
 
     _.blur();
 
     // Validation
-    $('#regiform').find('[required]').each(function(i){
+    form.find('[required]').each(function(i){
         var _  = $(this),
             gr = $('.form-group'),
             el = $('[id='+_.attr('id')+']'),
@@ -60,6 +78,7 @@ $('#clp-form [class*="submit"]').on('click', function(){
             arr[pos] = _.attr('name');
             var msg = _.data('error-msg');
             tg.addClass(er).find('.error-msg').html(msg);
+
             el.keyup(function(){
                 if(_.val().length > 0){
                     tg.removeClass(er).find('.error-msg').html('');
@@ -67,6 +86,7 @@ $('#clp-form [class*="submit"]').on('click', function(){
                     tg.addClass(er).find('.error-msg').html(msg);
                 }
             });
+
             $('select').on('change', function(){
                 var _ = $(this),
                     vl = _.find("option:selected").val(),
@@ -78,28 +98,24 @@ $('#clp-form [class*="submit"]').on('click', function(){
                     gr.removeClass(er).find('.error-msg').html('');
                 }
             });
-            
+
         }else {
             tg.removeClass(er).find('.error-msg').html('');
         }
     });
 
-    $('#regiform').find('[type=checkbox]').each(function () {
+    form.find('[type=checkbox]').each(function () {
         var _  = $(this),
             gr = $('.form-group'),
             el = $('[id='+_.attr('id')+']'),
             tg = el.closest(gr),
             er = 'error';
         
-        if(_.prop('checked')) {
-            console.log("Checked Box Selected");
-        } else {
+        if(!_.prop('checked')) {
             cnt++;
             var msg = _.data('error-msg');
             tg.addClass(er).find('.error-msg').html(msg);
-            console.log("Checked Box deselect");
         }
-
         _.on('change', function () {
             if (_.prop('checked')) {
                 tg.removeClass(er).find('.error-msg').html('');
@@ -107,22 +123,42 @@ $('#clp-form [class*="submit"]').on('click', function(){
                 tg.addClass(er).find('.error-msg').html(msg);
             }
         });
+
     });
+
+    if (!form.find('[name=color]:checked').val()) {
+        var _  = $('#regiform').find('[name=color]'),
+            gr = $('.form-group'),
+            tg = _.closest(gr),
+            er = 'error';
+            cnt+=1;
+            var msg = _.data('error-msg');
+            tg.addClass(er).find('.error-msg').html(msg);
+        
+        _.on('change', function () {
+            if ($('#regiform').find('[name=color]:checked').val()) {
+                tg.removeClass(er).find('.error-msg').html('');
+            } else {
+                tg.addClass(er).find('.error-msg').html(msg);
+            }
+        });
+    }
     
     function getFormData(form){
-        var originData = form.serializeArray();
-        var exportData = {};
+        var originData = form.serializeArray(),
+            exportData = {};
+        
         $.map(originData, function(n, i){
-            exportData[n['name']] = n['value'];
+            exportData[n['name']] = n['value']
         });
+
         return exportData;
     }
 
-    //console.log(cnt);
     if(cnt < 1) {
         var form = $("#regiform"),
             data = getFormData(form);
-        
+
         $.ajax({
             url : url,
             type: method,
@@ -132,9 +168,12 @@ $('#clp-form [class*="submit"]').on('click', function(){
             processData: false,
             
         }).done(function(data){ 
-            form[0].reset();
+            form[0].reset()
+             
         })
     }else{
         $('[id='+arr[0]+']').focus();
     }
+
+    console.log('Remain: '+cnt);
 });

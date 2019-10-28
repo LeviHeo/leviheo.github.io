@@ -400,3 +400,9 @@ $(function(){
         popupHeaderImg();
     });
 });
+
+// Logo
+$('.lh-logo').addClass('ani-line');
+setTimeout(function () {
+    $('.lh-logo').addClass('ani-color');
+}, 2000)
