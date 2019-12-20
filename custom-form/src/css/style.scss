@@ -39,6 +39,7 @@ html,body {
 }
 // Registration Page
 #s-lp-wrap {
+    overflow-x:hidden;
     border-top: 1px solid transparent;
     border-bottom: 1px solid transparent;
 }
@@ -62,12 +63,26 @@ html,body {
         font-size: 24px;
         line-height: 1.6;
         text-align: left;
+
+        @media only screen and (max-width:1023px){
+            font-size: 20px;
+        }
+        @media only screen and (max-width:767px){
+            font-size: 4.5vw;
+        }
+
     }
 
     .form-intro {
         h2 {
+            @media only screen and (max-width:1200px){
+                font-size:55px;
+            }
             @media only screen and (max-width:1023px){
-                font-size:50px;
+                font-size:45px;
+            }
+            @media only screen and (max-width:767px){
+                font-size:8vw;
             }
         }
         p {

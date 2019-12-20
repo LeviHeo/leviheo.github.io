@@ -6760,9 +6760,13 @@ body .lh-ico { font-family: "fontello"; font-style: normal; font-weight: normal;
 
 .lh-pj-close .lh-pj-close-inner > div:nth-child(2) { -webkit-transform: rotate(45deg); transform: rotate(45deg); -webkit-transform-origin: center center; transform-origin: center center; }
 
+.lh-pj-close .lh-pj-close-inner:before { position: absolute; content: ""; display: block; width: 100%; height: 100%; top: 0; left: 0; opacity: 0; background-color: #44e981; border-radius: 3px; -webkit-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out; }
+
 .lh-pj-close:hover { border: 1px solid #44e981; -webkit-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out; }
 
 .lh-pj-close:hover .lh-pj-close-inner > div { margin-left: -5px; margin-top: -1px; display: block; width: 10px; height: 2px; background: #44e981; -webkit-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out; }
+
+.lh-pj-close:hover .lh-pj-close-inner:before { width: 160%; height: 160%; top: -30%; left: -30%; opacity: 0.3; -webkit-transition: all 0.3s ease-in-out; transition: all 0.3s ease-in-out; }
 
 .lh-pj-header { position: absolute; z-index: 0; top: 0px; width: 100%; height: 100%; background: #000; background-position: center top; background-repeat: no-repeat; background-size: 100% auto; }
 

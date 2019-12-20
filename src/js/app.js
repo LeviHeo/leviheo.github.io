@@ -1,3 +1,9 @@
+// Logo
+$('.lh-logo').addClass('ani-line');
+setTimeout(function () {
+    $('.lh-logo').addClass('ani-color');
+}, 2000);
+
 // Project list Data
 var projectList = (function () {
     var projectList = null;
@@ -79,15 +85,15 @@ function detailPopup(id) {
 }
 
 // Contact Form
-var date = new Date(),
+var date  = new Date(),
     month = date.getMonth() + 1,
-    day = date.getDate(),
-    now = date.getFullYear() + (month < 10 ? '0' : '') + month + (day < 10 ? '0' : '') + day;
+    day   = date.getDate(),
+    now   = date.getFullYear() + (month < 10 ? '0' : '') + month + (day < 10 ? '0' : '') + day;
 
 var formWrap = $('#lh-contact'),
-    form = formWrap.find('#contact'),
-    url = form.attr("action"),
-    method = form.attr("method");
+    form     = formWrap.find('#contact'),
+    url      = form.attr("action"),
+    method   = form.attr("method");
 
 $('#lh-contact button').on('click', function(){
     var _ = $(this),
@@ -301,6 +307,7 @@ function popupClose(){
     var target = $('.lh-popup'),
         mask = $('.lh-dimmed'),
         body = $('body');
+    
     body.css('overflow', '');
     target.fadeOut(500);
     mask.fadeOut(500);
@@ -400,9 +407,3 @@ $(function(){
         popupHeaderImg();
     });
 });
-
-// Logo
-$('.lh-logo').addClass('ani-line');
-setTimeout(function () {
-    $('.lh-logo').addClass('ani-color');
-}, 2000)
