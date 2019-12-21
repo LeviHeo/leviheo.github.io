@@ -12,7 +12,7 @@ illum 7
 
 newmtl Insert rear pic
 Kd 0 0 0
-map_Kd https://leviheo.github.io/webar/arjs/data/data/galaxy2.jpg
+map_Kd galaxy2.jpg
 Ks 1 1 1
 Ns 40
 illum 7
@@ -93,9 +93,9 @@ illum 7
 
 newmtl Insert Front pic
 Ka 0 0 0
-map_Ka https://leviheo.github.io/webar/arjs/data/data/galaxy2.jpg
+map_Ka galaxy2.jpg
 Kd 0 0 0
-map_Kd https://leviheo.github.io/webar/arjs/data/data/galaxy2.jpg
+map_Kd galaxy2.jpg
 Ks 1 1 1
 Ns 40
 illum 7
