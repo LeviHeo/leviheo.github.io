@@ -6,20 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
-<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
+<!-- AR.js demo based on the tutorial created at github: https://github.com/jeromeetienne/ar.js -->
+<script src="https://aframe.io/releases/0.6.1/aframe.min.js"></script>
+<script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+
 <body style='margin : 0px; overflow: hidden;'>
-	<a-scene>
-        <a-assets>
-          <img id="my-image" src="https://mpng.pngfly.com/20180509/she/kisspng-samsung-galaxy-note-8-samsung-galaxy-s-plus-samsun-samsung-glaxy-s8-mockup-5af29e9b002f73.2646756515258497550008.jpg">
-        </a-assets>
-      
-        <!-- Using the asset management system. -->
-        <a-image src="#my-image"></a-image>
-      
-        <!-- Defining the URL inline. Not recommended but more comfortable for web developers. -->
-        <a-image src="another-image.png"></a-image>
-      </a-scene>
+  <a href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/1094264/HIRO.jpg">Open "http://bit.ly/2y4BJSu" on your desktop to use as a marker</a>
+  <a-scene embedded arjs='sourceType: webcam;'>
+      <a-marker preset='hiro'>
+<!--    Personalized model     -->
+        <a-entity 
+            scale="1.5, 1.5, 1.5" position="0,0,0" rotation="-90, 0, 0" obj-model="obj: url(https://leviheo.github.io/webar/arjs/data/data/galaxy.obj);" material="color: #A52A2A">
+        </a-entity>
+      </a-marker>
+  <a-entity camera>
+  </a-entity>
+  </a-scene>
 </body>
 
 
