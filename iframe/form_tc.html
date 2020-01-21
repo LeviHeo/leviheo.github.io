@@ -412,7 +412,9 @@ document.getElementById('form_output6_rfvNumeric').dispose = function() {
           alert(message, parentIFrame.getId())
         }
       }
+
       if ('parentIFrame' in window) window.parentIFrame.sendMessage('form-unpacked');
+      setTimeout(function(){if ('parentIFrame' in window) window.parentIFrame.scrollTo(0,0);}, 2000);
   </script>
 
 
