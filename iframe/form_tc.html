@@ -417,6 +417,10 @@ document.getElementById('form_output6_rfvNumeric').dispose = function() {
     $('#goregi').on('click', function(){
       if ('parentIFrame' in window) window.parentIFrame.sendMessage('form-unpacked');return false;
     });
+
+    $(function(){
+        if ('parentIFrame' in window) window.parentIFrame.sendMessage('go-top');return false;
+    })
   </script>
 
 
