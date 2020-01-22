@@ -407,10 +407,12 @@ document.getElementById('form_output6_rfvNumeric').dispose = function() {
 
 
   <script>
-      $(function(){
+    $(function(){
+        setTimeout(function(){
         if ('parentIFrame' in window) window.parentIFrame.sendMessage('form-unpacked');
-      })
-    </script>
+        }, 1000);
+    })
+</script>
 
 
 <a
