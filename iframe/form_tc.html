@@ -406,16 +406,17 @@ document.getElementById('form_output6_rfvNumeric').dispose = function() {
 
 
 
-    <script>
-      var iFrameResizer = {
-        onMessage: function(message) {
-          alert(message, parentIFrame.getId())
+  <script>
+      $(function(){
+        var windowW = $(window).width();
+        if(windowW < 768) {
+          setTimeout(function(){
+            if ('parentIFrame' in window) window.parentIFrame.sendMessage('gototop');
+            if ('parentIFrame' in window) window.parentIFrame.scrollTo(0,0);
+          }, 1000);
         }
-      }
-
-      if ('parentIFrame' in window) window.parentIFrame.sendMessage('form-unpacked');
-      setTimeout(function(){if ('parentIFrame' in window) window.parentIFrame.scrollTo(0,0);}, 2000);
-  </script>
+      })
+    </script>
 
 
 <a
