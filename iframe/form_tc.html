@@ -408,13 +408,7 @@ document.getElementById('form_output6_rfvNumeric').dispose = function() {
 
   <script>
       $(function(){
-        var windowW = $(window).width();
-        if(windowW < 768) {
-          setTimeout(function(){
-            if ('parentIFrame' in window) window.parentIFrame.sendMessage('form-unpacked');
-            if ('parentIFrame' in window) window.parentIFrame.scrollTo(0,0);
-          }, 1000);
-        }
+        if ('parentIFrame' in window) window.parentIFrame.sendMessage('form-unpacked');
       })
     </script>
 
