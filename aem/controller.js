@@ -5,7 +5,7 @@ if (typeof(element) != 'undefined' && element != null){
     // Add Stylesheet
     var style = document.createElement('link'),
     ref = document.querySelector('script');
-    setAttributes(style, { 'id': 'cpt-style', 'href': 'https://leviheo.github.io/aem/controller.min.css', 'rel':'stylesheet', 'type':'text/css' });
+    setAttributes(style, { 'id': 'cpt-style', 'href': 'https://leviheo.github.io/aem/controller.css', 'rel':'stylesheet', 'type':'text/css' });
     ref.parentNode.insertBefore(style, ref);
 
     // Get Current page title
