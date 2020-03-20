@@ -44,7 +44,8 @@ if (typeof (element) != 'undefined' && element != null) {
     // Add Stylesheet
     var style = document.createElement('link'),
         ref = document.querySelector('script');
-    setAttributes(style, { 'id': 'cpt-style', 'href': '/controller.min.css', 'rel': 'stylesheet', 'type': 'text/css' });
+    setAttributes(style, { 'id': 'cpt-style', 'href': 'https://leviheo.github.io/aem/cheet.css', 'rel': 'stylesheet', 'type': 'text/css' });
+    //  https://leviheo.github.io/aem/cheet.css
     ref.parentNode.insertBefore(style, ref);
 
     // Get Current page info
