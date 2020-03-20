@@ -7,24 +7,29 @@ if (typeof String.prototype.startsWith != 'function') {
 }
 
 var siteStatus,
-    site_AEM = "https://aem.samsung.com/",
-    site_QA = "https://qaweb.samsung.com/",
-    site_Live = "https://www.samsung.com/",
+    site_AEM    = "https://aem.samsung.com/",
+    site_QA     = "https://qaweb.samsung.com/",
+    site_Live   = "https://www.samsung.com/",
+    status_AEM  = "AEM",
+    status_QA   = "QA",
+    status_Live = "LIVE",
     lang,
     path;
 
 if (document.location.href.startsWith(site_AEM)) {
-    siteStatus = "AEM";
-    path = window.location.href.replace(site_AEM, '');
+    siteStatus = status_AEM;
+    path       = window.location.href.replace(site_AEM, '');
 } else if (document.location.href.startsWith(site_Live)) {
-    siteStatus = "LIVE";
-    path = window.location.href.replace(site_Live, '');
+    siteStatus = status_QA;
+    path       = window.location.href.replace(site_Live, '');
 } else if (document.location.href.startsWith(site_QA)) {
-    siteStatus = "QA";
-    path = window.location.href.replace(site_QA, '');
+    siteStatus = status_QA;
+    path       = window.location.href.replace(site_QA, '');
 } else {
     siteStatus = "LOCAL";
 }
+
+console.log(siteStatus);
 
 // Check -- Language
 var routerHK = '/hk/',
@@ -52,7 +57,7 @@ if (typeof (element) != 'undefined' && element != null) {
     var pageTit      = document.querySelector('title').innerHTML;
     var pageDesc     = getMeta('description');
     var pageKeyword  = getMeta('keywords');
-    var pageSitecode = getMeta('sitecode');
+    var pageSitecode = lang; //getMeta('sitecode');
 
     // Add Buttons
     function btnDiv(txt, func) {return '<div class="btns-item" onclick="javascript:' + func + '();">' + txt + '</div>';}
@@ -60,7 +65,8 @@ if (typeof (element) != 'undefined' && element != null) {
         btn_PreviewQA  = btnDiv('Preview QA', 'openPreviewQA'),
         btn_SwitchLang = btnDiv('Switch Language', 'switchLang'),
         btn_CreateTask = btnDiv('Create Task', 'createTask'),
-        btn_ViewTask   = btnDiv('View Task', 'viewTask');
+        btn_ViewTask   = btnDiv('View Task', 'viewTask'),
+        btn_SearchTask = btnDiv('Search Task', 'searchTask');
     
     function detailRow(list, data) {
         return '<div class="cpt-detail-row">' +
@@ -95,8 +101,8 @@ if (typeof (element) != 'undefined' && element != null) {
                         '</div>' +
                         '<div class="cpt-detail-dt">' +
                             '<div class="cpt-detail-qr">' +
-                                '<div class="cpt-qr-item"><div class="cpt-qr-item_tit">QA</div><div class="cpt-qr-item_img"><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+site_QA+path+'"/></div></div>' +
-                                '<div class="cpt-qr-item"><div class="cpt-qr-item_tit">Live</div><div class="cpt-qr-item_img"><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+site_Live+path+'"/></div></div>'+
+                                '<div class="cpt-qr-item"><div class="cpt-qr-item_tit">QA</div><div class="cpt-qr-item_img"><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+site_QA+lang+'/'+path+'"/></div></div>' +
+                                '<div class="cpt-qr-item"><div class="cpt-qr-item_tit">Live</div><div class="cpt-qr-item_img"><img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data='+site_Live+lang+'/'+path+'"/></div></div>'+
                             '</div>' +
                         '</div>'+
                     '</div>'+
@@ -108,6 +114,7 @@ if (typeof (element) != 'undefined' && element != null) {
                     btn_SwitchLang +
                     btn_CreateTask +
                     btn_ViewTask +
+                    btn_SearchTask +
             '</div></div>' +
         '</div>';
     
@@ -180,18 +187,36 @@ function viewTask() {
     window.open("https://aem.samsung.com/notifications.html");
 }
 
+function searchTask() {
+    var innerpop = document.createElement('div');
+    innerpop.setAttribute('id', 'cpt-inner-pop');
+    innerpop.innerHTML =
+        '<div class="popups-inner">' +
+            '<div class="popups-tit">Please enter the Requester ID.</div>' +
+            '<div class="popups-cont"><div class="popups-input"><input name="requester" id="find-requester" /></div></div>' +
+            '<div class="popups-btns"><a href="javascript:closeInPopup();">Back</a></div>'+
+        '</ div> ';
+
+    document.body.appendChild(innerpop);
+    setTimeout(function () { setAttributes(innerpop, { 'class': 'on-active' }); }, 100);
+
+    var inputel = document.getElementById('find-requester');
+    inputel.focus();
+    inputel.addEventListener('keypress', function(event) {
+        if (event.keyCode == 13) {
+            event.preventDefault();
+            var requester = inputel.value;
+            window.open("https://aem.samsung.com/aem/taskmanagement?_charset_=utf-8&task=alltask&siteCode=all&taskStatus=RUNNING&searchKey=requestedBy&keyword="+requester);
+        }
+    });
+}
+
 function closePopup() {
     setTimeout(function () {
-        setAttributes(mask, {
-            'class': ''
-        });
-        setAttributes(btns, {
-            'class': ''
-        });
-        setAttributes(infoHead, {
-            'class': ''
-        });
-    }, 500);
+        setAttributes(mask, {'class': ''});
+        setAttributes(btns, {'class': ''});
+        setAttributes(infoHead, {'class': ''});
+    }, 100);
     setTimeout(function () {
         remove("cpt-close");
         remove("cpt-style");
@@ -200,38 +225,44 @@ function closePopup() {
     }, 800);
 }
 
+function closeInPopup() {
+    var innerpop = document.getElementById('cpt-inner-pop');
+    setTimeout(function () {
+        setAttributes(innerpop, {'class': ''});
+    }, 100);
+    setTimeout(function () {
+        remove("cpt-inner-pop");
+    }, 500);
+}
+
 function getMeta(metaName) {
     const metas = document.getElementsByTagName('meta');
-  
+
     for (let i = 0; i < metas.length; i++) {
-      if (metas[i].getAttribute('name') === metaName) {
+        if (metas[i].getAttribute('name') === metaName) {
         return metas[i].getAttribute('content');
-      }
+        }
     }
-  
+
     return '';
-  }
+}
+
+function taskInput(siteCode) {
+    $('.coral-SelectList-item--option[data-value="'+siteCode+'"]').click();
+    $('.coral-SelectList-item--option[id="coral-66"]').click();
+    setTimeout(function(){$('#dueDate').find('li.coral-SelectList-item--option').click();}, 500);
+    var today = new Date();
+    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+    $('input[name="requestTitle"]').val('New Task '+ date);
+    $('.coral-TabPanel-navigation').find('a:nth-child(2)').click();
+    $('.coral-SelectList-item--option[data-value="DP"]').click();
+    $('.coral-SelectList-item--option[data-value="Static"]').click();
+    $('input[name="inputPath"]').focus();
+    $('input[name="pageTitle"]').val('New Task Title')
+}
 
 document.onkeydown = function () {
     if (window.event.keyCode == 27) {
         closePopup();
     }
 };
-
-/*
-
-Create Task
-
-$('.coral-SelectList-item--option[data-value="hk"]').click();
-$('.coral-SelectList-item--option[id="coral-66"]').click();
-setTimeout(function(){$('#dueDate').find('li.coral-SelectList-item--option').click();}, 500);
-var today = new Date();
-var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-$('input[name="requestTitle"]').val('New Task '+ date);
-$('.coral-TabPanel-navigation').find('a:nth-child(2)').click();
-$('.coral-SelectList-item--option[data-value="DP"]').click();
-$('.coral-SelectList-item--option[data-value="Static"]').click();
-$('input[name="inputPath"]').focus();
-$('input[name="pageTitle"]').val('New Task Title')
-
-*/
