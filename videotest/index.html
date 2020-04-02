@@ -31,13 +31,12 @@
         #clp-video .video-item.video-v {z-index:0;}
 
 
-        /* Mode Chnage */
+        /* Mode Change */
         #clp-video.mode-h .video-item.video-h {z-index:10;}
         #clp-video.mode-h .video-item.video-v {z-index:0;}
 
         #clp-video.mode-v .video-item.video-h {z-index:0;}
         #clp-video.mode-v .video-item.video-v {z-index:10;}
-
 
         #clp-video .video-info {position:absolute;top:10px;left:10px;z-index:500;color:#ffffff;font-family:Arial, Helvetica, sans-serif;}
     </style>
@@ -50,14 +49,14 @@
             <div id="clp-video" class="mode-h">
                 <div class="video-item video-h">
                     <video id="video-hori" playinline muted>
-                        <source src="videos/hori.mp4" type="video/mp4">
-                        <source src="videos/hori.mp4" type="video/ogg">
+                        <source src="./videos/hori.mp4" type="video/mp4">
+                        <source src="./videos/hori.mp4" type="video/ogg">
                     </video>
                 </div>
                 <div class="video-item video-v">
                     <video id="video-ver" playinline muted>
-                        <source src="videos/vertical.mp4" type="video/mp4">
-                        <source src="videos/vertical.mp4" type="video/ogg">
+                        <source src="./videos/vertical.mp4" type="video/mp4">
+                        <source src="./videos/vertical.mp4" type="video/ogg">
                     </video>
                 </div>
         
@@ -83,8 +82,7 @@
             $("#duration").text(duration)
         }
 
-
-        var GG = (function(){
+        var GAROSERO = (function(){
             var def = 'h';
             var popupWrap = $('.clp-popup-wrap');
             var videoWrap = $('#clp-video');
