@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video TEST</title>
+</head>
+<body>
+
+
+
+    <style>
+        * {padding:0;margin:0;}
+        html, body {width:100%;height:100%;text-align: center;}
+        video {display:block;}
+
+        .btn-show {display:inline-block;margin:0 auto;font-family: serif;font-size:20px;color:#000000;border:1px solid #000000;border-radius:3px;padding:5px 15px;margin:50px auto;cursor:pointer;}
+
+
+        .clp-popup-wrap {position:absolute;top:0;left:0;width:100%;height:100%;display:none;}
+        .clp-popup-inner {position:relative;width:100%;height:100%;}
+
+        .clp-popup-wrap.active {display:block;}
+
+        #clp-video {position:relative;width:100%;height:100%;}
+        #clp-video .video-item {position:absolute;display:flex;align-items:center;justify-items:center;top:0;left:0;width:100%;height:100%;background-color:red;text-align:center;}
+        #clp-video .video-item video {display:block;margin:0 auto;max-width:100%;max-height:100%;}
+
+
+        #clp-video .video-item.video-h {z-index:10;}
+        #clp-video .video-item.video-v {z-index:0;}
+
+
+        /* Mode Chnage */
+        #clp-video.mode-h .video-item.video-h {z-index:10;}
+        #clp-video.mode-h .video-item.video-v {z-index:0;}
+
+        #clp-video.mode-v .video-item.video-h {z-index:0;}
+        #clp-video.mode-v .video-item.video-v {z-index:10;}
+
+
+        #clp-video .video-info {position:absolute;top:10px;left:10px;z-index:500;color:#ffffff;font-family:Arial, Helvetica, sans-serif;}
+    </style>
+
+    <div class="btn-show">Play!</div>
+
+
+    <div class="clp-popup-wrap">
+        <div class="clp-popup-inner">
+            <div id="clp-video" class="mode-h">
+                <div class="video-item video-h">
+                    <video id="video-hori" playinline muted>
+                        <source src="videos/hori.mp4" type="video/mp4">
+                        <source src="videos/hori.mp4" type="video/ogg">
+                    </video>
+                </div>
+                <div class="video-item video-v">
+                    <video id="video-ver" playinline muted>
+                        <source src="videos/vertical.mp4" type="video/mp4">
+                        <source src="videos/vertical.mp4" type="video/ogg">
+                    </video>
+                </div>
+        
+                <div class="video-info">
+                    <div id="current">0:00</div>
+                    <div id="duration">0:00</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src='//unpkg.com/jquery@3.3.1/dist/jquery.min.js'></script>
+    <script>
+        $(document).ready(function(){
+            $("#video-hori").on("timeupdate",function(event){
+                onTrackedVideoFrame(this.currentTime, this.duration);
+            });
+        });
+
+        function onTrackedVideoFrame(currentTime, duration){
+            $("#current").text(currentTime);
+            $("#duration").text(duration)
+        }
+
+
+        var GG = (function(){
+            var def = 'h';
+            var popupWrap = $('.clp-popup-wrap');
+            var videoWrap = $('#clp-video');
+            var playBtn = $('.btn-show');
+            var h1 = $('.video-h');
+            var v1 = $('.video-v');
+
+            var QQ = {
+                init: function(){
+                    QQ.playBtn();
+                    QQ.resize();
+                },
+                playBtn: function(){
+                    playBtn.on('click', function(){
+                        popupWrap.addClass('active');
+                    });
+                    QQ.play(def);
+                },
+                play:function(w){
+                    $('.video-'+w).find('video')[0].play();
+                },
+                resize: function(){
+                    $(window).resize(function(){
+                        var windowW = $(window).width();
+                        var windowH = $(window).height();
+                        
+                        if(windowW < windowH) {
+                            console.log('changed to vertical');
+                            videoWrap.removeClass('mode-h').addClass('mode-v');
+                            h1.find('video')[0].pause();
+                            v1.find('video')[0].play();
+                        }
+
+                        if(windowW > windowH) {
+                            console.log('changed to horizon');
+                            videoWrap.removeClass('mode-v').addClass('mode-h');
+                            v1.find('video')[0].pause();
+                            h1.find('video')[0].play();
+                        }
+                    });
+                }            
+            }
+
+            QQ.init();
+        })();
+
+
+
+       
+
+       
+    </script>
+
+    
+</body>
+</html>
