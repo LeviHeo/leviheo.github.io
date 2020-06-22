@@ -56,7 +56,7 @@
                                 "img_d_tag":"description",
                                 "img_m": "./images/plan/detail_m.jpg",
                                 "img_m_tag":"description",
-                                "link":"/hotspot.html?region=1&city=6&sight=6"
+                                "link":"./hotspot.html?region=1&city=6&sight=6"
                             }
                         ],
                         "route":[
@@ -99,7 +99,7 @@
                                 "img_d_tag":"description",
                                 "img_m": "./images/plan/detail_m.jpg",
                                 "img_m_tag":"description",
-                                "link":"/hotspot.html?region=1&city=6&sight=6"
+                                "link":"./hotspot.html?region=1&city=6&sight=6"
                             }
                         ],
                         "route":[
