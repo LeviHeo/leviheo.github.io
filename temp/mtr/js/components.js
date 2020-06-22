@@ -233,8 +233,8 @@ var hsrTopBanner = {
                 </div>\
                 <div class="topbanner-deco">\
                     <div>\
-                        <img :src="\'/images/common/sections/deco-top/\'+page+\'/bg_topbanner_btm.png\'" alt="" class="br767"/>\
-                        <img :src="\'/images/common/sections/deco-top/\'+page+\'/bg_topbanner_btm_m.png\'" alt="" class="view767"/>\
+                        <img :src="\'./images/common/sections/deco-top/\'+page+\'/bg_topbanner_btm.png\'" alt="" class="br767"/>\
+                        <img :src="\'./images/common/sections/deco-top/\'+page+\'/bg_topbanner_btm_m.png\'" alt="" class="view767"/>\
                     </div>\
                 </div>\
                 <div class="topbanner-txt swiper-container">\
@@ -271,8 +271,8 @@ var hsrSubTopBanner = {
                 </div>\
                 <div class="topbanner-deco">\
                     <div>\
-                        <img :src="\'/images/common/sections/deco-top/\'+page+\'/bg_topbanner_btm.png\'" alt="" class="br767"/>\
-                        <img :src="\'/images/common/sections/deco-top/\'+page+\'/bg_topbanner_btm_m.png\'" alt="" class="view767"/>\
+                        <img :src="\'./images/common/sections/deco-top/\'+page+\'/bg_topbanner_btm.png\'" alt="" class="br767"/>\
+                        <img :src="\'./images/common/sections/deco-top/\'+page+\'/bg_topbanner_btm_m.png\'" alt="" class="view767"/>\
                     </div>\
                 </div>\
             </div>\
