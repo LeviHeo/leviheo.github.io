@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="zh-HK" itemscope="" itemtype="https://schema.org/WebPage">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高速鐵路</title>
+    <meta name="country" content="China">
+    <meta name="city" content="Hong Kong">
+    <meta name="robots" content="index,follow">
+    <meta name="copyright" content="香港鐵路有限公司">
+    <meta name="author" content="香港鐵路有限公司">
+    <link rel="icon" href="./images/common/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="./images/common/favicon.ico" type="image/x-icon">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WCCFW98');</script>
+
+    <link rel="stylesheet" href="/css/style.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/theme.min.css" type="text/css">
+    <script src="/js/lib/jquery.min.js" defer type="text/javascript"></script>
+
+</head>
+<body class="font-size-m">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WCCFW98" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="wrap sub-page" id="hsr">
+        <hsr-top :top="topmenu" :page="pageid" :article="articleId"></hsr-top>
+        <sub-top-banner :banners="banners" :page="pageid"></sub-top-banner>
+        <main id="primary" class="contents" aria-label="content" aria-label="content">
+            <div class="blind" id="a-primary-focus" v-html="text.skipAnchorMain" role="main"></div>
+            <hsr-breadcrumb :root="topmenu[0].name" :depth1="depth1" :depth1link="depth1link" :current="cateList"></hsr-breadcrumb>
+            <hsr-breadcrumb-prev :goto="depth1link" :gototxt="text.btnGoPrev"></hsr-breadcrumb-prev>
+            <div class="sec-bg">
+                <section id="theme-list">
+                    <div class="sec-inner">
+                        <section-tit :title="pagetitle" :img="pageid" class="hide-line"></section-tit>
+                        <article class="sec-contents">
+                            <div class="sec-cont-search">
+                                <div class="hsr-drop selected">
+                                    <a href="javascript:;" class="hsr-input drop-list-crr">
+                                        <span v-if="dropSelected.length == 0" v-html="text.selectDefault"></span>
+                                        <span v-else v-html="cateList"></span>
+                                    </a>
+
+                                    <div class="drop-list" tabindex="-1">
+                                        <ul role="listbox">
+                                            <li role="presentation" @click="dropOption(articleCate, 'all')" tabindex="0" v-html="text.selectAll"></li>
+                                            <li v-for="(item, idx) in articleCate" role="presentation" @click="dropOption(articleCate, idx)" v-on:keyup.enter="dropOption(articleCate, idx)" tabindex="0" v-html="item.label"></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <form action="javascript:void(0);" role='search'>
+                                    <div class="search-keyword">
+                                        <div class="hsr-input">
+                                            <input type="text" name="keyword" ref="keyword" v-model="searchkeywordAuto" :placeholder="text.searchbox" autocomplete="off" />
+                                            <button class="btn-search" @click="gosearch()" aria-label="search"><span v-html="text.searchBtn" class="blind"></span></button>
+                                        </div>
+                                        <div class="search-list-auto load-list">
+                                            <ul role="listbox">
+                                                <li v-for="(item, idx) in autosearch" :key="idx" :ref="'result'+idx" role="presentation" tabindex="0" @click="gosearch(item.tit)" v-on:keyup.enter="gosearch(item.tit)" @keydown="modelist">
+                                                    <div class="list-auto-option" role="option">
+                                                        <div v-html="item.tit" class="auto-result-tit auto-option-1"></div><div v-html="item.desc"  class="auto-option-2"></div>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="search-list">
+                                <div class="result-msg">
+                                    <span v-html="searchmessage"></span>
+                                </div>
+                                <ul class="article-list">                                    
+                                    <li v-if="idx < listShow" v-for="(item, idx) in articleListFilter" :key="idx">
+                                        <div class="article-list-item" tabindex="0">
+                                            <div class="article-list-item_cont">
+                                                <div class="article-list_thumb">
+                                                    <a class="btn-mobile-area" :href="'/theme-detail.html?article='+item.id" tabindex="-1">
+                                                        <img :src="item.img_d" :alt="item.img_d_tag?item.img_d_tag:''" class="br767"/>
+                                                        <img :src="item.img_m" :alt="item.img_m_tag?item.img_m_tag:''" class="view767"/>
+                                                        <span class="blind" v-html="item.tit?item.tit:'了解更多'"></span>
+                                                    </a>
+                                                </div>
+                                                <div class="article-list_text">
+                                                    <div class="article-list_text-in">
+                                                        <div class="btn-like type-white" :class="[isLikeActive([pageid, item.id])?'i-like':'']" :data-article-section="pageid" :data-article-id="item.id" @click="countlike([pageid, item.id])" tabindex="0">
+                                                            <i class="ico-heart"></i><span class="like-count" v-html="isLikeActiveCnt([pageid, item.id])"></span>
+                                                        </div>
+
+                                                        <a class="btn-mobile-area" :href="'/theme-detail.html?article='+item.id" tabindex="-1">
+                                                            <div class="article-list_cate-label" v-if="item.label">
+                                                                <div class="article-list_cate-label-in">
+                                                                    <span class="cate-label_txt" v-html="item.label"></span>
+                                                                    <div class="cate-label_bg">
+                                                                        <div :style="'background-color:'+item.color"></div>
+                                                                        <div :style="'background-color:'+item.color"></div>
+                                                                        <div :style="'background-color:'+item.color"></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <h4 class="article-list_tit" v-html="item.tit"></h4>
+                                                        </a>
+                                                        <p class="article-list_desc" v-html="item.desc"></p>
+                                                        <div class="article-list_btn">
+                                                            <btn-cirlce :txt="text.btnDetail" :link="'/theme-detail.html?article='+item.id" class="type-white"></btn-cirlce>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="article-list-item_bg"></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <btn-loadmore :max="listTotal" :show="listShow" :txt="text.btnLoadmore"></btn-loadmore>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+                <div class="sec-bg-group">
+                    <div class="sec-bg-group__inner">
+                        <div class="bg-item-top"></div>
+                        <div class="bg-item-circle5"></div>
+                        <div class="bg-item-circle6"></div>
+                        <div class="bg-item-circle7"></div>
+                        <div class="bg-item-btm">
+                            <div id="canvas-container"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <hsr-foot :footmenulist="footmenu":aside="asides" :backtotop="text.btnBackTop" :agencylist="agency" :copytxt="text.fcopy"></hsr-foot>
+    </div>
+
+    <script type="text/javascript">
+    ;(function(win,doc,callback){'use strict';callback=callback||function(){};function detach(){if(doc.addEventListener){doc.removeEventListener('DOMContentLoaded',completed)}else{doc.detachEvent('onreadystatechange',completed)}}function completed(){if(doc.addEventListener||event.type==='load'||doc.readyState==='complete'){detach();callback(window,window.jQuery)}}function init(){if (doc.addEventListener){doc.addEventListener('DOMContentLoaded',completed)}else{doc.attachEvent('onreadystatechange',completed)}}init()})(window,document,function(win,$){
+        $.ajaxSetup({cache:true});
+        $.ajax('./js/lib/vue.js')
+        .then(function(){return $.ajax('./js/lib/snap.min.js')})
+        .then(function(){return $.ajax('./js/lib/inview.min.js')})
+        .then(function(){return $.ajax('./js/lib/qrcode.min.js')})
+        .then(function(){return $.ajax('./js/lib/cookie.min.js')})
+        .then(function(){return $.ajax('./js/components.js')})
+        .then(function(){return $.ajax('./js/common.js')})
+        .then(function(){
+            //Page Set : Sub Page Only
+            var pageid = 'theme'; 
+            $.each(MTR.topmenu, function(index, item){
+                if(item.id == pageid) {
+                    MTR.pagetitle  = item.name;
+                    MTR.pageid     = item.id;
+                    MTR.depth1     = item.name;
+                    MTR.depth1link = item.link;
+                    MTR.articleId  = 'theme-list';
+                }
+            })
+
+            var getList = $.getJSON('./data/theme-category.json', function(data){
+                return MTR.articleCate = data;
+            });
+            
+            var getList = $.getJSON('./data/theme-list.json', function(data){
+                return MTR.articleList = data;
+            });
+
+            setTimeout(function(){
+                MTR.breadcrumb = MTR.text.selectAll;
+            },100)            
+
+            if(QueryString.category){
+                MTR.dropSelected = QueryString.category;
+                MTR.dropSelectedDepth = "1";
+            }
+        })
+    });
+    </script>
+
+</body>
+</html>

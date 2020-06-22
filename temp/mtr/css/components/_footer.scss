@@ -1,0 +1,85 @@
+footer {
+    position:relative;    
+    padding:60px;
+    background-color:$color-mtr-blue;
+    font-family: $font-desc;
+    text-align:center;
+    color:#ffffff;
+
+    @include res(tablets){
+        padding:60px 15px;
+    }
+
+    @include res(phones){
+        padding:10vw 0vw;
+    }
+
+    .footer-nav {
+        text-align: center;
+        width:640px;
+        max-width:100%;
+        margin:0 auto 20px;
+        ul {
+            display:flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            li {
+                width:25%;
+                min-width:25%;
+                position:relative;
+                display: inline-block;
+                margin-bottom:20px;
+                a {
+                    display: inline-block;
+                    vertical-align: middle;
+                    min-width:124px;
+                    padding:10px 20px;
+                    font-family: $font-default;
+                    color:#ffffff;
+                    font-size:14px;
+                    line-height:1.2;
+                    text-decoration:none;
+
+                    &:hover {
+                        color:$color-hsr-orange;
+                    }
+                }
+                &:after {
+                    content:"";
+                    display:block;
+                    position:absolute;
+                    top:50%;
+                    right:-1px;
+                    transform: translateY(-50%);
+                    width:2px;
+                    height:30px;
+                    background-color: #fff;
+                }
+
+                &:nth-child(4n), &:last-child {
+                    &:after {
+                        display: none;
+                    }
+                }
+
+                @include res(phones){
+                   margin-bottom:3.5vw;
+                   a {
+                       min-width:3vw;
+                       padding:2vw;
+                       font-size:2.4vw;
+                   }
+                   &:after {
+                    height:5vw;
+                   }
+                }
+            }
+        }
+    }
+    .menu-index {display:none;visibility: hidden;}
+
+    .footer-copy {
+        font-family: $font-default;
+        font-size: 14px;
+    }
+}

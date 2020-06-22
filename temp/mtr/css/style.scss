@@ -1,0 +1,137 @@
+@import './lib/all';
+@import './settings/all';
+@import './components/all';
+@import './sections/all';
+
+/* Web Accessibility */
+.a11y-on {
+    a, button, input, textarea {
+        &:focus, &:active {outline: 2px solid $color-hsr-orange;}
+    } 
+}
+
+a{
+    color:$color-hsr-orange;
+    text-decoration:none;
+    &:active {
+        outline:none;
+        color:$color-hsr-orange;
+    }
+}
+
+.blind {position: absolute;height: 1px;width: 1px;overflow: hidden;clip: rect(1px 1px 1px 1px);clip: rect(1px, 1px, 1px, 1px);}
+
+/* i11 fix */
+.ie11-show {display:none;}
+.ie11 {
+    .ie11-hidden {
+        display:none;
+        visibility: hidden;
+    }
+    .ie11-show {
+        display:block;
+        visibility: visible;
+    }
+}
+
+#hsr {
+    /* Banner */
+    .banner-container {
+        /* Static */
+        .banner {
+            background: #e5e5e5;
+            width: 100%;
+            height: 300px;
+        }
+
+        /* Swiper */
+        .desc {
+            position: relative;
+            z-index: 5;
+
+            .banner-desc {
+                top: 0;
+                position: absolute;
+                width: 50%;
+            }
+        }
+
+        .swiper-container {
+            width: 100%;
+            height: 500px;
+    
+          .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #eeeeee;
+          
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+          }
+    
+            &.banner-desc {
+                .swiper-slide {
+                    background: transparent;
+                }
+            }
+    
+            /* demo only */
+            $base-color: #036;
+    
+            &.banner {
+                .swiper-wrapper {
+                    .swiper-slide {
+                        @for $i from 1 through 3 {
+                            &:nth-child(3n + #{$i}) {
+                                background-color: lighten($base-color, $i * 20%);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    
+          .swiper-pagination-bullet {
+            background: transparent;
+            border: 1px solid transparent;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            font-size: 12px;
+            color:#000;
+          }
+          .swiper-pagination-bullet-active {
+            border-color: grey;
+          }
+    
+        .wave {
+            bottom: 0;
+            margin-bottom: -3px;
+            position: absolute;
+            width: 100%;
+            z-index: 1;
+    
+            .wavies > use{
+                animation: waveAround 12s linear infinite;
+                animation-delay:-2s;
+                }
+                
+                @keyframes waveAround{
+                0% { transform: translate(-90px , 0%) }
+                100% { transform: translate(35px , 0%) }
+            }
+        }
+    }
+}

@@ -1,0 +1,138 @@
+[
+    {
+        "id"         : "1",
+        "cateId"       : "1",
+        "label"      : "季節旅遊",
+        "tit"        : "桂林不一樣的山水之旅1",
+        "img_d"    : "./images/theme/detail_heading.jpg",
+        "img_d_tag": "Tag",
+        "img_m"  : "./images/theme/detail_heading_m.jpg",
+        "img_m_tag": "Tag",
+        "desc": "1欣賞山水好風光如果你認為桂林只有靜態山水，你就錯了。桂林山水除了可以「遊」，也真的可以「玩」！立即看看以下景點推介，必定令你意想不到。",
+        "sections"   : [
+            {
+                "id": "32",
+                "secTit" : "01/ 刺激陽朔飛拉達攀岩",
+                "secCont": "飛拉達攀岩線路總長 720 米，全程體驗時間約為 1.5 小時至 2 小時，難度介乎 F（容易）和 PD（略難），適合年齡 7 至 60 歲遊客體驗，不需要戶外運動基礎，現場教學，容易攀登。 攀岩前做足安全措施，帶好頭盔、手套及鋼索安全繩。只要留心教練指導， 大概學習 20 分鐘就可以攀上垂直懸崖。地址：桂林市陽朔縣 066 鄉道南（遇龍河生態公園門口對面）<br/><br/>營業時間：早上 8:30 至晚上 6:30",
+                "secImg" : [
+                    "./images/theme/detail_section_thumb.jpg",
+                    "./images/theme/detail_section_thumb.jpg",
+                    "./images/theme/detail_section_thumb.jpg",
+                    "./images/theme/detail_section_thumb.jpg"
+                ],
+                "secImgTag": [
+                    "1-1ss",
+                    "1-2aaaaaa",
+                    "aa",
+                    "aa"
+                  ]
+            },
+            {
+                "id": "32",
+                "secTit" : "02/ 刺激陽朔飛拉達攀岩",
+                "secCont": "2飛拉達攀岩線路總長 720 米，全程體驗時間約為 1.5 小時至 2 小時，難度介乎 F（容易）和 PD（略難），適合年齡 7 至 60 歲遊客體驗，不需要戶外運動基礎，現場教學，容易攀登。 攀岩前做足安全措施，帶好頭盔、手套及鋼索安全繩。只要留心教練指導， 大概學習 20 分鐘就可以攀上垂直懸崖。地址：桂林市陽朔縣 066 鄉道南（遇龍河生態公園門口對面）<br/><br/>營業時間：早上 8:30 至晚上 6:30",
+                "secImg" : [
+                    "./images/theme/detail_section_thumb.jpg",
+                    "./images/theme/detail_section_thumb.jpg",
+                    "./images/theme/detail_section_thumb.jpg"
+                ],
+                "secImgTag": [
+                    "2-1ss",
+                    "2-2aaaaaa",
+                    "aa"
+                  ]
+            },
+            {
+                "secTit" : "03/ 刺激陽朔飛拉達攀岩",
+                "secCont": "3飛拉達攀岩線路總長 720 米，全程體驗時間約為 1.5 小時至 2 小時，難度介乎 F（容易）和 PD（略難），適合年齡 7 至 60 歲遊客體驗，不需要戶外運動基礎，現場教學，容易攀登。 攀岩前做足安全措施，帶好頭盔、手套及鋼索安全繩。只要留心教練指導， 大概學習 20 分鐘就可以攀上垂直懸崖。地址：桂林市陽朔縣 066 鄉道南（遇龍河生態公園門口對面）<br/><br/>營業時間：早上 8:30 至晚上 6:30",
+                "secImg" : [
+                    "./images/theme/detail_section_thumb.jpg"
+                ],
+                "secImgTag": [
+                    "ss"
+                  ]
+            }
+        ],
+        "tnc":"",
+        "banner": [
+            {
+                "tit"   : "1體驗不一樣的高鐵旅程",
+                "desc"  : "高鐵連接香港與內地多個站點，毋須轉車可以去到更多地方，體驗不一樣的高鐵旅程。 ",
+                "img_d"   : "./images/theme/btm.jpg",
+                "img_d_tag":"qweqweqwe",
+                "img_m" : "./images/theme/btm_m.jpg",
+                "img_m_tag" : "image description",
+                "link"  : "#",
+                "btnTxt": "立即購票"
+            }
+        ]
+    },
+    {
+        "id"         : "2",
+        "cateId"       : "1",
+        "label"      : "季節旅遊",
+        "tit"        : "桂林不一樣的山水之旅2",
+        "img_d"    : "./images/theme/detail_heading.jpg",
+        "img_d_tag": "Tag",
+        "img_m"  : "./images/theme/detail_heading_m.jpg",
+        "img_m_tag": "Tag",
+        "desc": "2欣賞山水好風光如果你認為桂林只有靜態山水，你就錯了。桂林山水除了可以「遊」，也真的可以「玩」！立即看看以下景點推介，必定令你意想不到。",
+        "sections"   : [
+            {
+                "id": "32",
+                "secTit" : "01/ qwewqe刺激陽朔飛拉達攀岩",
+                "secCont": "飛拉qwewqeqwe達攀岩線路總長 720 米，全程體驗時間約為 1.5 小時至 2 小時，難度介乎 F（容易）和 PD（略難），適合年齡 7 至 60 歲遊客體驗，不需要戶外運動基礎，現場教學，容易攀登。 攀岩前做足安全措施，帶好頭盔、手套及鋼索安全繩。只要留心教練指導， 大概學習 20 分鐘就可以攀上垂直懸崖。地址：桂林市陽朔縣 066 鄉道南（遇龍河生態公園門口對面）<br/><br/>營業時間：早上 8:30 至晚上 6:30",
+                "secImg" : [
+                    "./images/theme/detail_section_thumb.jpg",
+                    "./images/theme/detail_section_thumb.jpg",
+                    "./images/theme/detail_section_thumb.jpg",
+                    "./images/theme/detail_section_thumb.jpg"
+                ],
+                "secImgTag": [
+                    "1-1ss",
+                    "1-2aaaaaa",
+                    "aa",
+                    "aa"
+                  ]
+            },
+            {
+                "id": "32",
+                "secTit" : "02/ qweqwe刺激陽朔飛拉達攀岩",
+                "secCont": "2飛拉qwewqewqe達攀岩線路總長 720 米，全程體驗時間約為 1.5 小時至 2 小時，難度介乎 F（容易）和 PD（略難），適合年齡 7 至 60 歲遊客體驗，不需要戶外運動基礎，現場教學，容易攀登。 攀岩前做足安全措施，帶好頭盔、手套及鋼索安全繩。只要留心教練指導， 大概學習 20 分鐘就可以攀上垂直懸崖。地址：桂林市陽朔縣 066 鄉道南（遇龍河生態公園門口對面）<br/><br/>營業時間：早上 8:30 至晚上 6:30",
+                "secImg" : [
+                    "./images/theme/detail_section_thumb.jpg",
+                    "./images/theme/detail_section_thumb.jpg",
+                    "./images/theme/detail_section_thumb.jpg"
+                ],
+                "secImgTag": [
+                    "2-1ss",
+                    "2-2aaaaaa",
+                    "aa"
+                  ]
+            },
+            {
+                "secTit" : "03/qweqwewqe 刺激陽朔飛拉達攀岩",
+                "secCont": "3飛拉qweqwe達攀岩線路總長 720 米，全程體驗時間約為 1.5 小時至 2 小時，難度介乎 F（容易）和 PD（略難），適合年齡 7 至 60 歲遊客體驗，不需要戶外運動基礎，現場教學，容易攀登。 攀岩前做足安全措施，帶好頭盔、手套及鋼索安全繩。只要留心教練指導， 大概學習 20 分鐘就可以攀上垂直懸崖。地址：桂林市陽朔縣 066 鄉道南（遇龍河生態公園門口對面）<br/><br/>營業時間：早上 8:30 至晚上 6:30",
+                "secImg" : [
+                    "./images/theme/detail_section_thumb.jpg"
+                ],
+                "secImgTag": [
+                    "ss"
+                  ]
+            }
+        ],
+        "tnc":"",
+        "banner": [
+            {
+                "tit"   : "2體驗不一樣的高鐵旅程",
+                "desc"  : "高鐵連接香港與內地多個站點，毋須轉車可以去到更多地方，體驗不一樣的高鐵旅程。 ",
+                "img_d"   : "./images/theme/btm.jpg",
+                "img_d_tag":"qweqweqwe",
+                "img_m" : "./images/theme/btm_m.jpg",
+                "img_m_tag" : "image description",
+                "link"  : "#",
+                "btnTxt": "立即購票"
+            }
+        ]
+    }
+]

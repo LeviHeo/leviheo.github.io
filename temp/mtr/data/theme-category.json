@@ -1,0 +1,38 @@
+[
+    {
+        "cateId" : "4",
+        "label": "季節旅遊",
+        "color": "#f2b2b2",
+        "img_d"  : "./images/theme/ex.jpg",
+        "img_d_tag": "TagTag",
+        "img_m": "./images/theme/ex_m.jpg",
+        "img_m_tag": "TagTagTag"
+    },
+    {
+        "cateId" : "1",
+        "label": "美食之旅",
+        "color": "#f4df9e",
+        "img_d"  : "./images/theme/ex.jpg",
+        "img_d_tag": "TagTag",
+        "img_m": "./images/theme/ex_m.jpg",
+        "img_m_tag": "TagTagTag"
+    },
+    {
+        "cateId" : "2",
+        "label": "親子旅遊",
+        "color": "#b1c9e0",
+        "img_d"  : "./images/theme/ex.jpg",
+        "img_d_tag": "TagTag",
+        "img_m": "./images/theme/ex_m.jpg",
+        "img_m_tag": "TagTagTag"
+    },
+    {
+        "cateId" : "3",
+        "label": "特色主題",
+        "color": "#cadca7",
+        "img_d"  : "./images/theme/ex.jpg",
+        "img_d_tag": "TagTag",
+        "img_m": "./images/theme/ex_m.jpg",
+        "img_m_tag": "TagTagTag"
+    }
+]

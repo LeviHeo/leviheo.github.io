@@ -1,0 +1,105 @@
+[
+    {
+        "pageid" : "home",
+        "banners": [
+            {
+                "tit"  : "你現在閱讀的1",
+                "desc" : "你現在閱讀的，並不是真的文案。這些文字，只顯示文案將會擺放的位置。",
+                "img"  : "./images/home/top.jpg",
+                "img_alt": "1111111",
+                "img_t": "./images/home/top_t.jpg",
+                "img_t_alt": "333333",
+                "img_m": "./images/home/top_m.jpg",
+                "img_m_alt": "222222",
+                "link" : "#"
+            },
+            {
+                "tit"  : "你現在閱讀的2",
+                "desc" : "你現在閱讀的，並不是真的文案。這些文字，只顯示文案將會擺放的位置。",
+                "img"  : "./images/home/top.jpg",
+                "img_alt": "1111111",
+                "img_t": "./images/home/top_t.jpg",
+                "img_t_alt": "333333",
+                "img_m": "./images/home/top_m.jpg",
+                "img_m_alt": "222222",
+                "link" : "#"
+            },
+            {
+                "tit"  : "你現在閱讀的3",
+                "desc" : "你現在閱讀的，並不是真的文案。這些文字，只顯示文案將會擺放的位置。",
+                "img"  : "./images/home/top.jpg",
+                "img_alt": "1111111",
+                "img_t": "./images/home/top_t.jpg",
+                "img_t_alt": "333333",
+                "img_m": "./images/home/top_m.jpg",
+                "img_m_alt": "222222",
+                "link" : "#"
+            }
+        ]
+    },
+    {
+        "pageid" : "hotspot",
+        "banners": [
+            {
+                "tit": null,
+                "desc": null,
+                "img"   : "./images/hotspot/top.jpg",
+                "img_alt": "img 1",
+                "img_t" : "./images/hotspot/top_t.jpg",
+                "img_t_alt": "333333",
+                "img_m":null,
+                "img_m_alt":null,
+                "link": null
+            }
+        ]
+    },
+    {
+        "pageid" : "theme",
+        "banners": [
+            {
+                "tit": null,
+                "desc": null,
+                "img"   : "./images/theme/top.jpg",
+                "img_alt": "img 1",
+                "img_t" : "./images/theme/top_t.jpg",
+                "img_t_alt": "img 3",
+                "img_m":null,
+                "img_m_alt":null,
+                "link": null
+            }
+        ]
+    },
+    {
+        "pageid" : "plan",
+        "banners": [
+            {
+                "tit": null,
+                "desc": null,
+                "img"   : "./images/plan/top.jpg",
+                "img_alt": "img 1",
+                "img_t" : "./images/plan/top_t.jpg",
+                "img_t_alt": "img 3",
+                "img_m":null,
+                "img_m_alt":null,
+                "link": null
+            }
+        ]
+    },
+    {
+        "pageid" : "agency",
+        "banners": [
+            {
+                "tit": null,
+                "desc": null,
+                "img"   : "./images/agency/top.jpg",
+                "img_alt": "img 1",
+                "img_t" : "./images/agency/top_t.jpg",
+                "img_t_alt": "img 3",
+                "img_m":null,
+                "img_m_alt":null,
+                "link": null
+            }
+        ]
+    }
+
+]

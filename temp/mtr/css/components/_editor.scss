@@ -1,0 +1,77 @@
+.editor {
+    text-align: left;
+    color:$color-mtr-blue;
+    p {
+        margin-bottom:5px;
+        line-height:1.6;
+    }
+
+    a {
+        color:$color-mtr-blue;
+        display: inline-block;
+        padding:5px 0;
+        border-bottom:1px solid $color-mtr-blue;
+    }
+
+    ul, ol {
+        padding:0;
+        margin:0;
+        width:100%;
+        li {
+            line-height:1.4;
+            + li {
+                margin-top:5px;
+            }
+        }
+    }
+
+    * {
+        + table {
+            margin-top:30px;
+        }
+        + ul, ol {
+            margin-top:30px;
+        }
+    }
+
+    table {
+        border-collapse:separate; 
+        border-spacing:3px; 
+        width:100%;
+        text-align: center;
+
+        th, td {
+            padding:15px;
+        }
+
+        thead {
+            background-color:#fab57e;
+            font-weight: bold;
+        }
+        tbody {
+            td {
+                background-color:rgba(#e8d8cb, 0.5);
+            }    
+        }
+
+        + p {
+            margin-top:5px;
+        }
+    }
+
+
+    // tnc area
+    &.area-tnc {
+        ul {
+            padding-left:1em;
+            li {
+                font-size:small;
+                list-style-type: decimal;
+                line-height:1.6;
+                + li {
+                    margin-top:5px;
+                }
+            }
+        }
+    }
+}

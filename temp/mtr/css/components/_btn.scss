@@ -1,0 +1,578 @@
+/* Btns Style */
+.btn-default {
+    display:block;
+    font-family: $font-desc;
+    font-size: 18px;
+    line-height: 1.2;
+
+    div {
+        color:$color-mtr-blue;    
+    }
+
+    &.type-ani-circle {
+        display: inline-flex !important;
+        align-items: center;
+
+        .btn-txt_tit {
+            position: relative;
+            left:0;
+            @include ani(left, 0.3s, ease);
+        }
+
+        .btn-txt_line {
+            position:relative;
+            display:block;
+            margin-left:10px;
+            width:40px;
+            height:1px;
+            background-color: $color-mtr-blue;
+            i {
+                position:relative;
+                opacity: 1;
+                display:block;
+                width:40px;
+                height:1px;
+                @include ani;
+
+                &:before, &:after {
+                    position:absolute;
+                    top:50%;
+                    content:"";
+                    display:block;
+                    transform: translateY(-50%) translateX(50%);
+                    border-radius: 50%;
+                }
+        
+                &:before {
+                    right:0%;
+                    width:4px;
+                    height:4px;
+                    background-color: $color-mtr-blue;
+                    @include ani(right, 1s, ease);
+                }
+            
+                &:after{
+                    right:0;
+                    width:33px;
+                    height:33px;
+                    border:1px solid $color-mtr-blue;
+                    opacity: 1;
+                    @include ani(opacity, 0.3s, ease);
+                }
+            }
+        }
+
+        &:hover, &:focus {
+            .btn-txt_tit {
+                left:10px;
+                @include ani(left, 0.3s, ease);
+            }
+            .btn-txt_line {
+                i {
+                    opacity: 1;
+                    @include ani;
+
+                    &:before {
+                        @include customani(btn-inner-dot);
+                        
+                    }
+
+                    &:after {
+                        opacity:0;
+                        @include ani(opacity, 0.3s, ease);
+                        @include customani(btn-outer-dot);
+                        -webkit-animation-delay: 0.8s;
+                        animation-delay: 0.8s;
+                    }
+                }
+            }
+        }
+
+        @include res(tablets) {
+            .btn-txt_line {
+                width:5vw;
+                i {
+                    width:5vw;            
+                    &:before {
+                        width:3px;
+                        height:3px;
+                    }
+                
+                    &:after{
+                        width:2.5vw;
+                        height:2.5vw;
+                    }
+                }
+            }
+        }
+
+        @include res(phones) {
+            .btn-txt_line {
+                width:7vw;
+                i {
+                    width:7vw;            
+                    &:before {
+                        width:3px;
+                        height:3px;
+                    }
+                
+                    &:after{
+                        width:6vw;
+                        height:6vw;
+                    }
+                }
+            }
+        }
+
+        &.type-white {
+            div {
+                color:#ffffff;
+            }
+            .btn-txt_line {
+                background-color: #ffffff;
+                i {
+                    &:before {  
+                        background-color: #ffffff;
+                    }
+                    &:after{
+                        border:1px solid #ffffff;
+                    }
+                }
+            }
+        }
+    }
+
+    &.type-angle {
+        display: flex;
+        align-items: center;
+        .btn-txt_tit {
+            position: relative;
+            left:0;
+            @include ani(left, 0.3s, ease);
+        }
+
+        &:after {
+            content:"";
+            display: block;
+            width:5px;
+            height:9px;
+            background: url('#{$img}common/ico/ico_arrow_right_white_sm.png') center center;
+            background-size: 100% 100%;
+            margin-left:10px;
+            margin-top:5px;
+        }
+
+        &.type-white {
+            div {
+                color:#ffffff;
+            }
+        }
+    }
+}
+
+.a11y-on {
+    .btn-default {
+        &.type-ani-circle {
+            &.type-white {
+                &:focus {
+                    outline:2px solid $color-mtr-blue;
+                }
+            }
+        }
+    }
+}
+
+@-webkit-keyframes btn-inner-dot {
+	from {
+        right:100%;
+        opacity: 0;
+        width:0px;
+        height:0px;
+    }
+    50% {
+        opacity: 1;
+        width:6px;
+        height:6px;
+    }
+    70% {
+        opacity: 1;
+        width:6px;
+        height:6px;
+    }
+	to {
+        right:0%;
+        opacity: 0;
+        width:0px;
+        height:0px;
+	}
+}
+
+@keyframes btn-inner-dot {
+	from {
+        right:100%;
+        opacity: 0;
+        width:0px;
+        height:0px;
+    }
+    50% {
+        opacity: 1;
+        width:6px;
+        height:6px;
+    }
+    70% {
+        opacity: 1;
+        width:6px;
+        height:6px;
+    }
+	to {
+        right:0%;
+        opacity: 0;
+        width:0px;
+        height:0px;
+	}
+}
+
+@-webkit-keyframes btn-outer-dot {
+	from {
+        width:0px;
+        height:0px;
+        opacity: 1;
+    }
+
+	to {
+        width:46px;
+        height:46px;
+        opacity: 0;
+	}
+}
+
+@keyframes btn-outer-dot {
+	from {
+        width:0px;
+        height:0px;
+        opacity: 1;
+    }
+
+	to {
+        width:46px;
+        height:46px;
+        opacity: 0;
+	}
+}
+
+.btn-default-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: $font-desc;
+    color:$color-mtr-blue;
+    line-height:1;
+
+    &:after {
+        content:"";
+        display: block;
+        width:5px;
+        height:9px;
+        margin-left:10px;
+        background: url('#{$img}common/ico/ico_arrow_right.png') center center no-repeat;
+        background-size: 100% 100%;
+    }
+}
+
+.btn-like {
+    display:inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    
+    .ico-heart {
+        position: relative;
+        display:inline-block;
+        width:25px;
+        height:25px;
+        background: url('#{$img}common/ico/ico_heart.png');
+        background-size:100% 100%;
+        @include ani;
+
+        &:after {
+            position:absolute;
+            top:0;
+            left:0;
+            content:"";
+            display:block;
+            width:25px;
+            height:25px;
+            background: url('#{$img}common/ico/ico_heart_hover.png');
+            background-size:100% 100%;
+            transform: scale(0.1);
+            opacity:0;
+            @include ani;
+        }
+    }
+
+    .like-count {
+        margin-left:5px;
+        font-family: $font-desc;
+        color:$color-mtr-blue;
+        @include ani;
+    }
+
+    &:hover:not(.i-like), &:focus:not(.i-like) {
+        cursor:pointer;
+        .ico-heart {
+            &:after {
+                opacity:1;
+                transform: scale(1.1);
+                @include ani(all, 0.3s, ease);
+            }
+        }
+
+        .like-count {
+            color:$color-hsr-orange;
+            @include ani;
+        }
+    }
+
+    &.i-like {
+        pointer-events: none;
+        .ico-heart {
+            background: url('#{$img}common/ico/ico_heart_active.png');
+            background-size:100% 100%;
+
+            &:after {
+                opacity:0;
+                transform: scale(1.3);
+                @include ani(all, 1s, ease);
+            }
+        }
+    }
+
+    &.type-white {
+        .ico-heart {
+            background: url('#{$img}common/ico/ico_heart_white.png');
+            background-size:100% 100%;
+            &:after {
+                background: url('#{$img}common/ico/ico_heart_white_hover.png');
+                background-size:100% 100%;
+            }
+        }
+        .like-count {
+            color:#ffffff;
+        }
+        &:hover:not(.i-like), &:focus:not(.i-like) {
+            .ico-heart {
+                &:after {
+                    opacity:1;
+                    transform: scale(1.1);
+                    @include ani(all, 0.3s, ease);
+                }
+            }
+    
+            .like-count {
+                color:$color-mtr-blue;
+            }
+        }
+        &.i-like {
+            .ico-heart {
+                background: url('#{$img}common/ico/ico_heart_white_active.png');
+                background-size:100% 100%;
+            }
+        }
+    }
+}
+
+.btn-back-to-top {
+    border:none;
+    display:block;
+    position:absolute;
+    z-index:9;
+    right:1%;
+    top:-80px;
+    width:50px;
+    height:50px;
+    background-color: $color-mtr-blue;
+    text-align: center;
+    &:after {
+        content:"";
+        display:block;
+        width:14px;
+        height:7px;
+        margin:0 auto;
+        background: url('#{$img}common/ico/ico_arrow_top.svg') center center no-repeat;
+        background-size:100% 100%;
+    }
+
+    @include res(phones){
+        top:-50px;
+        right:3vw;
+        width:35px;
+        height:35px;
+
+    }
+}
+
+.btn-search {
+    border:none;
+    position: relative;
+    width:50px;
+    height:50px;
+    background-color: $color-mtr-blue;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    &:after{
+        content:"";
+        display: block;
+        width:50px;
+        height:50px;
+        background: url('#{$img}common/ico/ico_search.svg') center center no-repeat;
+    }
+
+    @include res(phones){
+        width:40px;
+        height:40px;
+    }
+}
+
+.btn-loadmore {
+    position:relative;
+    display:block;
+    width:1px;
+    margin:0 auto;
+    
+    span {
+        position:absolute;
+        top:30%;
+        left:20px;
+        width:200px;
+        font-family: $font-desc;
+        color:$color-mtr-blue;
+        line-height:1;
+        text-align:left;
+    }
+    
+   .deco-go-down {
+        width:1px;
+        height:100px;
+
+        .go-down_line {
+            position:relative;
+            display:block;
+            width:1px;
+            height:80px;
+            background-color: $color-mtr-blue;
+            i {
+                position:relative;
+                opacity: 1;
+                display:block;
+                width:1px;
+                height:80px;
+                @include ani;
+
+                &:before, &:after {
+                    position:absolute;
+                    bottom:0%;
+                    left:0;
+                    content:"";
+                    display:block;
+                    transform: translateY(50%) translateX(-50%);
+                    border-radius: 50%;
+                }
+        
+                &:before {
+                    bottom:100%;
+                    width:0px;
+                    height:0px;
+                    background-color: $color-mtr-blue;
+                }
+            
+                &:after{
+                    bottom:0;
+                    width:0px;
+                    height:0px;
+                    border:1px solid $color-mtr-blue;
+                    opacity: 1;
+                }
+            }
+        }
+
+        &.go-ani {
+            .go-down_line {
+                i {
+                    &:before {
+                        @include customani(deco-go-down-inner-dot);
+                    }
+                    &:after{
+                        @include customani(deco-go-down-outer-dot);
+                        -webkit-animation-delay: 0.8s;
+                        animation-delay: 0.8s;
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+/* SNS Share */
+.util-sns-share {
+    .sns-item {
+        border:none;
+        display:inline-block;
+        width:36px;
+        height:36px;
+        border-radius:50%;
+  
+      &.sns-fb {
+        background:url('#{$img}common/ico/ico_fb.svg');
+        background-size:100% 100%;
+      }
+      &.sns-whatsapp {
+        background:url('#{$img}common/ico/ico_whatsapp.svg');
+        background-size:100% 100%;
+      }
+      &.sns-wechat {
+        background:url('#{$img}common/ico/ico_wechat.svg');
+        background-size:100% 100%;
+      }
+  
+      /*
+      &:hover {
+        &.sns-fb {
+          background:lighten($color-mtr-blue, 80%) url('#{$img}common/ico/ico_fb_blue.svg');
+          background-size:100% 100%;
+        }
+        &.sns-whatsapp {
+          background:lighten($color-mtr-blue, 80%) url('#{$img}common/ico/ico_whatsapp_blue.svg');
+          background-size:100% 100%;
+        }
+        &.sns-wechat {
+          background:lighten($color-mtr-blue, 80%) url('#{$img}common/ico/ico_wechat_blue.svg');
+          background-size:100% 100%;
+        }
+      }
+      */
+  
+      @include res(phones){
+        width:30px;
+        height:30px;
+      }
+    }
+
+    &.type-blue {
+        .sns-item {
+            border:1px solid $color-mtr-blue;
+            &.sns-fb {
+                background:url('#{$img}common/ico/ico_fb_blue.svg');
+                background-size:100% 100%;
+            }
+            &.sns-whatsapp {
+                background:url('#{$img}common/ico/ico_whatsapp_blue.svg');
+                background-size:100% 100%;
+            }
+            &.sns-wechat {
+                background:url('#{$img}common/ico/ico_wechat_blue.svg');
+                background-size:100% 100%;
+            }
+        }
+    }
+}

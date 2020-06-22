@@ -1,0 +1,53 @@
+[
+    {
+        "name":"香港中國旅行社有限公司",
+        "name_en":"China Travel Service (H.K.) Ltd",
+        "id":"cts",
+        "license":"350273",
+        "website":"ww1.ctshk.com",
+        "tel1":"2998 7333",
+        "logo":"./images/agency/cts.png",
+        "logo_m":"./images/agency/cts.png"
+    },
+    {
+        "name":"香港永安旅遊有限公司",
+        "name_en":"Hong Kong Wing On Travel Service Limited",
+        "id":"wingon",
+        "license":"350074",
+        "website":"www.wingontravel.com",
+        "tel1":"2928 8882",
+        "logo":"./images/agency/wingon.png",
+        "logo_m":"./images/agency/wingon.png"
+    },
+    {
+        "name":"東瀛遊",
+        "name_en":"EGL Tours",
+        "id":"egl",
+        "license":"350805",
+        "website":"www.egltours.com",
+        "tel1":"3692 0888",
+        "logo":"./images/agency/egl.png",
+        "logo_m":"./images/agency/egl.png"
+    },
+    {
+        "name":"康泰旅行社",
+        "name_en":"Hong Thai Travel Services Ltd",
+        "id":"hongthai",
+        "license":"350070",
+        "website":"www.hongthai.com",
+        "tel1":"2108 8119",
+        "tel2":"6588 2541",
+        "logo":"./images/agency/hongthai.png",
+        "logo_m":"./images/agency/hongthai.png"
+    },
+    {
+        "name":"美麗華旅遊",
+        "name_en":"Miramar Travel Ltd",
+        "id":"miramar",
+        "license":"352742",
+        "website":"www.hkmiramartravel.com",
+        "tel1":"8200 2299",
+        "logo":"./images/agency/miramar.png",
+        "logo_m":"./images/agency/miramar.png"
+    }
+]

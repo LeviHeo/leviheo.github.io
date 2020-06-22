@@ -1,0 +1,205 @@
+// loading
+
+#hsr-loading {
+    position: fixed;
+    z-index: 999999;
+    top:0;
+    left:0;
+    width: 100%;
+    height:100%;
+    background-color:rgba(#ffffff, 1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+
+.loading-msg {
+    position:relative;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border:1px solid transparent;
+    border-radius: 50%;
+    width:200px;
+    height:200px;
+
+    box-sizing: border-box;
+
+    .loading-msg_txt {
+        font-family: $font-en;
+        font-size: 20px;
+        font-weight:normal;
+        line-height:1;
+        color:$color-hsr-orange;
+    }
+
+    .loading-msg_deco {
+        position:absolute;
+        display: block;
+        top:10%;
+        left:10%;
+        width:80%;
+        height:80%;
+        border:1px solid $color-hsr-orange;
+        box-sizing: border-box;
+        border-radius:50%;
+        @include ani;
+
+        &:before, &:after {
+            position:absolute;
+            top:-10%;
+            left:-10%;
+            display:block;
+            content:"";
+            width:120%;
+            height:120%;
+            border:1px solid $color-hsr-orange;
+            border-radius:50%;
+        }
+
+        &:before{
+            top:-6%;
+            left:-6%;
+            width:112%;
+            height:112%;
+            opacity:0.6;
+            -webkit-animation: orbit0 1s linear infinite;
+            -moz-animation: orbit0 1s linear infinite;
+            -o-animation: orbit0 1s linear infinite;
+            animation: orbit0 1s linear infinite;
+        }
+
+        &:after {
+            top:-15%;
+            left:-15%;
+            width:130%;
+            height:130%;
+            opacity:0.2;
+            -webkit-animation: orbit1 1s linear infinite;
+            -moz-animation: orbit1 1s linear infinite;
+            -o-animation: orbit1 1s linear infinite;
+            animation: orbit1 1s linear infinite;
+        }
+    }
+
+    .loading-msg_dot {
+        opacity:1;
+        position:absolute;
+        top:95px;
+        left:95px;
+        content:"";
+        display: block;
+        width:8px;
+        height:8px;
+        background-color: $color-hsr-orange;
+        border-radius: 50%;
+        transform: rotate(45deg) translateX(200px) rotate(-45deg);
+        -webkit-animation: orbit3 4s linear infinite;
+        -moz-animation: orbit3 4s linear infinite;
+        -o-animation: orbit3 4s linear infinite;
+        animation: orbit3 4s linear infinite;
+        @include ani-select(opacity 0.3s ease, width 0.3s ease, height 0.3s ease);
+
+        &:after {
+            content:"";
+            display: block;
+            width:32px;
+            height:32px;
+            border:1px solid $color-hsr-orange;
+            border-radius:50%;
+            position: absolute;
+            box-sizing: border-box;
+            top:-12px;
+            left:-12px;
+            opacity: 0.5;
+        }
+
+        &:before {
+            content:"";
+            display: block;
+            width:24px;
+            height:24px;
+            border:1px solid $color-hsr-orange;
+            border-radius:50%;
+            position: absolute;
+            box-sizing: border-box;
+            top:-8px;
+            left:-8px;
+        }
+    }
+
+  
+
+    /*
+    &:hover, &:focus, &.active {
+        &:after {
+            width:8px;
+            height:8px;
+            opacity:1;
+            transform: rotate(45deg) translateX(200px) rotate(-45deg);
+            -webkit-animation: orbit3 4s linear infinite;
+            -moz-animation: orbit3 4s linear infinite;
+            -o-animation: orbit3 4s linear infinite;
+            animation: orbit3 4s linear infinite;
+        }
+
+        .loading-msg_deco {
+            top:0%;
+            left:0%;
+            width:100%;
+            height:100%;
+            opacity: 1;
+
+            &:before {
+                -webkit-animation: orbit0 1s linear infinite;
+                -moz-animation: orbit0 1s linear infinite;
+                -o-animation: orbit0 1s linear infinite;
+                animation: orbit0 1s linear infinite;
+            }
+
+            &:after {
+                -webkit-animation: orbit1 1s linear infinite;
+                -moz-animation: orbit1 1s linear infinite;
+                -o-animation: orbit1 1s linear infinite;
+                animation: orbit1 1s linear infinite;
+            }
+        }
+
+        
+    }
+    */
+
+    @include res(tablets){
+        .region-name {
+            font-size: 14px;
+        }
+    }
+}
+
+$round:78px;
+@-webkit-keyframes orbit3 {
+	from { 	-webkit-transform: rotate(0deg) translateX($round) rotate(0deg); }
+	to   {  -webkit-transform: rotate(360deg) translateX($round) rotate(-360deg); }
+}
+
+@-moz-keyframes orbit3 {
+	from { 	-moz-transform: rotate(0deg) translateX($round) rotate(0deg); }
+	to   {  -moz-transform: rotate(360deg) translateX($round) rotate(-360deg); }
+}
+
+@-o-keyframes orbit3 {
+	from { 	-o-transform: rotate(0deg) translateX($round) rotate(0deg); }
+	to   {  -o-transform: rotate(360deg) translateX($round) rotate(-360deg); }
+}
+
+@keyframes orbit3 {
+	from { 	transform: rotate(0deg) translateX($round) rotate(0deg); }
+	to   {  transform: rotate(360deg) translateX($round) rotate(-360deg); }
+}

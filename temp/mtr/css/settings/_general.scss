@@ -1,0 +1,75 @@
+// Settings
+
+* {
+    @include box-sizing;
+}
+
+:placeholder-shown {
+    color: darken($color-exterior-grey, 30%);
+}
+
+/* Google Chrome, Safari, Opera 15+, Android, iOS */
+::-webkit-input-placeholder {
+    color: darken($color-exterior-grey, 30%);
+}
+
+/* Firefox 18- */
+:-moz-placeholder {
+    color: darken($color-exterior-grey, 30%);
+    opacity: 1;
+}
+
+/* Firefox 19+ */
+::-moz-placeholder {
+    color: darken($color-exterior-grey, 30%);
+    opacity: 1;
+}
+
+/* IE 10+ */
+:-ms-input-placeholder {
+    color: darken($color-exterior-grey, 30%);
+}
+
+::-moz-selection { /* Code for Firefox */
+    color: $color-mtr-blue;
+    background: $color-hsr-orange;
+}
+  
+::selection {
+    color: $color-mtr-blue;
+    background: $color-lift-yellow;
+}
+
+// Break Set
+$dpi:1800 1600 1400 1366 1200 1024 1023 960 892 768 767 480 424 423 375 374 320;
+@each $item in $dpi {
+	.br#{$item} {
+		display: block !important;
+	}
+	.view#{$item} {
+		display: none !important;
+	}
+	@media only screen and (max-width: #{$item}px) {
+		.br#{$item} { display: none !important; }
+		.view#{$item} { display: block !important; }
+	}
+}
+
+img {
+    display:block;
+    width:100%;
+    max-width:100%;
+}
+
+body {
+    word-wrap: break-word;
+    font-family: $font-desc;
+    width: 100%;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}

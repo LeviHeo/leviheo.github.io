@@ -1,0 +1,415 @@
+// Mixins
+
+@mixin unselect {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+//--------------------------------
+// Mixin for main custom font
+//--------------------------------
+// suppose we have regular, italic, bold and italic bold variant of custom font.
+// mixin like this will help us to manage font styles through site
+//--------------------------------
+// examples of usage:
+// @include font_main;
+// @include font_main(italic);
+// @include font_main(normal, bold);
+// @include font_main($weight:bold);
+// @include font_main($size:10px, $weight:bold);
+// @include font_main(italic, normal, 10px, 15px);
+//--------------------------------
+// @param {String} style=normal - normal || italic
+// @param {String} weight=normal - bold || semibold || normal || light
+// @param {Font Size} size=inherit - font size
+// @param {Line Height} line_height=inherit - line height
+@mixin font_main($style: normal, $weight: normal, $size: inherit, $line_height: inherit) {
+
+	$font_family: $font_main !default;
+	$font_main_has_semibold: false !default;
+	$font_main_has_bold: false !default;
+	$font_main_has_light: false !default;
+	$font_main_has_italic: false !default;
+	$font_main_has_italic_bold: false !default;
+	$font_weight: normal !default;
+	$font_style: normal !default;
+
+  @if $style == normal {
+		@if $weight == bold {
+			$font_family: $font_main_bold;
+			@if $font_main_has_bold == false { $font_weight: bold; }
+		}
+		@if $weight == semibold {
+			$font_family: $font_main_semibold;
+			@if $font_main_has_semibold == false { $font_weight: 600; }
+		}
+		@if $weight == light {
+			$font_family: $font_main_light;
+			@if $font_main_has_light == false { $font_weight: 200; }
+		}
+	}
+
+	@if $style == italic {
+		@if $weight == normal {
+			$font-family: $font_main_italic;
+			@if $font_main_has_italic == false {
+				$font_style: italic;
+			}
+		}
+		@if $weight == bold {
+			$font-family: $font_main_italic_bold;
+			@if $font_main_has_italic_bold == false {
+				$font_style: italic;
+				$font_weight: bold;
+			}
+		}
+	}
+	@if $size != inherit {
+		@if $line_height != inherit {
+			font: $font_style $font_weight #{$size}/#{$line_height} $font_family;
+		} @else {
+			font: $font_style $font_weight $size $font_family;
+		}
+	} @else { // inherit size
+		font-family: $font_family;
+		font-weight: $font_weight;
+		font-style: $font_style;
+		@if $line_height != inherit {
+			line-height: $line_height;
+		}
+	}
+}
+
+// CSS Animation for toggle slide
+// Example usage:
+// @include toggle_slide(0.5s, ease-in)
+//--------------------------------
+@mixin toggle_slide ($time: 0.5s, $effect: ease-in) {
+	-webkit-transition: height $time $effect;
+	transition: height $time $effect;
+	overflow: hidden;
+}
+
+//#Mixin for clearfix
+@mixin clearfix {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+}
+
+//#Mixin for vendor prefixes
+//Example:	@include vendor-prefix(hyphens, auto)
+@mixin vendor-prefix($name, $argument) {
+	-webkit-#{$name}: #{$argument};
+	-ms-#{$name}: #{$argument};
+	-moz-#{$name}: #{$argument};
+	#{$name}: #{$argument};
+}
+
+//#Mixin for box-sizing
+@mixin box-sizing ($p: border-box){
+  -webkit-box-sizing: $p; /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: $p;    /* Firefox, other Gecko */
+	box-sizing: $p;         /* Opera/IE 8+ */
+}
+
+//#Mixin for transition
+//Example:	@include transition(all, 0.2s, ease-in-out);
+@mixin transition($transition-property, $transition-time, $method) {
+    -webkit-transition: $transition-property $transition-time $method;
+    -moz-transition: $transition-property $transition-time $method;
+    -ms-transition: $transition-property $transition-time $method;
+    -o-transition: $transition-property $transition-time $method;
+    transition: $transition-property $transition-time $method;
+}
+
+// generic transform
+@mixin transform ($transforms) {
+	   -moz-transform: $transforms;
+	     -o-transform: $transforms;
+	    -ms-transform: $transforms;
+	-webkit-transform: $transforms;
+          transform: $transforms;
+}
+// rotate
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+
+//Links styles: link, visited, hover, active (can accept 2-8 values, link style is default for visited, hover style is default for active)
+@mixin links( $l-color, $l-decor, $h-color: $l-color, $h-decor: $l-decor, $v-color: $l-color, $v-decor: $l-decor, $a-color: $h-color, $a-decor: $h-decor ) {
+  &:link     { color: $l-color; text-decoration: $l-decor; }
+  &:visited  { color: $v-color; text-decoration: $v-decor; }
+  &:hover    { color: $h-color; text-decoration: $h-decor; }
+  &:active   { color: $a-color; text-decoration: $a-decor; }
+
+  @include respond-to(tablets) {
+    &:link,
+    &:visited,
+    &:hover    { color: $l-color; text-decoration: $l-decor; }
+    &:active   { color: $a-color; text-decoration: $a-decor; }
+  }
+  @include respond-to(phones) {
+    &:link,
+    &:visited,
+    &:hover    { color: $l-color; text-decoration: $l-decor; }
+    &:active   { color: $a-color; text-decoration: $a-decor; }
+  }
+}
+
+//#Background image
+@mixin background-img( $bg-img, $bg-pos:0 0, $bg-repeat:no-repeat) {
+	background: url("../images/"+$bg-img) $bg-pos $bg-repeat;
+}
+
+//#Cross-browser placeholders
+@mixin placeholder {
+  &::-webkit-input-placeholder { @content; }
+  &:-moz-placeholder { @content; opacity: 1; }
+  &::-moz-placeholder { @content; opacity: 1; }
+  &:-ms-input-placeholder { @content; }
+}
+
+//#Cross-browser mixin for opacity
+@mixin opacity($trans) {
+//  filter: alpha(opactiy=($trans * 100));
+//  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{$trans * 100})";
+  -moz-opacity: $trans;
+  -khtml-opacity: $trans;
+  opacity: $trans;
+}
+
+//#Mixin for required items
+@mixin required {
+	&:before {
+		position: absolute;
+		content: "*";
+		color: #c03;
+		left: 0;
+		top: 0;
+	}
+}
+
+//#Triangles
+//@include triangle(top, 5px, 0 0 0 2px, #ccc)
+@mixin triangle($triangle-direction, $triangle-size, $triangle-margin, $triangle-color){
+	content: '';
+	display: inline-block;
+	width: 0;
+	height: 0;
+	margin: $triangle-margin;
+
+	@if $triangle-direction == top {
+		border-left: $triangle-size solid transparent;
+		border-right: $triangle-size solid transparent;
+		border-bottom: $triangle-size solid $triangle-color;
+	} @else if $triangle-direction == right {
+		border-top: $triangle-size solid transparent;
+		border-bottom: $triangle-size solid transparent;
+		border-left: $triangle-size solid $triangle-color;
+	} @else if $triangle-direction == bottom {
+		border-left: $triangle-size solid transparent;
+		border-right: $triangle-size solid transparent;
+		border-top: $triangle-size solid $triangle-color;
+	} @else if $triangle-direction == left {
+		border-top: $triangle-size solid transparent;
+		border-bottom: $triangle-size solid transparent;
+		border-right: $triangle-size solid $triangle-color;
+	}
+}
+
+//#Multi columns
+// http://www.w3schools.com/css/css3_multiple_columns.asp
+@mixin multi-column( $count, $gap ) {
+  column-count: $count;
+  column-gap: $gap;
+  -moz-column-count: $count;
+  -moz-column-gap: $gap;
+  -webkit-column-count: $count;
+  -webkit-column-gap: $gap;
+}
+
+//#Flex
+// http://css-tricks.com/snippets/css/a-guide-to-flexbox/
+//
+// How to use:
+//		.wrapper {
+//			@include flex-parent(
+//				$fx-flow: column wrap(default), row, row-reverse, column-reverse;
+//				$fx-justify: flex-start(default), flex-end, center, space-between, space-around;
+//				$fx-align: flex-start(default), flex-end, center, baseline, stretch;
+//			);
+//		}
+//		.item {
+//		@include flex-child( 1, 0 1 100% );
+//		}
+
+@mixin flex-parent( $fx-direction: column, $fx-justify: flex-start, $fx-align: stretch ) {
+
+    // This maps convert new split syntax to old separate.
+    $old-orients: (
+        column: vertical,
+        row: horizontal,
+        row-reverse: horizontal,
+        column-reverse: vertical
+    );
+
+    $old-directions: (
+        column: normal,
+        row: normal,
+        row-reverse: reverse,
+        column-reverse: reverse
+    );
+
+    $old-orient: map-get($old-orients, $fx-direction);
+    $old-direction: map-get($old-directions, $fx-direction);
+
+    display: box; // old syntax
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    box-orient: $old-orient; // old syntax
+    -webkit-box-orient: $old-orient; // old syntax
+    -moz-box-orient: $old-orient; // old syntax
+    box-direction: $old-direction; // old syntax
+    -webkit-flex-direction: $fx-direction;
+    -moz-flex-direction: $fx-direction;
+    -ms-flex-direction: $fx-direction;
+    -o-flex-direction: $fx-direction;
+    flex-direction: $fx-direction;
+    -webkit-justify-content: $fx-justify;
+    justify-content: $fx-justify;
+    box-align: $fx-align; // old syntax
+    -webkit-align-items: $fx-align;
+    -moz-align-items: $fx-align;
+    -ms-align-items: $fx-align;
+    -o-align-items: $fx-align;
+    align-items: $fx-align;
+}
+
+@mixin flex-child( $fx-order, $values: 1 ) {
+    box-ordinal-group: $fx-order; // old syntax
+    -webkit-box-ordinal-group: $fx-order;
+    -moz-box-ordinal-group: $fx-order;
+    -ms-flex-order: $fx-order;
+    -webkit-order: $fx-order;
+    order: $fx-order;
+    box-flex: $values; // old syntax
+    -webkit-box-flex: $values;
+    -moz-box-flex: $values;
+    -webkit-flex: $values;
+    -ms-flex: $values;
+    flex: $values;
+}
+
+@mixin ani($p:all, $speed:0.3s, $ease:ease) {
+	-moz-transition: $p $speed $ease;
+	-o-transition: $p $speed $ease;
+	-webkit-transition: $p $speed $ease;
+	transition: $p $speed $ease;
+}
+@mixin ani-select($x...){
+	moz-transition:$x;
+	-o-transition:$x;
+	-webkit-transition:$x;
+	transition:$x;
+}
+@mixin clfix {
+	&:after {
+		content: "";
+		clear: both;
+		display: block;
+	}
+}
+@mixin center($width:100%, $mwidth:$width) {
+	width:$width;
+	max-width:$mwidth;
+	margin: 0 auto;
+}
+@mixin rotate($deg, $a:center, $b:center){
+    -webkit-transform: rotate(#{$deg}deg); /* Safari */
+    -moz-transform: rotate(#{$deg}deg); /* Firefox */
+    -ms-transform: rotate(#{$deg}deg); /* Internet Explorer and Microsoft Edge */
+    -o-transform: rotate(#{$deg}deg); 
+	transform: rotate(#{$deg}deg); /* Standard syntax */
+    transform-origin: $a $b;
+}
+
+@mixin customani($id, $duration:1000ms, $loop:infinite ,$type:ease-in-out){
+	-webkit-animation-name: $id;
+	-webkit-animation-duration: $duration;
+	-webkit-animation-iteration-count: $loop;
+	-webkit-animation-timing-function: $type;
+	-moz-animation-name: $id;
+	-moz-animation-duration: $duration;
+	-moz-animation-iteration-count: $loop;
+	-moz-animation-timing-function: $type;
+	-ms-animation-name: $id;
+	-ms-animation-duration:$duration;
+	-ms-animation-iteration-count: $loop;
+	-ms-animation-timing-function: $type;
+	animation-name: $id;
+	animation-duration: $duration;
+	animation-iteration-count: $loop;
+	animation-timing-function: $type;
+}
+
+// Media Queries
+
+//
+//  Values:
+//  - phones -> up to $break-mobile
+//  - tablets -> from $break-mobile to $break-tablet
+//  - not-desktop, phablets, phones-tablets -> up to $break-tablet
+// 
+//  Usage example:
+//  @include respond-to(tablets) {
+//  	...
+//  }
+
+$break-mobile: 768px;
+$break-tablet: 1024px;
+
+$devices: not-desktop phablets phones-tablets;
+
+@mixin res($media) {
+	@if index($devices, $media) {
+		@media only screen and (max-width: $break-tablet - 1) { @content; }
+	}
+	@else if $media == phones {
+		@media only screen and (max-width: $break-mobile - 1) { @content; }
+	}
+	@else if $media == tablets {
+		@media only screen and (max-width: $break-tablet - 1) { @content; }
+	}
+	@else if $media == tablets-only {
+		@media only screen and (min-width: $break-mobile) and (max-width: $break-tablet - 1) { @content; }
+	}
+	@else if $media == desktop {
+		@media only screen and (min-width: $break-tablet) { @content; }
+	}
+	@else if $media == not-phones {
+        @media only screen and (min-width: $break-mobile) { @content; }
+    }
+}
+
+// Custom mixin for mediaqueries
+@mixin media($media-max) {
+	@media only screen and (max-width: $media-max) { @content; }
+}
+
+@mixin media-over($media-min:1921px) {
+	@media only screen and (min-width: $media-min) { @content; }
+}
+
+@mixin media-to( $media-min, $media-max ) {
+	 @media only screen and (min-width: $media-min) and (max-width: $media-max) { @content; }
+}

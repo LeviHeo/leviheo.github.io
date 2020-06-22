@@ -1,0 +1,186 @@
+[
+    {
+        "id"    : "1",
+        "tit"   : "文青潮玩1天遊",
+        "subtit": "高鐵自]由行",
+        "like"  : "5",
+        "plan":[
+            {
+                "day":"1",
+                "path":[
+                    {
+                        "location":"香港西九龍站 d1",
+                        "hotspot":[],
+                        "route":[]
+                    },
+                    {
+                        "location":"福田站",
+                        "hotspot":[],
+                        "route":[
+                            {
+                                "type":"1", 
+                                "way":[
+                                    {
+                                        "from":"高鐵「動感號」",
+                                        "to":""
+                                    }
+                                ]
+                            },
+                            {
+                                "type":"1", 
+                                "way":[
+                                    {
+                                        "from":"高鐵「動感號」",
+                                        "to":""
+                                    }
+                                ]
+                            },
+                            {
+                                "type":"1", 
+                                "way":[
+                                    {
+                                        "from":"高鐵「動感號」",
+                                        "to":""
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "location":"深圳大學",
+                        "hotspot":[
+                            {
+                                "id": "6",
+                                "tit"  : "漫遊深圳大學 感受青蔥歲月",
+                                "img_d"  : "./images/plan/detail.jpg",
+                                "img_d_tag":"description",
+                                "img_m": "./images/plan/detail_m.jpg",
+                                "img_m_tag":"description",
+                                "link":"/hotspot.html?region=1&city=6&sight=6"
+                            }
+                        ],
+                        "route":[
+                            {
+                                "type":"2",
+                                "way":[
+                                    {
+                                        "from":"地鐵11號線",
+                                        "to":"車公廟站"
+                                    }
+                                ]
+                            },
+                            {
+                                "type":"2",
+                                "way":[
+                                    {
+                                        "from":"地鐵1號線",
+                                        "to":"桃園站"
+                                    }
+                                ]
+                            },
+                            {
+                                "type":"3",
+                                "way":[
+                                    {
+                                        "from":"步行11分鐘",
+                                        "to":""
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "location":"萬象天地",
+                        "hotspot":[
+                            {
+                                "id"   : "1",
+                                "tit"  : "超人氣藝術大象",
+                                "img_d"  : "./images/plan/detail.jpg",
+                                "img_d_tag":"description",
+                                "img_m": "./images/plan/detail_m.jpg",
+                                "img_m_tag":"description",
+                                "link":"/hotspot.html?region=1&city=6&sight=6"
+                            }
+                        ],
+                        "route":[
+                            {
+                                "type":"3",
+                                "way":[
+                                    {
+                                        "from":"步行11分鐘",
+                                        "to":"桃園站"
+                                    }
+                                ]
+                            },
+                            {
+                                "type":"2",
+                                "way":[
+                                    {
+                                        "from":"地鐵1號線",
+                                        "to":"高新園站"
+                                    }
+                                ]
+                            },
+                            {
+                                "type":"3",
+                                "way":[
+                                    {
+                                        "from":"步行5分鐘",
+                                        "to":""
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "location":"Last",
+                        "hotspot":[],
+                        "route":[
+                            {
+                                "type":"1", 
+                                "way":[
+                                    {
+                                        "from":"高鐵「動感號」",
+                                        "to":""
+                                    }
+                                ]
+                            },
+                            {
+                                "type":"3",
+                                "way":[
+                                    {
+                                        "from":"步行5分鐘",
+                                        "to":""
+                                    }
+                                ]
+                            },
+                            {
+                                "type":"3",
+                                "way":[
+                                    {
+                                        "from":"步行5分鐘",
+                                        "to":""
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]   
+            }
+        ],
+        "tnc":"<ul><li>tnc1</li></ul>",
+        "banner": [
+            {
+                "tit"   : "體驗不一樣的高鐵旅程",
+                "desc"  : "高鐵連接香港與內地多個站點，毋須轉車可以去到更多地方，體驗不一樣的高鐵旅程。 ",
+                "img_d"   : "./images/plan/btm.jpg",
+                "img_d_tag" : "image description",
+                "img_m" : "./images/plan/btm_m.jpg",
+                "img_m_tag" : "image description",
+                "link"  : "#",
+                "btnTxt": "立即購票"
+            }
+        ]
+    }
+    
+]

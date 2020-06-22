@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-HK" itemscope="" itemtype="https://schema.org/WebPage">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高速鐵路</title>
+    <meta name="country" content="China">
+    <meta name="city" content="Hong Kong">
+    <meta name="robots" content="index,follow">
+    <meta name="copyright" content="香港鐵路有限公司">
+    <meta name="author" content="香港鐵路有限公司">
+    <link rel="icon" href="./images/common/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="./images/common/favicon.ico" type="image/x-icon">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WCCFW98');</script>
+
+    <link rel="stylesheet" href="/css/style.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/theme.min.css" type="text/css">
+    <script src="/js/lib/jquery.min.js" defer type="text/javascript"></script>
+
+</head>
+<body class="font-size-m">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WCCFW98" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <div class="wrap sub-page" id="hsr">
+        <hsr-top :top="topmenu" :page="pageid" :article="articleId"></hsr-top>
+        <sub-top-banner :banners="banners" :page="pageid"></sub-top-banner>
+        <main id="primary" class="contents" aria-label="content">
+            <div class="blind" id="a-primary-focus" v-html="text.skipAnchorMain" role="main"></div>
+            <hsr-breadcrumb :root="topmenu[0].name" :current="pagetitle"></hsr-breadcrumb>            
+            <div class="sec-bg">
+                <section id="theme-cate-list">
+                    <div class="sec-inner">
+                        <section-tit :title="pagetitle" :img="pageid" class="hide-line"></section-tit>
+                        <article class="sec-contents">
+                            <div class="search-list">
+                                <ul class="article-list">
+                                    <li v-for="(item, idx) in articleCate" :key="idx">
+                                        <div class="article-list-item type-light" tabindex="0">
+                                            <div class="article-list-item_cont">
+                                                <div class="article-list_thumb">
+                                                    <a class="btn-mobile-area" :href="'/theme.html?category='+item.cateId" tabindex="-1">
+                                                        <img :src="item.img_d" :alt="item.img_d_tag?item.img_d_tag:''" class="br767"/>
+                                                        <img :src="item.img_m" :alt="item.img_m_tag?item.img_m_tag:''" class="view767"/>
+                                                        <span class="blind" v-html="item.img_d_tag?item.img_d_tag:'了解更多'"></span>
+                                                    </a>
+                                                </div>
+                                                <div class="article-list_text">
+                                                    <div class="article-list_text-in">
+                                                        <a class="btn-mobile-area" :href="'/theme.html?category='+item.cateId" tabindex="-1">
+                                                            <h4 class="article-list_tit" v-html="item.label"></h4>
+                                                        </a>
+                                                        <div class="article-list_btn">
+                                                            <btn-cirlce :txt="text.btnDetail" :link="'/theme.html?category='+item.cateId"></btn-cirlce>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="article-list-item_bg" :style="'background-color:'+item.color"></div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+                </section>
+                <div class="sec-bg-group">
+                    <div class="sec-bg-group__inner">
+                        <div class="bg-item-top"></div>
+                        <div class="bg-item-circle5"></div>
+                        <div class="bg-item-circle6"></div>
+                        <div class="bg-item-circle7"></div>
+                        <div class="bg-item-btm">
+                            <div id="canvas-container"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <hsr-foot :footmenulist="footmenu":aside="asides" :backtotop="text.btnBackTop" :agencylist="agency" :copytxt="text.fcopy"></hsr-foot>
+    </div>
+
+    <script type="text/javascript">
+    ;(function(win,doc,callback){'use strict';callback=callback||function(){};function detach(){if(doc.addEventListener){doc.removeEventListener('DOMContentLoaded',completed)}else{doc.detachEvent('onreadystatechange',completed)}}function completed(){if(doc.addEventListener||event.type==='load'||doc.readyState==='complete'){detach();callback(window,window.jQuery)}}function init(){if (doc.addEventListener){doc.addEventListener('DOMContentLoaded',completed)}else{doc.attachEvent('onreadystatechange',completed)}}init()})(window,document,function(win,$){
+        $.ajaxSetup({cache:true});
+        $.ajax('./js/lib/vue.js')
+        .then(function(){return $.ajax('./js/lib/snap.min.js')})
+        .then(function(){return $.ajax('./js/lib/inview.min.js')})
+        .then(function(){return $.ajax('./js/lib/qrcode.min.js')})
+        .then(function(){return $.ajax('./js/lib/cookie.min.js')})
+        .then(function(){return $.ajax('./js/components.js')})
+        .then(function(){return $.ajax('./js/common.js')})
+        .then(function(){
+            //Page Set : Sub Page Only
+            var pageid = 'theme';
+            $.each(MTR.topmenu, function(index, item){
+                if(item.id == pageid) {
+                    MTR.pagetitle  = item.name;
+                    MTR.pageid     = item.id;
+                    MTR.articleId  = 'theme-category';
+                }
+            });
+            
+            var getList = $.getJSON('./data/theme-category.json', function(data){
+                return MTR.articleCate = data;
+            });
+
+        })
+    });
+    </script>
+
+</body>
+</html>

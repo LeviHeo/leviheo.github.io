@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-HK" itemscope="" itemtype="https://schema.org/WebPage">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高速鐵路</title>
+    <meta name="country" content="China">
+    <meta name="city" content="Hong Kong">
+    <meta name="robots" content="index,follow">
+    <meta name="copyright" content="香港鐵路有限公司">
+    <meta name="author" content="香港鐵路有限公司">
+    <link rel="icon" href="./images/common/favicon.ico" type="image/x-icon"/>
+    <link rel="shortcut icon" href="./images/common/favicon.ico" type="image/x-icon">
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-WCCFW98');</script>
+
+    <link rel="stylesheet" href="/css/style.min.css" type="text/css">
+    <link rel="stylesheet" href="/css/sitemap.min.css" type="text/css">
+    <script src="/js/lib/jquery.min.js" defer type="text/javascript"></script>
+
+</head>
+<body class="font-size-m">
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WCCFW98" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div class="wrap" id="hsr">
+        <hsr-top :top="topmenu" :page="pageid" :article="articleId"></hsr-top>
+        <main id="primary" class="contents sub-page" aria-label="content">
+            <div class="blind" id="a-primary-focus" v-html="text.skipAnchorMain" role="main"></div>
+
+            <div class="sec-bg">
+                <h2 class="page-heading">
+                    <span>網頁導覽</span>
+                </h2>
+
+                <section id="sitemap">
+                    <div class="sec-inner">
+                        <article class="sec-contents">
+                            <ul class="all-menu">
+                                <li v-for="(item, idx) in topmenu" :class="{'has-child':item.depth2}" v-if="idx != 0">
+                                    <a :href="item.link" v-html="item.name" class="depth1"></a>
+                                    <ul v-if="item.depth2">
+                                        <li v-for="submenu in item.depth2"><a :href="submenu.link" v-html="submenu.name" class="depth2"></a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </article>
+                    </div>
+                </section>
+                
+                <div class="sec-bg-group">
+                    <div class="sec-bg-group__inner">
+                        <div class="bg-item-circle5"></div>
+                        <div class="bg-item-circle6"></div>
+                        <div class="bg-item-circle7"></div>
+                        <div class="bg-item-btm">
+                            <div id="canvas-container"></div>
+                        </div>
+                    </div>
+                </div>
+            </div> 
+
+        </main>
+        <hsr-foot :footmenulist="footmenu":aside="asides" :backtotop="text.btnBackTop" :agencylist="agency" :copytxt="text.fcopy"></hsr-foot>
+    </div>
+
+    <script type="text/javascript">
+    ;(function(win,doc,callback){'use strict';callback=callback||function(){};function detach(){if(doc.addEventListener){doc.removeEventListener('DOMContentLoaded',completed)}else{doc.detachEvent('onreadystatechange',completed)}}function completed(){if(doc.addEventListener||event.type==='load'||doc.readyState==='complete'){detach();callback(window,window.jQuery)}}function init(){if (doc.addEventListener){doc.addEventListener('DOMContentLoaded',completed)}else{doc.attachEvent('onreadystatechange',completed)}}init()})(window,document,function(win,$){
+        $.ajaxSetup({cache:true});
+        $.ajax('./js/lib/vue.js')
+        .then(function(){return $.ajax('./js/lib/snap.min.js')})
+        .then(function(){return $.ajax('./js/lib/inview.min.js')})
+        .then(function(){return $.ajax('./js/lib/qrcode.min.js')})
+        .then(function(){return $.ajax('./js/lib/cookie.min.js')})
+        .then(function(){return $.ajax('./js/components.js')})
+        .then(function(){return $.ajax('./js/common.js')})
+    });
+    </script>
+
+</body>
+</html>
