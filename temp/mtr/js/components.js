@@ -133,18 +133,14 @@ var hsrHeader = {
 }
 
 var hsrFooter = {
-    props:['totoptxt', 'copyright'],
+    props:['copyright'],
     data:function(){
         return {
             menu:footmenu
         }
     },
-    components:{
-        "btnBacktop":hsrBtnBackTop,
-    },
     template:'\
     <footer>\
-        <btn-backtop :btntxt="totoptxt"></btn-backtop>\
         <div class="blind" id="a-footer-focus" role="main">Skip Anchor - Footer</div>\
         <div class="footer-inner">\
             <div class="footer-nav">\
@@ -367,31 +363,37 @@ var hsrAgencyPop = {
 }
 
 var hsrAside = {
-    props:['link'],
+    props:['link','totoptxt'],
     data:function(){
         return {
             item:aside
         }
     },
+    components:{
+        "btnBacktop":hsrBtnBackTop,
+    },
     template:'\
-    <aside class="external-link" v-if="item">\
-        <ul>\
-            <li>\
-                <a :href="item[0].link_d" target="_blank" class="ext-item btn-fare-pdf" role="link" aria-label="">\
-                    <span class="blind"  v-html="item[0].tit">Open to Fare information PDF</span>\
-                </a>\
-            </li>\
-            <li>\
-                <a :href="item[1].link_d" target="_blank" class="ext-item btn-timetable" role="link" aria-label="">\
-                    <span class="blind"  v-html="item[1].tit">Go to Timetable information</span>\
-                </a>\
-            </li>\
-            <li>\
-                <a href="javascript:;" class="ext-item btn-agency">\
-                    <span class="blind">Open Agency List</span>\
-                </a>\
-            </li>\
-        </ul>\
+    <aside>\
+        <div class="external-link" v-if="item">\
+            <ul>\
+                <li>\
+                    <a :href="item[0].link_d" target="_blank" class="ext-item btn-fare-pdf" role="link" aria-label="">\
+                        <span class="blind"  v-html="item[0].tit">Open to Fare information PDF</span>\
+                    </a>\
+                </li>\
+                <li>\
+                    <a :href="item[1].link_d" target="_blank" class="ext-item btn-timetable" role="link" aria-label="">\
+                        <span class="blind"  v-html="item[1].tit">Go to Timetable information</span>\
+                    </a>\
+                </li>\
+                <li>\
+                    <a href="javascript:;" class="ext-item btn-agency">\
+                        <span class="blind">Open Agency List</span>\
+                    </a>\
+                </li>\
+            </ul>\
+        </div>\
+        <btn-backtop :btntxt="totoptxt"></btn-backtop>\
     </aside>\
     '
 }
@@ -432,7 +434,7 @@ var hsrFoot = {
         "hsrFooter":hsrFooter,
     },
     template:'\
-    <div>\
+    <div class="hsr-temp-btm">\
         <hsr-aside></hsr-aside>\
         <hsr-agency-pop :agency="agencylist"></hsr-agency-pop> \
         <hsr-footer :footmenu="footmenulist" :totoptxt="backtotop" :copyright="copytxt"></hsr-footer>\

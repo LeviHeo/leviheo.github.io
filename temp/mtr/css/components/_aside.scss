@@ -1,11 +1,22 @@
 /* Aside : Right side External menu */
+aside {
+    position:absolute;
+    bottom:calc(100% + 20px);
+    right:4%;
+}
 
 .external-link {
-    position: fixed;
+    //position: fixed;
     z-index: 9;
     //bottom:5%;
     bottom:0;
     right:1%;
+
+    &.afix-on {
+        position: fixed;
+        bottom:0;
+        right:1%;
+    }
 
     opacity:1;
     @include ani(opacity, 0.3s, ease);

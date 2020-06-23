@@ -701,15 +701,30 @@ var MTR = new Vue({
         }
 
         setTimeout(function(){
-            MTR.asideAfix();
+            //MTR.asideAfix();
             MTR.hsrDrop();  
             MTR.updateMeta();
             MTR.loadMore();
+            MTR.asidefixfix();
         }, 500);
+
+
 
         // Fin mounted
     },
     methods: {
+        asidefixfix:function(){
+            $('.btn-back-to-top').on('inview', function(event, isInView){
+                if (isInView){
+                    console.log('now in');
+                    $('.external-link').removeClass('afix-on');
+                }else {
+                    console.log('out');
+                    $('.external-link').addClass('afix-on');
+                }
+                
+            });
+        },
         updateMeta:function(){
             var title = MTR.text.siteName +' > '+ MTR.pagetitle;
             var metas = '<meta name="keywords" content="'+MTR.text.siteKeyword+'">\
