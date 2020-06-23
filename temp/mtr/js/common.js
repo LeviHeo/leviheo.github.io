@@ -705,7 +705,7 @@ var MTR = new Vue({
             MTR.hsrDrop();  
             MTR.updateMeta();
             MTR.loadMore();
-            MTR.asidefixfix();
+            MTR.aside();
         }, 500);
 
 
@@ -713,18 +713,6 @@ var MTR = new Vue({
         // Fin mounted
     },
     methods: {
-        asidefixfix:function(){
-            $('.btn-back-to-top').on('inview', function(event, isInView){
-                if (isInView){
-                    console.log('now in');
-                    $('.external-link').removeClass('afix-on');
-                }else {
-                    console.log('out');
-                    $('.external-link').addClass('afix-on');
-                }
-                
-            });
-        },
         updateMeta:function(){
             var title = MTR.text.siteName +' > '+ MTR.pagetitle;
             var metas = '<meta name="keywords" content="'+MTR.text.siteKeyword+'">\
@@ -1099,14 +1087,61 @@ var MTR = new Vue({
             });
             return cnt;
         },
-        asideAfix:function(){
-            var el     = $('.external-link'),
-                anchor = $('.btn-back-to-top');
+        aside:function(){
+            var sidelink = $('.external-link');
+            $('.btn-back-to-top').on('inview', function(event, isInView){
+                if (isInView){
+                    sidelink.removeClass('afix-on');
+                }else {
+                    sidelink.addClass('afix-on');
+                }
+            });
 
             var detailAgency   = $('.ex-item-detail'),
                 btnOpenAgency  = $('.btn-agency'),
                 btncloseAgency = $('.btn-agency-close'),
                 cactive        = 'active';
+
+            var detailPop = {
+                init:function(){
+                    detailAgency.css('visibility', 'hidden');
+                    detailPop.open();
+                    detailPop.close();
+                },
+                open:function(){
+                    btnOpenAgency.on('click', function(){
+                        detailAgency.addClass(cactive).css('visibility', 'visible');
+                        $('.agency-list').find('li:first-child .agency_info__site a').focus();
+                    });
+                },
+                close:function(){
+                    btncloseAgency.on('click', function(){
+                        detailAgency.removeClass(cactive);
+                        setTimeout(function(){
+                            detailAgency.css('visibility', 'hidden');
+                        }, 300);
+                        btnOpenAgency.focus();
+                    });
+                }
+            }
+            detailPop.init();
+
+            $(document).bind('keydown', function(event){
+                if (event.keyCode === 27){
+                    $('.ex-item-detail').removeClass('active');
+                    setTimeout(function(){
+                        $('.ex-item-detail').css('visibility', 'hidden');
+                    }, 300);
+                    $('.btn-agency').focus();
+                }
+            }); 
+
+        },
+        asideAfix:function(){
+            var el     = $('.external-link'),
+                anchor = $('.btn-back-to-top');
+
+            
 
             var pos = {
                 init:function(){
@@ -1152,39 +1187,7 @@ var MTR = new Vue({
             }
             pos.init();
 
-            var detailPop = {
-                init:function(){
-                    detailAgency.css('visibility', 'hidden');
-                    detailPop.open();
-                    detailPop.close();
-                },
-                open:function(){
-                    btnOpenAgency.on('click', function(){
-                        detailAgency.addClass(cactive).css('visibility', 'visible');
-                        $('.agency-list').find('li:first-child .agency_info__site a').focus();
-                    });
-                },
-                close:function(){
-                    btncloseAgency.on('click', function(){
-                        detailAgency.removeClass(cactive);
-                        setTimeout(function(){
-                            detailAgency.css('visibility', 'hidden');
-                        }, 300);
-                        btnOpenAgency.focus();
-                    });
-                }
-            }
-            detailPop.init();
-
-            $(document).bind('keydown', function(event){
-                if (event.keyCode === 27){
-                    $('.ex-item-detail').removeClass('active');
-                    setTimeout(function(){
-                        $('.ex-item-detail').css('visibility', 'hidden');
-                    }, 300);
-                    $('.btn-agency').focus();
-                }
-            }); 
+            
         }
     },
     computed:{

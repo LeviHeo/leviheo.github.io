@@ -2,7 +2,10 @@
 aside {
     position:absolute;
     bottom:calc(100% + 20px);
-    right:4%;
+    right:20px;
+    @include res(phones){
+        right:4%;
+    }
 }
 
 .external-link {

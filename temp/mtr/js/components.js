@@ -374,7 +374,7 @@ var hsrAside = {
     },
     template:'\
     <aside>\
-        <div class="external-link" v-if="item">\
+        <div class="external-link afix-on" v-if="item">\
             <ul>\
                 <li>\
                     <a :href="item[0].link_d" target="_blank" class="ext-item btn-fare-pdf" role="link" aria-label="">\
@@ -434,7 +434,7 @@ var hsrFoot = {
         "hsrFooter":hsrFooter,
     },
     template:'\
-    <div class="hsr-temp-btm">\
+    <div class="sec-btm">\
         <hsr-aside></hsr-aside>\
         <hsr-agency-pop :agency="agencylist"></hsr-agency-pop> \
         <hsr-footer :footmenu="footmenulist" :totoptxt="backtotop" :copyright="copytxt"></hsr-footer>\
