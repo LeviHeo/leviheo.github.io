@@ -430,6 +430,11 @@
     @include res(phones){
         width:40px;
         height:40px;
+        &:after{
+            background: url('#{$img}common/ico/ico_search.svg') center center no-repeat;
+            background-size:20px 20px;
+        }
+        
     }
 }
 
