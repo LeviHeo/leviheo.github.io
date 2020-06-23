@@ -3,8 +3,11 @@ aside {
     position:absolute;
     bottom:calc(100% + 20px);
     right:20px;
+    @include res(tablets){
+        right:10px;
+    }
     @include res(phones){
-        right:4%;
+        right:2%;
     }
 }
 
@@ -18,7 +21,13 @@ aside {
     &.afix-on {
         position: fixed;
         bottom:0;
-        right:1%;
+        right:20px;
+        @include res(tablets){
+            right:10px;
+        }
+        @include res(phones){
+            right:2%;
+        }
     }
 
     opacity:1;
@@ -34,7 +43,7 @@ aside {
     }
     
     ul {
-        padding-bottom:30px;
+        padding-bottom:20px;
         li {
             //position:relative;
             + li {
