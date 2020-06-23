@@ -83,7 +83,7 @@
                                                 </a>
                                                 <div class="arti-info_like">
                                                     <div class="btn-like" :class="[isLikeActive([section.section, list.id])?'i-like':'']" :data-article-section="section.section" :data-article-id="list.id" @click="countlike([section.section, list.id])" tabindex="0">
-                                                        <i class="ico-heart"></i><span class="like-count" v-html="isLikeActiveCnt([section.section, list.id])"></span>
+                                                        <span class="ico-heart"></span><span class="like-count" v-html="isLikeActiveCnt([section.section, list.id])"></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -142,7 +142,7 @@
                                                     </a>
                                                     <div class="arti-info_like">
                                                         <div class="btn-like" :class="[isLikeActive([section.section, list.id])?'i-like':'']" :data-article-section="section.section" :data-article-id="list.id" @click="countlike([section.section, list.id])" tabindex="0">
-                                                            <i class="ico-heart"></i><span class="like-count" v-html="isLikeActiveCnt([section.section, list.id])"></span>
+                                                            <span class="ico-heart"></span><span class="like-count" v-html="isLikeActiveCnt([section.section, list.id])"></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -181,11 +181,11 @@
                                             <div class="agency-item_info">
                                                 <div class="agency-item_info__inner">
                                                     <div class="agency_info__site">
-                                                        <i class="ico-type-circle ico-website"></i>
+                                                        <span class="ico-type-circle ico-website"></span>
                                                         <a v-html="item.website" :href="'https://'+item.website" target="_blank"></a>
                                                     </div>
                                                     <div class="agency_info__tel">
-                                                        <i class="ico-type-circle ico-tel"></i>
+                                                        <span class="ico-type-circle ico-tel"></span>
                                                         <a v-html="'+852 '+item.tel1" :href="'tel:+852 '+item.tel1"></a>
                                                         <a v-html="'&nbsp;/ '+item.tel2" v-if="item.tel2" :href="'tel:+852 '+item.tel2"></a>
                                                     </div>

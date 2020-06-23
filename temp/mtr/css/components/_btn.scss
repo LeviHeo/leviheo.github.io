@@ -399,7 +399,7 @@
         width:14px;
         height:7px;
         background: url('#{$img}common/ico/ico_arrow_top.svg') center center no-repeat;
-        background-size:100% 100%;
+        background-size:14px 7px;
     }
 
     @include res(phones){

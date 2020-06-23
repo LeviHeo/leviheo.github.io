@@ -1110,6 +1110,8 @@ var MTR = new Vue({
                         b = el.offset().top,
                         e = b + h;
                 
+                    console.log(a+', '+b+', '+e);
+
                     pos.handle(posAnchorTop, e , h, posTop, a, b);
                 },
                 handle:function(posAnchorTop, e, h, posTop, a, b){

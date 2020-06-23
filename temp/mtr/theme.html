@@ -109,7 +109,7 @@
                                                 <div class="article-list_text">
                                                     <div class="article-list_text-in">
                                                         <div class="btn-like type-white" :class="[isLikeActive([pageid, item.id])?'i-like':'']" :data-article-section="pageid" :data-article-id="item.id" @click="countlike([pageid, item.id])" tabindex="0">
-                                                            <i class="ico-heart"></i><span class="like-count" v-html="isLikeActiveCnt([pageid, item.id])"></span>
+                                                            <span class="ico-heart"></span><span class="like-count" v-html="isLikeActiveCnt([pageid, item.id])"></span>
                                                         </div>
 
                                                         <a class="btn-mobile-area" :href="'/theme-detail.html?article='+item.id" tabindex="-1">

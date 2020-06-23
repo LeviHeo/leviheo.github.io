@@ -68,7 +68,7 @@
                                             <a href="javascript:;" class="sns-item sns-whatsapp" @click.prevent="countShare([pageid+'-contents', articleId, 'WhatsApp', 'crr'])"><span class="blind">WhatsApp</span></a>
                                             <a href="javascript:;" class="sns-item sns-wechat" @click.prevent="countShare([pageid+'-contents', articleId, 'WeChat', 'crr'])"><span class="blind">WeChat</span></a>
                                             <div class="btn-like" :class="[isLikeActive([pageid, item.id])?'i-like':'']" :data-article-section="pageid" :data-article-id="item.id" @click="countlike([pageid, item.id])" tabindex="0">
-                                                <i class="ico-heart"></i><span class="like-count" v-html="isLikeActiveCnt([pageid, item.id])"></span>
+                                                <span class="ico-heart"></span><span class="like-count" v-html="isLikeActiveCnt([pageid, item.id])"></span>
                                             </div>
                                         </div>
                                     </div>
