@@ -1118,9 +1118,7 @@ var MTR = new Vue({
                     var a = $(window).scrollTop()+$(window).height() - h,
                         b = el.offset().top,
                         e = b + h;
-                
-                    console.log(a+', '+b+', '+e);
-
+                        
                     pos.handle(posAnchorTop, e , h, posTop, a, b);
                 },
                 handle:function(posAnchorTop, e, h, posTop, a, b){
