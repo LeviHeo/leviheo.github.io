@@ -14,6 +14,21 @@
     <link rel="icon" href="./images/common/favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" href="./images/common/favicon.ico" type="image/x-icon">
 
+    <meta name="keywords" content="高速鐵路, High Speed Rail, MTR, 港鐵, 熱點推介, 主題旅遊, 行程推介, 高鐵旅遊專家">
+    <meta name="description" content="全長26公里的高速鐵路(香港段)以西九龍為起點，連接超過25,000公里的國家高鐵網絡。無論商務出行，抑或旅遊探親，高鐵帶給你一個舒適可靠的旅程，讓你以嶄新旅遊模式發掘更多更遠的地方！"></meta>
+    <meta property="og:url" content="https://www.highspeed.mtr.com.hk/tc/travel/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="zh-HK">
+    <meta property="og:title" content="高速鐵路">
+    <meta property="og:description" content="全長26公里的高速鐵路(香港段)以西九龍為起點，連接超過25,000公里的國家高鐵網絡。無論商務出行，抑或旅遊探親，高鐵帶給你一個舒適可靠的旅程，讓你以嶄新旅遊模式發掘更多更遠的地方！">
+    <meta property="og:image" content="https://www.highspeed.mtr.com.hk/tc/travel/images/common/share-img-l.jpg">
+    <meta name="twitter:card" content="Summary">
+    <meta name="twitter:site" content="https://www.highspeed.mtr.com.hk/tc/travel/">
+    <meta name="twitter:url" content="https://www.highspeed.mtr.com.hk/tc/travel/">
+    <meta name="twitter:title" content="高速鐵路">
+    <meta name="twitter:description" content="全長26公里的高速鐵路(香港段)以西九龍為起點，連接超過25,000公里的國家高鐵網絡。無論商務出行，抑或旅遊探親，高鐵帶給你一個舒適可靠的旅程，讓你以嶄新旅遊模式發掘更多更遠的地方！">
+    <meta name="twitter:image" content="https://www.highspeed.mtr.com.hk/tc/travel/images/common/share-img.jpg"/>
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -32,11 +47,11 @@
     <!-- End Google Tag Manager (noscript) -->
     
     <div class="wrap sub-page" id="hsr">
-        <hsr-top :top="topmenu" :page="pageid" :article="articleId"></hsr-top>
-        <sub-top-banner :banners="banners" :page="pageid"></sub-top-banner>
+        <hsr-top :page="pageid" :article="articleId"></hsr-top>
+        <sub-top-banner :page="pageid"></sub-top-banner>
         <main id="primary" class="contents" aria-label="content">
-            <div class="blind" id="a-primary-focus" v-html="text.skipAnchorMain" role="main"></div>
-            <hsr-breadcrumb :root="topmenu[0].name" :depth1="depth1" :depth1link="depth1link" :depth2="depth2" :depth2link="depth2link" :current="articleTitle"></hsr-breadcrumb>
+            <div class="blind" id="a-primary-focus"></div>
+            <hsr-breadcrumb :depth1="depth1" :depth1link="depth1link" :depth2="depth2" :depth2link="depth2link" :current="articleTitle"></hsr-breadcrumb>
             <hsr-breadcrumb-prev :goto="depth2link" :gototxt="text.btnGoPrev"></hsr-breadcrumb-prev>
             <div class="sec-bg">
                 <section id="theme-detail">
@@ -144,7 +159,7 @@
                 </div>
             </div>
         </main>
-        <hsr-foot :footmenulist="footmenu":aside="asides" :backtotop="text.btnBackTop" :agencylist="agency" :copytxt="text.fcopy"></hsr-foot>
+        <hsr-foot :backtotop="text.btnBackTop" :copytxt="text.fcopy"></hsr-foot>
     </div>
 
     <script type="text/javascript">
@@ -161,7 +176,7 @@
         .then(function(){
             //Page Set : Sub Page Only
             var pageid = 'theme';
-            $.each(MTR.topmenu, function(index, item){
+            $.each(topmenu, function(index, item){
                 if(item.id == pageid) {
                     MTR.pagetitle  = item.name;
                     MTR.pageid     = item.id;

@@ -382,7 +382,7 @@
 
 .btn-back-to-top {
     border:none;
-    display:block;
+    display:flex;
     position:absolute;
     z-index:9;
     right:1%;
@@ -391,12 +391,13 @@
     height:50px;
     background-color: $color-mtr-blue;
     text-align: center;
+    align-items: center;
+    justify-content: center;
     &:after {
         content:"";
         display:block;
         width:14px;
         height:7px;
-        margin:0 auto;
         background: url('#{$img}common/ico/ico_arrow_top.svg') center center no-repeat;
         background-size:100% 100%;
     }
@@ -406,7 +407,6 @@
         right:3vw;
         width:35px;
         height:35px;
-
     }
 }
 

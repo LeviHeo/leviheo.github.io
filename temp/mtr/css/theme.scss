@@ -198,6 +198,19 @@
     margin-top:0;
 
     .sec-bg-group {
+        .bg-item-top {
+            top:-10vw;
+            left:0;
+
+            display: none;
+            @include res(phones){
+                display: block;
+                width:100%;
+                height:100vw;
+                background: url('#{$img}common/sections/deco-bg-mid-top-m.png') left top no-repeat;
+                background-size:100% auto;
+            }
+        }
 
         .bg-item-circle5 {
             $size:600px;
@@ -214,7 +227,7 @@
                 width:$size;
                 height:$size;
 
-                top:-15%;
+                top:30%;
                 right:-10%;
             }
 
@@ -223,7 +236,7 @@
                 width:$size;
                 height:$size;
 
-                top:-15%;
+                top:30%;
                 right:-20%;
             }
         }

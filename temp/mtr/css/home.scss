@@ -474,6 +474,13 @@ $round:42px;
 }
 
 #theme {
+
+    margin-bottom:150px;
+
+    @include res(phones){
+        margin-bottom:10vw;
+    }
+
     .sec-inner {
         position: relative;
         z-index:9;
@@ -482,6 +489,7 @@ $round:42px;
     .sec-contents-bg {
         width:180%;
         height:600px;
+        pointer-events: none;
 
         position:absolute;
         z-index:0;
@@ -739,6 +747,7 @@ $round:42px;
         }
 
         .bg-item-mid {
+            display:none;
             top:35%;
             right:0;
             width:100%;

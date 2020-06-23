@@ -1,3 +1,13 @@
+let topmenu, footmenu, banners, aside, language, agency ;
+
+$.getJSON('./data/language.json').then(function(data){language = data}.bind(this));
+$.getJSON('./data/menu.json').then(function(data){topmenu = data}.bind(this));
+$.getJSON('./data/menu-footer.json').then(function(data){footmenu = data}.bind(this));
+$.getJSON('./data/banners.json').then(function(data){banners = data}.bind(this));
+$.getJSON('./data/aside.json').then(function(data){aside = data}.bind(this));
+$.getJSON('./data/agency.json').then(function(data){agency = data}.bind(this));
+
+
 var skipNav = {
     template:'\
         <div id="skip-nav">\
@@ -30,9 +40,14 @@ var hsrBtnBackTop = {
 }
 
 var hsrHeader = {
-    props:['menu', 'page', 'article'],
+    props:['page', 'article'],
     components:{
         "utilFontzoom":utilFontZoom,
+    },
+    data:function(){
+        return {
+            menu:topmenu
+        }
     },
     methods: {
         countShare: function(opt) {
@@ -72,7 +87,7 @@ var hsrHeader = {
                             <div class="gnb_menu">\
                             <ul role="menu">\
                                 <li v-for="(item, idx) in menu" :class="{\'has-child\':item.depth2}" role="none">\
-                                    <div class="menu-index"><div v-html="\'0\'+(idx+1)"></div></div>\
+                                    <!-- div class="menu-index"><div v-html="\'0\'+(idx+1)"></div></div -->\
                                     <a :href="item.link" v-html="item.name" class="depth1" :title="item.name" role="menuitem" aria-haspopup="true" aria-expanded="false"></a>\
                                     <ul v-if="item.depth2" role="menu">\
                                         <li v-for="submenu in item.depth2" role="none"><a :href="submenu.link" v-html="submenu.name" :title="submenu.name" class="depth2" role="menuitem"></a></li>\
@@ -80,7 +95,8 @@ var hsrHeader = {
                                 </li>\
                             </ul>\
                             </div>\
-                            <div class="gnb_inner-util">\
+                            <!-- NOTE: Hidden after V1 -->\
+                            <!--div class="gnb_inner-util">\
                                 <div class="inner-utill_font-zoom">\
                                     <util-fontzoom></util-fontzoom>\
                                 </div>\
@@ -91,7 +107,7 @@ var hsrHeader = {
                                         <a href="#" @click.prevent="countShare([page+\'-topmenu\', article, \'WeChat\', \'root\'])" class="sns-item sns-wechat" title="WeChat 分享"><span class="blind">WeChat 分享</span></a>\
                                     </div>\
                                 </div>\
-                            </div>\
+                            </div -->\
                             <div class="gnb_deco">\
                                 <svg id="midline">\
                                     <path id="followPath_invisible" d="M1948,104s-114.33,206.927-358.04,443.472C1276.77,851.462,1030.79,594.575,801,313,460.415-104.343,64.2,315.861-16,411" stroke="#f8b37a"  fill="none"/>\
@@ -117,7 +133,12 @@ var hsrHeader = {
 }
 
 var hsrFooter = {
-    props:['totoptxt', 'footmenu', 'copyright'],
+    props:['totoptxt', 'copyright'],
+    data:function(){
+        return {
+            menu:footmenu
+        }
+    },
     components:{
         "btnBacktop":hsrBtnBackTop,
     },
@@ -128,7 +149,7 @@ var hsrFooter = {
         <div class="footer-inner">\
             <div class="footer-nav">\
                 <ul role="menubar">\
-                    <li v-for="(item, idx) in footmenu" role="none">\
+                    <li v-for="(item, idx) in menu" role="none">\
                         <div class="menu-index"><div v-html="\'0\'+(idx+1)"></div></div>\
                         <a :href="item.link" :target="item.target" v-html="item.name" class="depth1" :title="item.name" role="menuitem"></a>\
                     </li>\
@@ -141,12 +162,17 @@ var hsrFooter = {
 }
 
 var hasrBreadcrumb = {
-    props:['root','depth1','depth1link','depth2','depth2link','current'],
+    props:['depth1','depth1link','depth2','depth2link','current'],
+    data:function(){
+        return {
+            root:topmenu
+        }
+    },
     template:'\
-        <nav aria-label="Breadcrumb" class="breadcrumb">\
+        <nav aria-label="Breadcrumb" class="breadcrumb" v-if="root">\
             <ol>\
                 <li>\
-                    <a href="/" v-html="root" :title="root"></a>\
+                    <a href="/" v-html="root[0].name" :title="root[0].name"></a>\
                 </li>\
                 <li v-if="depth1">\
                     <a :href="depth1link" v-html="depth1" :title="depth1"></a>\
@@ -198,6 +224,11 @@ var btnAngle = {
 
 var btnLoadMore = {
     props:['txt', 'show', 'max'],
+    methods: {
+        loadmore: function() {
+            this.$root.loadmore();
+        }
+    },
     template:'\
         <a href="javascript:;" class="btn-loadmore" @click="updatelistshow" v-if="show < max" :title="txt">\
             <div class="deco-go-down go-ani">\
@@ -215,7 +246,12 @@ var btnLoadMore = {
 }
 
 var hsrTopBanner = {
-    props:['banners', 'text', 'page'],
+    props:['text', 'page'],
+    data:function(){
+        return {
+            banners: banners
+        }
+    },
     components:{
         "btnCirlce":btnCircle,
     },
@@ -231,7 +267,7 @@ var hsrTopBanner = {
                         </div>\
                     </div>\
                 </div>\
-                <div class="topbanner-deco">\
+                <div class="topbanner-deco area-home">\
                     <div>\
                         <img :src="\'./images/common/sections/deco-top/\'+page+\'/bg_topbanner_btm.png\'" alt="" class="br767"/>\
                         <img :src="\'./images/common/sections/deco-top/\'+page+\'/bg_topbanner_btm_m.png\'" alt="" class="view767"/>\
@@ -259,7 +295,12 @@ var hsrTopBanner = {
 }
 
 var hsrSubTopBanner = {
-    props:['banners', 'page'],
+    props:['page'],
+    data:function(){
+        return {
+            banners: banners
+        }
+    },
     template:'\
         <div id="topbanner" class="topbanner-sub" role="banner" v-if="page">\
         <div v-for="(item, idx) in banners" :key="idx" v-if="item.pageid == page">\
@@ -281,7 +322,11 @@ var hsrSubTopBanner = {
 }
 
 var hsrAgencyPop = {
-    props:['agency'],
+    data:function(){
+        return {
+            agency: agency
+        }
+    },
     template:'\
         <div class="ex-item-detail">\
             <article class="detail-cont_agency">\
@@ -297,9 +342,9 @@ var hsrAgencyPop = {
                                     <img :src="item.logo_m" :alt="item.name?item.name:\'\'" class="view767"/>\
                                     <figcaption class="blind" v-html="item.name+\' logo\'"></figcaption>\
                                 </figure>\
-                                <span class="agency-item_license" v-html="\'牌照號碼：\'+item.license"></span>\
+                                <!-- span class="agency-item_license" v-html="\'牌照號碼：\'+item.license"></span -->\
                             </div>\
-                            <div class="agency-item_info">\
+                            <!-- div class="agency-item_info">\
                                 <div class="agency_info__site">\
                                     <i class="ico-type-circle ico-website"></i>\
                                     <a v-html="item.website" :href="\'https://\'+item.website" target="_blank"></a>\
@@ -309,7 +354,7 @@ var hsrAgencyPop = {
                                     <a v-html="\'+852 \'+item.tel1" :href="\'tel:+852 \'+item.tel1"></a>\
                                     <a v-html="\'&nbsp;/ \'+item.tel2" v-if="item.tel2" :href="\'tel:+852 \'+item.tel2"></a>\
                                 </div>\
-                            </div>\
+                            </div -->\
                         </li>\
                     </ul>\
                 </div>\
@@ -323,17 +368,22 @@ var hsrAgencyPop = {
 
 var hsrAside = {
     props:['link'],
+    data:function(){
+        return {
+            item:aside
+        }
+    },
     template:'\
-    <aside class="external-link">\
+    <aside class="external-link" v-if="item">\
         <ul>\
             <li>\
-                <a :href="link[0].link_d" target="_blank" class="ext-item btn-fare-pdf" role="link" aria-label="">\
-                    <span class="blind"  v-html="link[0].tit">Open to Fare information PDF</span>\
+                <a :href="item[0].link_d" target="_blank" class="ext-item btn-fare-pdf" role="link" aria-label="">\
+                    <span class="blind"  v-html="item[0].tit">Open to Fare information PDF</span>\
                 </a>\
             </li>\
             <li>\
-                <a :href="link[1].link_d" target="_blank" class="ext-item btn-timetable" role="link" aria-label="">\
-                    <span class="blind"  v-html="link[1].tit">Go to Timetable information</span>\
+                <a :href="item[1].link_d" target="_blank" class="ext-item btn-timetable" role="link" aria-label="">\
+                    <span class="blind"  v-html="item[1].tit">Go to Timetable information</span>\
                 </a>\
             </li>\
             <li>\
@@ -375,7 +425,7 @@ var hsrTop = {
 }
 
 var hsrFoot = {
-    props:['aside', 'backtotop', 'agencylist', 'footmenulist', 'copytxt'],
+    props:['backtotop', 'agencylist', 'footmenulist', 'copytxt'],
     components:{
         "hsrAside":hsrAside,
         "hsrAgencyPop":hsrAgencyPop,
@@ -383,7 +433,7 @@ var hsrFoot = {
     },
     template:'\
     <div>\
-        <hsr-aside :link="aside"></hsr-aside>\
+        <hsr-aside></hsr-aside>\
         <hsr-agency-pop :agency="agencylist"></hsr-agency-pop> \
         <hsr-footer :footmenu="footmenulist" :totoptxt="backtotop" :copyright="copytxt"></hsr-footer>\
     </div>\

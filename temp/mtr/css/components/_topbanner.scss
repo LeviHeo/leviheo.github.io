@@ -200,12 +200,20 @@
             }
         }
 
+        &.area-home {
+            bottom:-500px;
+        }
+
         @include res(phones){
             bottom:-8vw;
             left:0px;
             width:100%;
             min-width:auto;
             transform: none;
+
+            &.area-home {
+                bottom:-8vw;
+            }
         }
     }
 

@@ -29,6 +29,9 @@
         @include res(tablets){
             padding-top:6vw;
         }
+        @include res(phones){
+            padding-top:10vw;
+        }
     }
     section {
         width: $sub-max;
@@ -182,7 +185,7 @@
         }
 
         @include res(phones){
-            margin-top:8vw;
+            margin-top:10vw;
         }
     }
 }
@@ -254,6 +257,10 @@
             }
             @include res(phones){
                 height:80px;
+
+                canvas {
+                    height:80px;
+                }
             }
         }
     }

@@ -40,7 +40,6 @@ var QueryString = function (){
     return query_string;
 }();
 
-// APIs
 var LIKE_API_ALL   = 'https://mtrjackytest.azurewebsites.net/Like/GetLikeByCategroy',
     LIKE_API_GET   = 'https://mtrjackytest.azurewebsites.net/Like/GetLikeByCategroyById',
     LIKE_API_POST  = 'https://mtrjackytest.azurewebsites.net/Like/likeArticle',
@@ -50,7 +49,6 @@ var LIKE_API_ALL   = 'https://mtrjackytest.azurewebsites.net/Like/GetLikeByCateg
 var MTR = new Vue({
     el:"#hsr",
     data:{
-        banners:[],
         highlights:[],
         pagetitle:'',
         pageid:'',
@@ -59,33 +57,10 @@ var MTR = new Vue({
         depth1link:'',
         depth2:'',
         depth2link:'',
-        topmenu:[
-            {
-                "name":"首頁",
-                "link":"/"
-            }
-        ],
-        asides:[
-            {
-                "tit":"#",
-                "link_d":"#"
-            },
-            {
-                "tit":"#",
-                "link_d":"#"
-            },
-            {
-                "tit":"#",
-                "link_d":"#",
-                "link_m":"#"
-            }
-        ],
-        footmenu:[],
-        text:[],
-        agency:[],
+        text:language,
+        agency:agency,
         listShow:4,
         listTotal:1000,
-        offerlist:[],
         articleId:'',
         articleCate:[],
         articleList:[],
@@ -100,15 +75,6 @@ var MTR = new Vue({
         dropSelected:'all',
         dropSelectedDepth:'',
     },
-    created:function(){
-        $.getJSON('./data/menu.json').then(function(data){this.topmenu = data}.bind(this)),
-        $.getJSON('./data/banners.json').then(function(data){this.banners = data}.bind(this)), 
-        $.getJSON('./data/menu-footer.json').then(function(data){this.footmenu = data}.bind(this)),
-        $.getJSON('./data/aside.json').then(function(data){this.asides = data}.bind(this)),
-        $.getJSON(LIKE_API_ALL).then(function(data){this.articleLike = data}.bind(this)),
-        $.getJSON('./data/language.json').then(function(data){this.text = data}.bind(this)),
-        $.getJSON('./data/agency.json').then(function(data){this.agency = data}.bind(this));
-    },
     components:{
         "hsrTop":hsrTop,
         "hsrFoot":hsrFoot,
@@ -122,7 +88,11 @@ var MTR = new Vue({
         "utilFontzoom":utilFontZoom,
         "btnLoadmore":btnLoadMore,
     },
-    mounted:function(){
+    beforeMount:function(){
+        this.agency = agency;
+        $.getJSON(LIKE_API_ALL).then(function(data){this.articleLike = data}.bind(this));
+    },
+    mounted:function(){        
         var browserSet = (function(){
             // Key or mouse Check
             var rootEl   = $('body'),
@@ -221,7 +191,7 @@ var MTR = new Vue({
                     });
                     btn.attr('aria-expanded', 'true');
 
-                    $('#gnb .util-sns-share a').last().bind('keydown', function(event){
+                    $('#gnb .gnb_menu > ul > li > a').last().bind('keydown', function(event){
                         if (!event.shiftKey && event.keyCode === 9){
                             n.close();
                         }
@@ -521,96 +491,6 @@ var MTR = new Vue({
             zoom.init();
         })();
 
-        // Aside Button Wrap
-        var aside = (function(){
-
-            var el        = $('.external-link'),
-                anchor = $('.btn-back-to-top');
-
-            var detailAgency   = $('.ex-item-detail'),
-                btnOpenAgency  = $('.btn-agency'),
-                btncloseAgency = $('.btn-agency-close'),
-                cactive        = 'active';
-
-            var pos = {
-                init:function(){
-                    pos.scroll();
-                    setTimeout(function(){
-                        pos.check();
-                    },1000);
-                },
-                scroll:function(){
-                    $(window).scroll(function(){
-                        pos.check();
-                    })
-
-                    $(window).resize(function(){
-                        el.removeAttr('style');
-                        pos.check();
-                    })
-                },
-                check:function(){
-                    var posAnchorTop = anchor.offset().top,
-                        h = el.height(),
-                        posTop = posAnchorTop - h;
-
-                    var a = $(window).scrollTop()+$(window).height() - h,
-                        b = el.offset().top,
-                        e = b + h;
-                
-                    pos.handle(posAnchorTop, e , h, posTop, a, b);
-                },
-                handle:function(posAnchorTop, e, h, posTop, a, b){
-                    
-                    if(e >= posAnchorTop){
-                        el.css({
-                            'position':'absolute',
-                            'top':posTop,
-                            'height':h
-                        });
-                    }
-                    if(a < b){
-                        el.removeAttr('style');
-                    }
-                }
-            }
-            pos.init();
-
-            var detailPop = {
-                init:function(){
-                    detailAgency.css('visibility', 'hidden');
-                    detailPop.open();
-                    detailPop.close();
-                },
-                open:function(){
-                    btnOpenAgency.on('click', function(){
-                        detailAgency.addClass(cactive).css('visibility', 'visible');
-                        $('.agency-list').find('li:first-child .agency_info__site a').focus();
-                    });
-                },
-                close:function(){
-                    btncloseAgency.on('click', function(){
-                        detailAgency.removeClass(cactive);
-                        setTimeout(function(){
-                            detailAgency.css('visibility', 'hidden');
-                        }, 300);
-                        btnOpenAgency.focus();
-                    });
-                }
-            }
-            detailPop.init();
-
-            $(document).bind('keydown', function(event){
-                if (event.keyCode === 27){
-                    $('.ex-item-detail').removeClass('active');
-                    setTimeout(function(){
-                        $('.ex-item-detail').css('visibility', 'hidden');
-                    }, 300);
-                    $('.btn-agency').focus();
-                }
-            });            
-        })();
-
         var btnBackToTop = (function(){
 
             var el  = $('.btn-back-to-top');
@@ -724,7 +604,7 @@ var MTR = new Vue({
                 }
                 if (isInView){
                     currentWave++;
-                    $('#canvas-container').append('<canvas id="btm-wave-'+currentWave+'"></canvas>');
+                    $('#canvas-container').append('<canvas id="btm-wave-'+currentWave+'" width="100%" style="width:100%;"></canvas>');
                     init("btm-wave-"+currentWave, crrW, h);
                 } else {
                     clearTimeout(timing);
@@ -812,8 +692,10 @@ var MTR = new Vue({
         }
 
         setTimeout(function(){
+            MTR.asideAfix();
             MTR.hsrDrop();  
             MTR.updateMeta();
+            MTR.loadMore();
         }, 500);
 
         // Fin mounted
@@ -837,7 +719,7 @@ var MTR = new Vue({
             <meta name="twitter:description" content="'+MTR.text.siteDescription+'">\
             <meta name="twitter:image" content="./images/common/share-img.jpg"/>\
             '
-            $('head').append(metas);
+            //$('head').append(metas);   // NOTE: Not Support FB Share
             $('title').html(title);
         },
         qr:function(txt, tar){
@@ -898,11 +780,6 @@ var MTR = new Vue({
             heart.init();
         },
         countShare:function(opt){
-            console.log(opt[0]);
-            console.log(opt[1]);
-            console.log(opt[2]);
-            console.log(opt[3]);
-
             var holder = opt[0],
                 page  = opt[1],
                 target = opt[2],
@@ -936,8 +813,6 @@ var MTR = new Vue({
 
             if(opt == 'root') {
                 var url = MTR.text.siteUrl;
-                console.log(url);
-
                 if(target == 'Facebook'){
                     window.open( 'https://www.facebook.com/sharer/sharer.php?u='+url+'&hashtag=%23'+MTR.text.siteHash, "","top=" + alignTop + ",left=" + alignLeft + ",width=" + windowWidth +",height=" + windowHeight);
                     return
@@ -954,7 +829,7 @@ var MTR = new Vue({
                 var currentPage = window.location.href;
 
                 if(target == 'Facebook'){
-                    window.open( 'https://www.facebook.com/sharer/sharer.php?u='+currentPage+'&hashtag=%23'+MTR.text.siteHash+'&caption=qweqweqewqee', "","top=" + alignTop + ",left=" + alignLeft + ",width=" + windowWidth +",height=" + windowHeight);
+                    window.open( 'https://www.facebook.com/sharer/sharer.php?u='+currentPage+'&hashtag=%23'+MTR.text.siteHash, "","top=" + alignTop + ",left=" + alignLeft + ",width=" + windowWidth +",height=" + windowHeight);
                     return
                 }else if(target == 'WhatsApp'){
                     window.open( 'https://api.whatsapp.com/send?text='+currentPage+'%0D%0A'+MTR.articleTitle, "","top=" + alignTop + ",left=" + alignLeft + ",width=" + windowWidth +",height=" + windowHeight);
@@ -1118,6 +993,19 @@ var MTR = new Vue({
                 });
             }, 300);
         },
+        loadMore:function(){
+            $(window).scroll(function(){
+                var el = $('.btn-loadmore');
+                if(el.length > 0) {
+                    var top    = el.offset().top,
+                        height = $(window).scrollTop()+$(window).height() - el.height();
+                    if(height > top) {
+                        $('.external-link').removeAttr('style');
+                        MTR.listShow += 4;
+                    }
+                }
+            })
+        },
         dayPagination:function(target){
             var crr = new Number(this.dropSelected);
             this.max = this.articleDetail[0].plan.length;
@@ -1186,6 +1074,93 @@ var MTR = new Vue({
                 }
             });
             return cnt;
+        },
+        asideAfix:function(){
+            var el     = $('.external-link'),
+                anchor = $('.btn-back-to-top');
+
+            var detailAgency   = $('.ex-item-detail'),
+                btnOpenAgency  = $('.btn-agency'),
+                btncloseAgency = $('.btn-agency-close'),
+                cactive        = 'active';
+
+            var pos = {
+                init:function(){
+                    pos.scroll();
+                    setTimeout(function(){
+                        pos.check();
+                    },1000);
+                },
+                scroll:function(){
+                    $(window).scroll(function(){
+                        pos.check();
+                    })
+
+                    $(window).resize(function(){
+                        el.removeAttr('style');
+                        pos.check();
+                    })
+                },
+                check:function(){
+                    var posAnchorTop = anchor.offset().top,
+                        h = el.height(),
+                        posTop = posAnchorTop - h;
+
+                    var a = $(window).scrollTop()+$(window).height() - h,
+                        b = el.offset().top,
+                        e = b + h;
+                
+                    pos.handle(posAnchorTop, e , h, posTop, a, b);
+                },
+                handle:function(posAnchorTop, e, h, posTop, a, b){
+                    
+                    if(e >= posAnchorTop){
+                        el.css({
+                            'position':'absolute',
+                            'top':posTop,
+                            'height':h
+                        });
+                    }
+                    if(a < b){
+                        el.removeAttr('style');
+                    }
+                }
+            }
+            pos.init();
+
+            var detailPop = {
+                init:function(){
+                    detailAgency.css('visibility', 'hidden');
+                    detailPop.open();
+                    detailPop.close();
+                },
+                open:function(){
+                    btnOpenAgency.on('click', function(){
+                        detailAgency.addClass(cactive).css('visibility', 'visible');
+                        $('.agency-list').find('li:first-child .agency_info__site a').focus();
+                    });
+                },
+                close:function(){
+                    btncloseAgency.on('click', function(){
+                        detailAgency.removeClass(cactive);
+                        setTimeout(function(){
+                            detailAgency.css('visibility', 'hidden');
+                        }, 300);
+                        btnOpenAgency.focus();
+                    });
+                }
+            }
+            detailPop.init();
+
+            $(document).bind('keydown', function(event){
+                if (event.keyCode === 27){
+                    $('.ex-item-detail').removeClass('active');
+                    setTimeout(function(){
+                        $('.ex-item-detail').css('visibility', 'hidden');
+                    }, 300);
+                    $('.btn-agency').focus();
+                }
+            }); 
         }
     },
     computed:{
@@ -1362,5 +1337,5 @@ var MTR = new Vue({
             this.checkHasHotspot();
             return this.text.day[order]
         }
-    }
+    },
 })

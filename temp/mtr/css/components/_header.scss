@@ -354,7 +354,8 @@ header {
       }
 
       @include res(phones){
-        max-height: calc(100% - 100px);
+        //max-height: calc(100% - 100px);
+        max-height:100%;
         > ul {
           li {
             + li {
@@ -469,7 +470,7 @@ header {
 
             &:after {
               position: relative;
-              right:-4vw;
+              right:-7vw;
               content:"";
               display:block;
               width:8px;
@@ -561,6 +562,11 @@ header {
         .deco-circle {
           fill:none;
           stroke:#f8b37a;
+        }
+
+        @include res(phones){
+          transform-origin: left top;
+          transform: translateX(-90vw);
         }
        
       }

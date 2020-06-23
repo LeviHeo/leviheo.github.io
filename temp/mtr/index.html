@@ -14,6 +14,21 @@
     <link rel="icon" href="./images/common/favicon.ico" type="image/x-icon"/>
     <link rel="shortcut icon" href="./images/common/favicon.ico" type="image/x-icon">
 
+    <meta name="keywords" content="高速鐵路, High Speed Rail, MTR, 港鐵, 熱點推介, 主題旅遊, 行程推介, 高鐵旅遊專家">
+    <meta name="description" content="全長26公里的高速鐵路(香港段)以西九龍為起點，連接超過25,000公里的國家高鐵網絡。無論商務出行，抑或旅遊探親，高鐵帶給你一個舒適可靠的旅程，讓你以嶄新旅遊模式發掘更多更遠的地方！"></meta>
+    <meta property="og:url" content="https://www.highspeed.mtr.com.hk/tc/travel/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="zh-HK">
+    <meta property="og:title" content="高速鐵路">
+    <meta property="og:description" content="全長26公里的高速鐵路(香港段)以西九龍為起點，連接超過25,000公里的國家高鐵網絡。無論商務出行，抑或旅遊探親，高鐵帶給你一個舒適可靠的旅程，讓你以嶄新旅遊模式發掘更多更遠的地方！">
+    <meta property="og:image" content="https://www.highspeed.mtr.com.hk/tc/travel/images/common/share-img-l.jpg">
+    <meta name="twitter:card" content="Summary">
+    <meta name="twitter:site" content="https://www.highspeed.mtr.com.hk/tc/travel/">
+    <meta name="twitter:url" content="https://www.highspeed.mtr.com.hk/tc/travel/">
+    <meta name="twitter:title" content="高速鐵路">
+    <meta name="twitter:description" content="全長26公里的高速鐵路(香港段)以西九龍為起點，連接超過25,000公里的國家高鐵網絡。無論商務出行，抑或旅遊探親，高鐵帶給你一個舒適可靠的旅程，讓你以嶄新旅遊模式發掘更多更遠的地方！">
+    <meta name="twitter:image" content="https://www.highspeed.mtr.com.hk/tc/travel/images/common/share-img.jpg"/>
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -37,12 +52,62 @@
 
     <div id="hsr-loading"><div class="loading-msg"><div class="loading-msg_txt">0%</div><div class="loading-msg_deco"></div><div class="loading-msg_dot"></div></div></div>
     <div class="wrap" id="hsr">
-        <hsr-top :top="topmenu" :page="pageid" :article="articleId"></hsr-top>
-        <top-banner :banners="banners" :text="text" :page="pageid"></top-banner>
+        <hsr-top :page="pageid" :article="articleId"></hsr-top>
+        <top-banner :text="text" :page="pageid"></top-banner>
 
         <main id="primary" class="contents" aria-label="content">
-            <div class="blind" id="a-primary-focus" v-html="text.skipAnchorMain" role="main"></div>
+            <div class="blind" id="a-primary-focus"></div>
 
+            <section id="theme">
+                <div class="sec-inner">
+                    <section-tit title="主題旅遊" img="theme"></section-tit>
+                    <article class="sec-contents">
+                        <!-- <list-latest :list="highlights" filter="theme" page="theme.html" :btntxt="text.btnDetailCont" :btntxtdetail="text.btnDetail"></list-latest> -->
+                        <a href="theme.html" v-html="text.btnDetailCont" class="btn-default-arrow" role="link"></a>
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper latest-list" v-for="section in highlights" v-if="section.section == 'theme'">
+                                <div class="swiper-slide" v-for="(list, i) in section.article" :key="i">
+                                    <div class="article-item">
+                                        <div>
+                                            <a :href="list.link">
+                                                <figure class="article-thumb">
+                                                    <img :src="list.thumb" :alt="list.thumb_alt?list.thumb_alt:''" class="br767"/>
+                                                    <img :src="list.thumb_m" :alt="list.thumb_m_alt?list.thumb_m_alt:''" class="view767"/>
+                                                    <figcaption class="blind" v-html="list.thumb_alt"></figcaption>
+                                                </figure>
+                                            </a>
+                                            <div class="article-info">
+                                                <a :href="list.link">
+                                                    <h3 class="arti-info_tit" v-html="list.tit"></h3>
+                                                    <p class="arti-info_desc" v-html="list.desc"></p>
+                                                </a>
+                                                <div class="arti-info_like">
+                                                    <div class="btn-like" :class="[isLikeActive([section.section, list.id])?'i-like':'']" :data-article-section="section.section" :data-article-id="list.id" @click="countlike([section.section, list.id])" tabindex="0">
+                                                        <i class="ico-heart"></i><span class="like-count" v-html="isLikeActiveCnt([section.section, list.id])"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="article-btn">
+                                                <btn-cirlce :txt="text.btnDetail" :link="list.link"></btn-cirlce>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                        <div class="btn-slide-ctr swiper-button-prev"></div>
+                        <div class="btn-slide-ctr swiper-button-next"></div>
+                    </article>
+                    <div class="sec-contents-bg">
+                        <div id="wave-wrap">
+                            <div><canvas id="wave-top"></canvas></div>
+                            <div><canvas id="wave-btm"></canvas></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
             <section id="hotspot">
                 <div class="sec-inner size-full">
                     <section-tit title="熱點推介" img="location"></section-tit>
@@ -53,56 +118,6 @@
             </section>
 
             <div class="sec-bg">
-                <section id="theme">
-                    <div class="sec-inner">
-                        <section-tit title="主題旅遊" img="theme"></section-tit>
-                        <article class="sec-contents">
-                            <!-- <list-latest :list="highlights" filter="theme" page="theme.html" :btntxt="text.btnDetailCont" :btntxtdetail="text.btnDetail"></list-latest> -->
-                            <a href="theme.html" v-html="text.btnDetailCont" class="btn-default-arrow" role="link"></a>
-                            <div class="swiper-container">
-                                <div class="swiper-wrapper latest-list" v-for="section in highlights" v-if="section.section == 'theme'">
-                                    <div class="swiper-slide" v-for="(list, i) in section.article" :key="i">
-                                        <div class="article-item">
-                                            <div>
-                                                <a :href="list.link">
-                                                    <figure class="article-thumb">
-                                                        <img :src="list.thumb" :alt="list.thumb_alt?list.thumb_alt:''" class="br767"/>
-                                                        <img :src="list.thumb_m" :alt="list.thumb_m_alt?list.thumb_m_alt:''" class="view767"/>
-                                                        <figcaption class="blind" v-html="list.thumb_alt"></figcaption>
-                                                    </figure>
-                                                </a>
-                                                <div class="article-info">
-                                                    <a :href="list.link">
-                                                        <h3 class="arti-info_tit" v-html="list.tit"></h3>
-                                                        <p class="arti-info_desc" v-html="list.desc"></p>
-                                                    </a>
-                                                    <div class="arti-info_like">
-                                                        <div class="btn-like" :class="[isLikeActive([section.section, list.id])?'i-like':'']" :data-article-section="section.section" :data-article-id="list.id" @click="countlike([section.section, list.id])" tabindex="0">
-                                                            <i class="ico-heart"></i><span class="like-count" v-html="isLikeActiveCnt([section.section, list.id])"></span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="article-btn">
-                                                    <btn-cirlce :txt="text.btnDetail" :link="list.link"></btn-cirlce>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-pagination"></div>
-                            </div>
-                            <div class="btn-slide-ctr swiper-button-prev"></div>
-                            <div class="btn-slide-ctr swiper-button-next"></div>
-                        </article>
-                        <div class="sec-contents-bg">
-                            <div id="wave-wrap">
-                                <div><canvas id="wave-top"></canvas></div>
-                                <div><canvas id="wave-btm"></canvas></div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
                 <section id="plan">
                     <div class="sec-inner">
                         <section-tit title="行程推介" img="plan"></section-tit>
@@ -153,7 +168,7 @@
                             <a href="agency.html" v-html="text.btnDetailCont" class="btn-default-arrow"></a>
                             <div class="swiper-container">
                                 <div class="swiper-wrapper agency-list">
-                                    <div class="swiper-slide" v-for="item in agency">
+                                    <div class="swiper-slide" v-for="item in agency" v-if="agency">
                                         <div class="agency-item" tabindex="0" :title="item.name">
                                             <div class="agency-item_logo">
                                                 <figure>
@@ -201,7 +216,7 @@
             </div>
         </main>
 
-        <hsr-foot :footmenulist="footmenu":aside="asides" :backtotop="text.btnBackTop" :agencylist="agency" :copytxt="text.fcopy"></hsr-foot>
+        <hsr-foot :backtotop="text.btnBackTop" :copytxt="text.fcopy"></hsr-foot>
     </div>
 
     <script type="text/javascript">
@@ -218,7 +233,7 @@
         .then(function(){
 
             var pageid = 'home'; 
-            $.each(MTR.topmenu, function(index, item){
+            $.each(topmenu, function(index, item){
                 if(item.id == pageid) {
                     MTR.pagetitle  = item.name;
                     MTR.pageid     = item.id;
@@ -432,35 +447,35 @@
                         "id"  : 1,
                         "lng" : 114.854508,
                         "lat" : 37.379282,
-                        "link": "/map.html",
+                        "link": "./hotspot.html?region=1",
                     },
                     {
                         "name": "華東",
                         "id"  : 2,
                         "lng" : 118.326188,
                         "lat" : 29.430461,
-                        "link": "/map.html",
+                        "link": "./hotspot.html?region=2",
                     },
                     {
                         "name": "華中",
                         "id"  : 3,
                         "lng" : 111.844254,
                         "lat" : 28.931681,
-                        "link": "/map.html",
+                        "link": "./hotspot.html?region=3",
                     },
                     {
                         "name": "華南",
                         "id"  : 4,
                         "lng" : 110.833512,
                         "lat" : 23.534227,
-                        "link": "/map.html",
+                        "link": "./hotspot.html?region=4",
                     },
                     {
                         "name": "西南",
                         "id"  : 5,
                         "lng" : 96.199723,
                         "lat" : 30.344863,
-                        "link": "/map.html",
+                        "link": "./hotspot.html?region=5",
                     }
                 ]
 
@@ -574,7 +589,7 @@
                         breakpoints: {
                             300: {
                                 slidesPerView: 1,
-                                spaceBetween: 0,
+                                spaceBetween: 20,
                                 allowTouchMove:true,
                                 simulateTouch:true,
                             },
@@ -613,7 +628,7 @@
                         breakpoints: {
                             300: {
                                 slidesPerView: 1,
-                                spaceBetween: 0,
+                                spaceBetween: 20,
                                 allowTouchMove:true,
                                 simulateTouch:true,
                             },
@@ -638,8 +653,6 @@
                             },
                         }
                     });
-                    
-
                 }, 1000);
                 
             })
