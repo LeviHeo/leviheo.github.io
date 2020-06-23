@@ -74,6 +74,10 @@ var MTR = new Vue({
         searchmessage:'',
         dropSelected:'all',
         dropSelectedDepth:'',
+        topmenu:[],
+        banners:[],
+        footmenu:[],
+        asides:[]
     },
     components:{
         "hsrTop":hsrTop,
@@ -89,8 +93,13 @@ var MTR = new Vue({
         "btnLoadmore":btnLoadMore,
     },
     beforeMount:function(){
-        this.agency = agency;
-        $.getJSON(LIKE_API_ALL).then(function(data){this.articleLike = data}.bind(this));
+        $.getJSON('./data/menu.json').then(function(data){this.topmenu = data}.bind(this)),
+        $.getJSON('./data/banners.json').then(function(data){this.banners = data}.bind(this)), 
+        $.getJSON('./data/menu-footer.json').then(function(data){this.footmenu = data}.bind(this)),
+        $.getJSON('./data/aside.json').then(function(data){this.asides = data}.bind(this)),
+        $.getJSON(LIKE_API_ALL).then(function(data){this.articleLike = data}.bind(this)),
+        $.getJSON('./data/language.json').then(function(data){this.text = data}.bind(this)),
+        $.getJSON('./data/agency.json').then(function(data){this.agency = data}.bind(this));
     },
     mounted:function(){        
         var browserSet = (function(){
