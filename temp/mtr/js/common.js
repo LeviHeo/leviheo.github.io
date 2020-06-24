@@ -724,7 +724,7 @@ var MTR = new Vue({
             <meta name="twitter:description" content="'+MTR.text.siteDescription+'">\
             <meta name="twitter:image" content="./images/common/share-img.jpg"/>\
             '
-            //$('head').append(metas);   // NOTE: Not Support FB Share
+            $('head').append(metas);   // NOTE: Not Support FB Share
             $('title').html(title);
         },
         qr:function(txt, tar){

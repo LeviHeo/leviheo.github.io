@@ -199,7 +199,7 @@
             }
         })
     });
-    if (document.readyState === 'ready' || document.readyState === 'complete') {LOAD_STATUS = false;} else {document.onreadystatechange = function () {if (document.readyState == "complete") {LOAD_STATUS = true;MTR.pageLoad=true;}}}
+    if (document.readyState === 'ready' || document.readyState === 'complete') {LOAD_STATUS = false;} else {document.onreadystatechange = function () {if (document.readyState == "complete") {LOAD_STATUS = true;setTimeout(function(){MTR.pageLoad=true;},300);}}}
     </script>
 
 </body>

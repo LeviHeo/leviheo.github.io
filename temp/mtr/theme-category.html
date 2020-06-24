@@ -64,7 +64,7 @@
                                         <div class="article-list-item type-light" tabindex="0">
                                             <div class="article-list-item_cont">
                                                 <div class="article-list_thumb">
-                                                    <a class="btn-mobile-area" :href="'/theme.html?category='+item.cateId" tabindex="-1">
+                                                    <a class="btn-mobile-area" :href="'./theme.html?category='+item.cateId" tabindex="-1">
                                                         <img :src="item.img_d" :alt="item.img_d_tag?item.img_d_tag:''" class="br767"/>
                                                         <img :src="item.img_m" :alt="item.img_m_tag?item.img_m_tag:''" class="view767"/>
                                                         <span class="blind" v-html="item.img_d_tag?item.img_d_tag:'了解更多'"></span>
@@ -72,11 +72,11 @@
                                                 </div>
                                                 <div class="article-list_text">
                                                     <div class="article-list_text-in">
-                                                        <a class="btn-mobile-area" :href="'/theme.html?category='+item.cateId" tabindex="-1">
+                                                        <a class="btn-mobile-area" :href="'./theme.html?category='+item.cateId" tabindex="-1">
                                                             <h4 class="article-list_tit" v-html="item.label"></h4>
                                                         </a>
                                                         <div class="article-list_btn">
-                                                            <btn-cirlce :txt="text.btnDetail" :link="'/theme.html?category='+item.cateId"></btn-cirlce>
+                                                            <btn-cirlce :txt="text.btnDetail" :link="'./theme.html?category='+item.cateId"></btn-cirlce>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -132,7 +132,7 @@
 
         })
     });
-    if (document.readyState === 'ready' || document.readyState === 'complete') {LOAD_STATUS = false;} else {document.onreadystatechange = function () {if (document.readyState == "complete") {LOAD_STATUS = true;MTR.pageLoad=true;}}}
+    if (document.readyState === 'ready' || document.readyState === 'complete') {LOAD_STATUS = false;} else {document.onreadystatechange = function () {if (document.readyState == "complete") {LOAD_STATUS = true;setTimeout(function(){MTR.pageLoad=true;},300);}}}
     </script>
 
 </body>
