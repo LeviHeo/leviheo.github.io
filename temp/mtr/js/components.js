@@ -1,13 +1,3 @@
-let topmenu, footmenu, banners, aside, language, agency ;
-
-$.getJSON('./data/language.json').then(function(data){language = data}.bind(this));
-$.getJSON('./data/menu.json').then(function(data){topmenu = data}.bind(this));
-$.getJSON('./data/menu-footer.json').then(function(data){footmenu = data}.bind(this));
-$.getJSON('./data/banners.json').then(function(data){banners = data}.bind(this));
-$.getJSON('./data/aside.json').then(function(data){aside = data}.bind(this));
-$.getJSON('./data/agency.json').then(function(data){agency = data}.bind(this));
-
-
 var skipNav = {
     template:'\
         <div id="skip-nav">\
@@ -363,18 +353,18 @@ var hsrAgencyPop = {
 }
 
 var hsrAside = {
-    props:['link','totoptxt'],
     data:function(){
         return {
             item:aside
         }
     },
+    props:['totoptxt'],
     components:{
         "btnBacktop":hsrBtnBackTop,
     },
     template:'\
     <aside>\
-        <div class="external-link afix-on" v-if="item">\
+        <div class="external-link afix-on">\
             <ul>\
                 <li>\
                     <a :href="item[0].link_d" target="_blank" class="ext-item btn-fare-pdf" role="link" aria-label="">\

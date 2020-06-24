@@ -19,7 +19,7 @@ var loading = function(){
             }, 500);            
         }
     }); 
-}();
+};
 
 // Get Parameter
 var QueryString = function (){
@@ -45,11 +45,12 @@ var LIKE_API_ALL   = 'https://mtrjackytest.azurewebsites.net/Like/GetLikeByCateg
     LIKE_API_POST  = 'https://mtrjackytest.azurewebsites.net/Like/likeArticle',
     SHARE_API_POST = 'https://mtrjackytest.azurewebsites.net/Share/InsertShareLog';
 
+    
 // Site Handle
 var MTR = new Vue({
     el:"#hsr",
     data:{
-        highlights:[],
+        pageLoad:false,
         pagetitle:'',
         pageid:'',
         breadcrumb:'',
@@ -57,8 +58,7 @@ var MTR = new Vue({
         depth1link:'',
         depth2:'',
         depth2link:'',
-        text:language,
-        agency:agency,
+        text:'',
         listShow:4,
         listTotal:1000,
         articleId:'',
@@ -77,31 +77,24 @@ var MTR = new Vue({
         topmenu:[],
         banners:[],
         footmenu:[],
-        asides:[]
+        asides:[],
+        agency:[],
+        highlights:[],
     },
-    components:{
-        "hsrTop":hsrTop,
-        "hsrFoot":hsrFoot,
-        "hsrBreadcrumb":hasrBreadcrumb,
-        "hsrBreadcrumbPrev":hasrBtnGoToPrev,
-        "sectionTit":hsrSectionTit,
-        "btnCirlce":btnCircle,
-        "btnAngle":btnAngle,
-        "topBanner":hsrTopBanner,
-        "subTopBanner":hsrSubTopBanner,
-        "utilFontzoom":utilFontZoom,
-        "btnLoadmore":btnLoadMore,
-    },
-    beforeMount:function(){
-        $.getJSON('./data/menu.json').then(function(data){this.topmenu = data}.bind(this)),
-        $.getJSON('./data/banners.json').then(function(data){this.banners = data}.bind(this)), 
-        $.getJSON('./data/menu-footer.json').then(function(data){this.footmenu = data}.bind(this)),
-        $.getJSON('./data/aside.json').then(function(data){this.asides = data}.bind(this)),
+    created:function(){
         $.getJSON(LIKE_API_ALL).then(function(data){this.articleLike = data}.bind(this)),
         $.getJSON('./data/language.json').then(function(data){this.text = data}.bind(this)),
         $.getJSON('./data/agency.json').then(function(data){this.agency = data}.bind(this));
     },
-    mounted:function(){        
+    watch:{
+        pageLoad:function(val, oldVal){
+            if(val) {
+                loading();
+            }
+        }
+    },
+    mounted:function(){
+      
         var browserSet = (function(){
             // Key or mouse Check
             var rootEl   = $('body'),
@@ -1365,4 +1358,17 @@ var MTR = new Vue({
             return this.text.day[order]
         }
     },
+    components:{
+        "hsrTop":hsrTop,
+        "hsrFoot":hsrFoot,
+        "hsrBreadcrumb":hasrBreadcrumb,
+        "hsrBreadcrumbPrev":hasrBtnGoToPrev,
+        "sectionTit":hsrSectionTit,
+        "btnCirlce":btnCircle,
+        "btnAngle":btnAngle,
+        "topBanner":hsrTopBanner,
+        "subTopBanner":hsrSubTopBanner,
+        "utilFontzoom":utilFontZoom,
+        "btnLoadmore":btnLoadMore,
+    }
 })

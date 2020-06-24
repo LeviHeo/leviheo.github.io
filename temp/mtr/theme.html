@@ -29,17 +29,17 @@
     <meta name="twitter:description" content="全長26公里的高速鐵路(香港段)以西九龍為起點，連接超過25,000公里的國家高鐵網絡。無論商務出行，抑或旅遊探親，高鐵帶給你一個舒適可靠的旅程，讓你以嶄新旅遊模式發掘更多更遠的地方！">
     <meta name="twitter:image" content="https://www.highspeed.mtr.com.hk/tc/travel/images/common/share-img.jpg"/>
 
+    <script src="./js/lib/jquery.min.js" type="text/javascript"></script>
+    <script src="./js/datalist.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="./css/style.min.css" type="text/css">
+    <link rel="stylesheet" href="./css/theme.min.css" type="text/css">
+
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-WCCFW98');</script>
-
-    <link rel="stylesheet" href="./css/style.min.css" type="text/css">
-    <link rel="stylesheet" href="./css/theme.min.css" type="text/css">
-    <script src="./js/lib/jquery.min.js" defer type="text/javascript"></script>
-
 </head>
 <body class="font-size-m">
     <!-- Google Tag Manager (noscript) -->
@@ -157,18 +157,19 @@
         <hsr-foot :backtotop="text.btnBackTop" :copytxt="text.fcopy"></hsr-foot>
     </div>
 
+    <script src="./js/lib/vue.js" defer type="text/javascript"></script>
+    <script src="./js/lib/snap.min.js" defer type="text/javascript"></script>
+    <script src="./js/lib/inview.min.js" defer type="text/javascript"></script>
+    <script src="./js/lib/qrcode.min.js" defer type="text/javascript"></script>
+    <script src="./js/lib/cookie.min.js" defer type="text/javascript"></script>
     <script type="text/javascript">
     ;(function(win,doc,callback){'use strict';callback=callback||function(){};function detach(){if(doc.addEventListener){doc.removeEventListener('DOMContentLoaded',completed)}else{doc.detachEvent('onreadystatechange',completed)}}function completed(){if(doc.addEventListener||event.type==='load'||doc.readyState==='complete'){detach();callback(window,window.jQuery)}}function init(){if (doc.addEventListener){doc.addEventListener('DOMContentLoaded',completed)}else{doc.attachEvent('onreadystatechange',completed)}}init()})(window,document,function(win,$){
         $.ajaxSetup({cache:true});
-        $.ajax('./js/lib/vue.js')
-        .then(function(){return $.ajax('./js/lib/snap.min.js')})
-        .then(function(){return $.ajax('./js/lib/inview.min.js')})
-        .then(function(){return $.ajax('./js/lib/qrcode.min.js')})
-        .then(function(){return $.ajax('./js/lib/cookie.min.js')})
-        .then(function(){return $.ajax('./js/components.js')})
+        $.ajaxSetup({cache:true});
+        $.ajax('./js/components.js')
         .then(function(){return $.ajax('./js/common.js')})
         .then(function(){
-            //Page Set : Sub Page Only
+
             var pageid = 'theme'; 
             $.each(topmenu, function(index, item){
                 if(item.id == pageid) {
@@ -198,6 +199,7 @@
             }
         })
     });
+    if (document.readyState === 'ready' || document.readyState === 'complete') {LOAD_STATUS = false;} else {document.onreadystatechange = function () {if (document.readyState == "complete") {LOAD_STATUS = true;MTR.pageLoad=true;}}}
     </script>
 
 </body>
