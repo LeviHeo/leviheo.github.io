@@ -2,14 +2,14 @@
     {
         "id"    : "1",
         "tit"   : "文青潮玩1天遊",
-        "subtit": "高鐵自]由行",
+        "subtit": "高鐵自由行",
         "like"  : "5",
         "plan":[
             {
                 "day":"1",
                 "path":[
                     {
-                        "location":"香港西九龍站 d1",
+                        "location":"香港西九龍站 day1",
                         "hotspot":[],
                         "route":[]
                     },
@@ -83,6 +83,92 @@
                                 "way":[
                                     {
                                         "from":"步行11分鐘",
+                                        "to":""
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "location":"萬象天地",
+                        "hotspot":[
+                            {
+                                "id"   : "1",
+                                "tit"  : "超人氣藝術大象",
+                                "img_d"  : "./images/plan/detail.jpg",
+                                "img_d_tag":"description",
+                                "img_m": "./images/plan/detail_m.jpg",
+                                "img_m_tag":"description",
+                                "link":"./hotspot.html?region=1&city=6&sight=6"
+                            }
+                        ],
+                        "route":[
+                            {
+                                "type":"3",
+                                "way":[
+                                    {
+                                        "from":"步行11分鐘",
+                                        "to":"桃園站"
+                                    }
+                                ]
+                            },
+                            {
+                                "type":"2",
+                                "way":[
+                                    {
+                                        "from":"地鐵1號線",
+                                        "to":"高新園站"
+                                    }
+                                ]
+                            },
+                            {
+                                "type":"3",
+                                "way":[
+                                    {
+                                        "from":"步行5分鐘",
+                                        "to":""
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "location":"萬象天地",
+                        "hotspot":[
+                            {
+                                "id"   : "1",
+                                "tit"  : "超人氣藝術大象",
+                                "img_d"  : "./images/plan/detail.jpg",
+                                "img_d_tag":"description",
+                                "img_m": "./images/plan/detail_m.jpg",
+                                "img_m_tag":"description",
+                                "link":"./hotspot.html?region=1&city=6&sight=6"
+                            }
+                        ],
+                        "route":[
+                            {
+                                "type":"3",
+                                "way":[
+                                    {
+                                        "from":"步行11分鐘",
+                                        "to":"桃園站"
+                                    }
+                                ]
+                            },
+                            {
+                                "type":"2",
+                                "way":[
+                                    {
+                                        "from":"地鐵1號線",
+                                        "to":"高新園站"
+                                    }
+                                ]
+                            },
+                            {
+                                "type":"3",
+                                "way":[
+                                    {
+                                        "from":"步行5分鐘",
                                         "to":""
                                     }
                                 ]

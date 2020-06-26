@@ -23,7 +23,7 @@ var utilFontZoom = {
 var hsrBtnBackTop = {
     props:['btntxt'],
     template:'\
-    <button class="btn-back-to-top" title="返回頁面頂部">\
+    <button class="btn-back-to-top" value="返回頁面頂部">\
         <span class="blind" v-html="btntxt">返回頁面頂部</span>\
     </button>\
     '
@@ -158,7 +158,7 @@ var hasrBreadcrumb = {
         <nav aria-label="Breadcrumb" class="breadcrumb" v-if="root">\
             <ol>\
                 <li>\
-                    <a href="/" v-html="root[0].name" :title="root[0].name"></a>\
+                    <a href="./" v-html="root[0].name" :title="root[0].name"></a>\
                 </li>\
                 <li v-if="depth1">\
                     <a :href="depth1link" v-html="depth1" :title="depth1"></a>\

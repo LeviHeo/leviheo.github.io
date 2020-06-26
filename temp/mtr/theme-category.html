@@ -132,7 +132,7 @@
 
         })
     });
-    if (document.readyState === 'ready' || document.readyState === 'complete') {LOAD_STATUS = false;} else {document.onreadystatechange = function () {if (document.readyState == "complete") {LOAD_STATUS = true;setTimeout(function(){MTR.pageLoad=true;},300);}}}
+    var satellite=setInterval(startPage,1e3);function startPage(){if(("ready"===document.readyState||"complete"===document.readyState)&&"complete"==document.readyState){if("undefined"!=typeof MTR)return LOAD_STATUS=!0,MTR.pageLoad=!0,void clearInterval(satellite);startPage()}}
     </script>
 
 </body>

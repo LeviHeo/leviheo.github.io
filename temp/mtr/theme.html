@@ -75,6 +75,7 @@
                                 <form action="javascript:void(0);" role='search'>
                                     <div class="search-keyword">
                                         <div class="hsr-input">
+                                            <label id="keywords-label" class="blind" for="keyword" tabindex="-1" v-html="text.searchbox"></label>
                                             <input type="text" name="keyword" ref="keyword" v-model="searchkeywordAuto" :placeholder="text.searchbox" autocomplete="off" />
                                             <button class="btn-search" @click="gosearch()" aria-label="search"><span v-html="text.searchBtn" class="blind"></span></button>
                                         </div>
@@ -199,7 +200,7 @@
             }
         })
     });
-    if (document.readyState === 'ready' || document.readyState === 'complete') {LOAD_STATUS = false;} else {document.onreadystatechange = function () {if (document.readyState == "complete") {LOAD_STATUS = true;setTimeout(function(){MTR.pageLoad=true;},300);}}}
+    var satellite=setInterval(startPage,1e3);function startPage(){if(("ready"===document.readyState||"complete"===document.readyState)&&"complete"==document.readyState){if("undefined"!=typeof MTR)return LOAD_STATUS=!0,MTR.pageLoad=!0,void clearInterval(satellite);startPage()}}
     </script>
 
 </body>

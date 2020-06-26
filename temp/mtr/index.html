@@ -121,7 +121,6 @@
                     <div class="sec-inner">
                         <section-tit title="行程推介" img="plan"></section-tit>
                         <article class="sec-contents">
-                            <!-- <list-latest :list="highlights" filter="plan" page="plan.html" :btntxt="text.btnDetailCont" :btntxtdetail="text.btnDetail"></list-latest> -->
                             <a href="plan.html" v-html="text.btnDetailCont" class="btn-default-arrow" role="link"></a>
                             <div class="swiper-container">
                                 <div class="swiper-wrapper latest-list" v-for="section in highlights" v-if="section.section == 'plan'">
@@ -935,7 +934,7 @@
             
         })
     });
-    if (document.readyState === 'ready' || document.readyState === 'complete') {LOAD_STATUS = false;} else {document.onreadystatechange = function () {if (document.readyState == "complete") {LOAD_STATUS = true;setTimeout(function(){MTR.pageLoad=true;},300);}}}
+    var satellite=setInterval(startPage,1e3);function startPage(){if(("ready"===document.readyState||"complete"===document.readyState)&&"complete"==document.readyState){if("undefined"!=typeof MTR)return LOAD_STATUS=!0,MTR.pageLoad=!0,void clearInterval(satellite);startPage()}}
     </script>
 
 </body>
