@@ -409,11 +409,11 @@ $(function(){
 
 
     $.ajax({
-        url : 'https://www.googleapis.com/analytics/v3/data/realtime?ids=ga:199858578&metrics=rt:activeUsers',
+        url : 'https://www.googleapis.com/analytics/v3/data/realtime?ids=ga%3A199858578&metrics=rt%3AactiveUsers',
         type: 'GET',
-    }).done(function(response){ 
-        console.log(response)
-    });
-
-
+        dataType: 'json',
+        success: function(res) {
+            console.log(res);
+        }
+    })
 });
