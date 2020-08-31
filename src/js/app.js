@@ -409,11 +409,8 @@ $(function(){
 
 
     $.ajax({
-        url : 'https://www.googleapis.com/analytics/v3/data/realtime',
+        url : 'https://www.googleapis.com/analytics/v3/data/realtime?ids=ga:199858578&metrics=rt:activeUsers',
         type: 'GET',
-        cache: false,
-        contentType: false,
-        processData:false,
     }).done(function(response){ 
         console.log(response)
     });
