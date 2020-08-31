@@ -409,7 +409,7 @@ $(function(){
 
 
     $.ajax({
-        url : 'https://www.googleapis.com/analytics/v3/data/ga?ids=ga%3A199858578&start-date=2020-08-31&end-date=2020-08-31&metrics=ga%3Asessions',
+        url : 'https://www.googleapis.com/analytics/v3/data/realtime',
         type: 'GET',
         cache: false,
         contentType: false,
