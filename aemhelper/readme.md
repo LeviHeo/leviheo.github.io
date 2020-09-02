@@ -9,7 +9,7 @@ These extensions are shared privately to help your work performance.
   - Support P5 & P6
  
 ### Installation
-This extension is made exclusively for the internal team. if you want this extention please contact me.
+This extension is made exclusively for the internal team. if you want this extention please [contact me](mailto:leviheo@gmail.com).
 
 ## Shortcut
 
