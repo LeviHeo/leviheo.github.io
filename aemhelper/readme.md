@@ -12,8 +12,9 @@ These extensions are shared privately to help your work performance.
 This extension is made exclusively for the internal team. if you want this extention please [contact me](mailto:leviheo@gmail.com).
 
 ## Function
-  ### Task Create Page
+  #### Task Create Page
   - Autofill on taskcreate page. Default setting is HK, Direct Publish, Static status.
+  - Move to next input field when press Enter key. (Path & Page Title only. Other field is Autofill).
 
 ## Shortcut
 
