@@ -13,7 +13,7 @@ This extension is made exclusively for the internal team. if you want this exten
 
 ## Function
   ### Task Create Page
-    - Autofill on taskcreate page. Default setting is HK, Direct Publish, Static status.
+  - Autofill on taskcreate page. Default setting is HK, Direct Publish, Static status.
 
 ## Shortcut
 
