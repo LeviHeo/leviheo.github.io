@@ -8,8 +8,12 @@ These extensions are shared privately to help your work performance.
   - Auto fill function and Tree menu
   - Support P5 & P6
  
-### Installation
+## Installation
 This extension is made exclusively for the internal team. if you want this extention please [contact me](mailto:leviheo@gmail.com).
+
+## Function
+  ### Task Create Page
+    - Autofill on taskcreate page. Default setting is HK, Direct Publish, Static status.
 
 ## Shortcut
 
