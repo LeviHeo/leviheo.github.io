@@ -15,6 +15,12 @@ This extension is made exclusively for the internal team. if you want this exten
   #### Task Create Page
   - Autofill on taskcreate page. Default setting is HK, Direct Publish, Static status.
   - Move to next input field when press Enter key. (Path & Page Title only. Other field is Autofill).
+  
+  #### Updated 2020/09/10
+  - Position Bug fix & optimization
+  - Added Multiple push QA function
+  - Added code for B2B popup.
+  - Updated UI/UX : ( Added a button for open Samsung website )
 
 ## Shortcut
 
