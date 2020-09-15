@@ -3,7 +3,6 @@ v1.0.0
 These extensions are shared privately to help your work performance.
 
 ### New Features!
-
   - Added customized shortcut
   - Auto fill function and Tree menu
   - Support P5 & P6
@@ -16,7 +15,23 @@ This extension is made exclusively for the internal team. if you want this exten
   - Autofill on taskcreate page. Default setting is HK, Direct Publish, Static status.
   - Move to next input field when press Enter key. (Path & Page Title only. Other field is Autofill).
   
-  #### Updated 2020/09/10
+  #### Updated 2020/09/15  v1.0.3
+  - Helper Position Bug fix
+  - Added function
+     >  Automatic input field & select completion in "Update Request" popup.
+     >  Batch task handling (Push QA, Step Back, Delegate)
+  - Updated to support "aem-support" page
+  - UI / UX update
+  
+  #### Updated 2020/09/11  v1.0.2
+  - Open QA menu Bug fix at Editor page & Wcmmode page.
+  - Helper Position Bug fix
+  - Added  function 
+     > PIM Workflow popup
+     > Wcmmode
+  - Added CDN Purging Menu
+  
+  #### Updated 2020/09/10  v1.0.1
   - Position Bug fix & optimization
   - Added Multiple push QA function
   - Added code for B2B popup.
