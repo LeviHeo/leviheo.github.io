@@ -1,5 +1,4 @@
 # AEM Helper
-v1.0.0
 These extensions are shared privately to help your work performance.
 
 ### New Features!
