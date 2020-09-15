@@ -18,8 +18,8 @@ This extension is made exclusively for the internal team. if you want this exten
   #### Updated 2020/09/15  v1.0.3
   - Helper Position Bug fix
   - Added function
-     >  Automatic input field & select completion in "Update Request" popup.
-     >  Batch task handling (Push QA, Step Back, Delegate)
+     -  Automatic input field & select completion in "Update Request" popup.
+     -  Batch task handling (Push QA, Step Back, Delegate)
   - Updated to support "aem-support" page
   - UI / UX update
   
@@ -27,8 +27,8 @@ This extension is made exclusively for the internal team. if you want this exten
   - Open QA menu Bug fix at Editor page & Wcmmode page.
   - Helper Position Bug fix
   - Added  function 
-     > PIM Workflow popup
-     > Wcmmode
+     - PIM Workflow popup
+     - Wcmmode
   - Added CDN Purging Menu
   
   #### Updated 2020/09/10  v1.0.1
