@@ -60,7 +60,7 @@ This extension is made exclusively for the internal team. if you want this exten
 | Enter | Focus next input field (Path & Page Title only) |
 
 
-#### PIM popup
+#### PIM / PIM Workflow / BIM / Update Request / CDN Purging
 
 | Key | Func |
 | ------ | ------ |
