@@ -14,6 +14,10 @@ This extension is made exclusively for the internal team. if you want this exten
   - Autofill on taskcreate page. Default setting is HK, Direct Publish, Static status.
   - Move to next input field when press Enter key. (Path & Page Title only. Other field is Autofill).
   
+  #### Updated 2020/09/16  v1.0.4
+  - Support Clubs page
+  - Updated Image information window on Clubs
+  
   #### Updated 2020/09/15  v1.0.3
   - Helper Position Bug fix
   - Added function
