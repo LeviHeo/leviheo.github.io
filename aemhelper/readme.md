@@ -47,6 +47,7 @@ This extension is made exclusively for the internal team. if you want this exten
 | Key | Func |
 | ------ | ------ |
 | Ctr + Q | Minimize / Maximize Panel |
+| Ctr + Shift + S | Switch Language |
 
 #### Editor page
 
