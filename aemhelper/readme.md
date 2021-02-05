@@ -2,6 +2,7 @@
 These extensions are shared privately to help your work performance.
 
 ### New Features!
+  - Added Editor page history function
   - Added customized shortcut
   - Auto fill function and Tree menu
   - Support P5 & P6
