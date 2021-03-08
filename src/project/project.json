@@ -3,23 +3,25 @@
         {
             "idx":1,
             "client":"samsung",
-            "projectId":"201908_mobileoffer",
-            "projectTitle":"Samsung HK Mobile Offer",
-            "projectDescription":"<p>test description</p>",
+            "projectId":"2021_vote21",
+            "projectTitle":"Samsung HK 21s Golden Video Awards",
+            "projectDescription":"<p></p>",
             "projectType":"Desktop / Mobile Website",
-            "projectDate":"Jan 2019",
-            "projectSkill":["HTML","JavaScript","CSS","Sass","photoshop", "Vuejs", "React", "json", "jQuery"],
-            "launchUrl":"https://www.samsung.com/hk/offer/mobile/"
+            "projectDate":"Mar 2021",
+            "projectSkill":["HTML","Vuejs","json", "CSS","Sass","photoshop"],
+            "launchType":"live",
+            "launchUrl":"https://www.samsung.com/hk_en/smartphones/galaxy-s21-5g/hong-kong-21-sec-video-award/"
         },
         {
             "idx":2,
             "client":"samsung",
-            "projectId":"201908_mobileoffer2",
-            "projectTitle":"Samsung HK Mobile Offer2",
-            "projectDescription":"<p>test description</p>",
+            "projectId":"201908_mobileoffer",
+            "projectTitle":"Samsung HK Mobile Offer",
+            "projectDescription":"<p></p>",
             "projectType":"Desktop / Mobile Website",
-            "projectDate":"Jan 2019",
-            "projectSkill":["HTML","JavaScript","CSS","Sass","photoshop", "Vuejs", "React", "json", "jQuery"],
+            "projectDate":"Jan 2019 ~ present",
+            "projectSkill":["HTML","JavaScript","CSS","Sass","photoshop", "json", "jQuery"],
+            "launchType":"live",
             "launchUrl":"https://www.samsung.com/hk/offer/mobile/"
         }
     ]
