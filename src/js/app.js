@@ -13,7 +13,7 @@ var leviGit = new Vue({
         subtit: ':: Make The Web Better ::',
         btnload: 'MORE',
     },
-    mounted() {        
+    mounted() {
         // Cursor Effect - following
         $(document).on('mousemove', function(e){
             $('.lh-cursor').css({
@@ -27,7 +27,7 @@ var leviGit = new Vue({
                 top:e.pageY,
             })
         })
-        
+
         // Cursor Effect - Click
         var clickCnt = 0;
         $(document).click(function(e) {
@@ -40,13 +40,13 @@ var leviGit = new Vue({
             $('body').append('<div class="cursor-effect ma'+cnt+'" style="position:absolute;z-index:9999;left:'+e.pageX+'px;top:'+e.pageY+'px"><div></div></div>');
 
             for (var i = 0; i < max; i++) {
-                objs += 
+                objs +=
                 '<div style="transform: rotate('+(deg * (Math.random() * i))+'deg);width:'+((i * 5)+100)+'%">'+
                     '<span style="-webkit-animation-delay: '+(delay * i)+'s;animation-delay: '+(delay * i)+'s;"></span>'+
                 '</div>';
             }
 
-            var effectObj = 
+            var effectObj =
                 '<div class="mouse-effect effect'+cnt+'" style="z-index:'+cnt+'">'+
                     objs +
                 '</div>';
@@ -102,7 +102,7 @@ var leviGit = new Vue({
             $('#lh-pj-navi').find('.pagenavi-inner').append(pagenavi);
             aniThumb();
         }
-        
+
         // Popup Detail Temp
         function detailPopup(id) {
             var tempPopup = "";
@@ -148,11 +148,11 @@ var leviGit = new Vue({
                                         tempPopup +=
                                         '<div class="foot-right"><a href="';
                                         if (this.launchType == "preview") {
-                                            tempPopup += '/preview.html?view='+this.launchUrl 
-                                            
+                                            tempPopup += '/preview.html?view='+this.launchUrl
+
                                         }
                                         if (this.launchType == "live") {
-                                            tempPopup += this.launchUrl 
+                                            tempPopup += this.launchUrl
                                         }
                                         tempPopup +='" class="lh-btn-encased-sm btn-ar-r" target="_blank">Launch Project</a></div>' +
                     '                </div>'+
@@ -165,11 +165,11 @@ var leviGit = new Vue({
             $('body').append(tempPopup);
         }
 
-        // Thumbnail 
+        // Thumbnail
         function aniThumb(){
             $('.lh-img-thumb').each(function(){
                 var _ = $(this),
-                    blockR = 3, 
+                    blockR = 3,
                     blockH = _.outerHeight() / blockR,
                     blockW = _.outerWidth() / blockR,
                     block = "",
@@ -177,7 +177,7 @@ var leviGit = new Vue({
                     max = blockR*blockR,
                     txt = _.data('thumb-tit'),
                     bg = _.data('thumb-img');
-                
+
                 _.html("");
                 block += "<div class=\"thumb_img\">";
                 for (var i = 0; i < max; i++) {
@@ -206,11 +206,11 @@ var leviGit = new Vue({
             });
         }
 
-        // Cursor Effect - hover 
+        // Cursor Effect - hover
         function aniCursor() {
             var target = $('a, input, button, textarea, .lh-img-thumb, .lh-pj-close'),
                 cursor = $('.lh-cursor');
-            
+
             target.mouseover(function () {
                 cursor.addClass('on');
             }).mouseout(function() {
@@ -229,7 +229,7 @@ var leviGit = new Vue({
             var target = $('.lh-popup[data-pj-id="' + c + '"]'),
                 outline = $('.lh-popup-line'),
                 body   = $('body');
-            
+
             body.css('overflow', 'hidden');
             outline.addClass('on');
             setTimeout(function () {
@@ -269,13 +269,13 @@ var leviGit = new Vue({
                     id = _.closest('.lh-popup').data('pj-id'),
                     currentPopup = $('.lh-popup[data-pj-id="' + id + '"]'),
                     nextPopupIdx = _.data('idx');
-                
+
                 if (way == "next") {
-                    currentPopup.addClass('go-transition go-next');        
+                    currentPopup.addClass('go-transition go-next');
                 }
 
                 if (way == "prev") {
-                    currentPopup.addClass('go-transition go-prev');        
+                    currentPopup.addClass('go-transition go-prev');
                 }
 
                 setTimeout(function () {
@@ -303,19 +303,19 @@ var leviGit = new Vue({
                     cidx = $('.pagenavi-item.active').data('idx'),
                     idx = _.data('idx'),
                     currentPopup = $('.lh-popup[data-idx='+cidx+']');
-                
+
                 if (idx > cidx) {
-                    currentPopup.addClass('go-transition go-next');  
+                    currentPopup.addClass('go-transition go-next');
                 }
-    
+
                 if (idx < cidx) {
-                    currentPopup.addClass('go-transition go-prev');   
+                    currentPopup.addClass('go-transition go-prev');
                 }
-    
+
                 setTimeout(function () {
                     currentPopup.remove();
                 }, 300);
-    
+
                 var target;
                 $.each(projectList.project, function () {
                     if (this.idx == idx) {
@@ -323,11 +323,11 @@ var leviGit = new Vue({
                     }
                     return target;
                 });
-    
+
                 setTimeout(function () {
                     popup(target);
                     popupNavi(idx);
-                }, 300); 
+                }, 300);
             }
         }
 
@@ -349,11 +349,11 @@ var leviGit = new Vue({
             var targ = $('.lh-popup'),
                 mask = $('.lh-dimmed'),
                 body = $('body');
-            
+
             body.css('overflow', '');
             targ.fadeOut(500, function () { this.remove();});
             mask.fadeOut(500);
-            
+
             var item = $('#lh-pj-navi');
             item.find('[data-idx]').removeClass('active');
 
@@ -367,7 +367,7 @@ var leviGit = new Vue({
                 var id = $(this).closest('.lh-popup').data('pj-id');
                 $('.lh-popup[data-pj-id="'+ id +'"]').fadeOut(300, function(){
                     $(this).remove();
-                });                
+                });
             });
         }
 
@@ -413,7 +413,7 @@ var leviGit = new Vue({
         var otherWork = "";
         $.each(galleryList, function (i) {
             if (i > 0) {
-                otherWork += '<a data-fancybox="' + galleryList[i].type + '" href="./src/gallery/images/' + galleryList[i].file + '" data-caption="' + galleryList[i].caption + '"><img src="/src/gallery/images/' + galleryList[i].file + '" /></a>'    
+                otherWork += '<a data-fancybox="' + galleryList[i].type + '" href="./src/gallery/images/' + galleryList[i].file + '" data-caption="' + galleryList[i].caption + '"><img src="/src/gallery/images/' + galleryList[i].file + '" /></a>'
             }
         });
         $('.lh-others').html(otherWork);
@@ -474,7 +474,7 @@ var leviGit = new Vue({
                     cache: false,
                     contentType: false,
                     processData:false,
-                }).done(function(response){ 
+                }).done(function(response){
                     form[0].reset();
                     $('.lh-msg').fadeOut(300, function(){
                         $(this).remove();
@@ -493,11 +493,11 @@ var leviGit = new Vue({
             var i = 0,
                 boxid = id,
                 boxTemp = '<div id="' + boxid + '" class="lh-msg"></div>';
-            
+
             target.append(boxTemp);
 
             if(type == 'loading') {
-                setInterval(function () { 
+                setInterval(function () {
                     i++;
                     var box = $('#'+boxid);
                     var loading = ['/', '-','·', '\\', '|'];
@@ -510,7 +510,7 @@ var leviGit = new Vue({
                 }, 200);
             }else{
                 var box = $('#' + boxid);
-                
+
                 box.html(txt);
                 setTimeout(function(){
                     box.fadeOut(300, function(){
@@ -534,10 +534,10 @@ var leviGit = new Vue({
             var _   = $(this),
                 id  = _.data('pj-id'),
                 idx = _.data('idx');
-            
+
             popupOpen(id, idx);
         }
-        
+
         function init(pj) {
             loadPjList(pj);
             aniCursor();
@@ -550,16 +550,16 @@ var leviGit = new Vue({
         $(function () {
             aniLogo();
             init(0);
-            
+
             $('.pj-load-more').on('click', function () {
                 $(this).blur();
                 $('.has-detail').unbind('click',clickThumb);
                 $('.pagenavi-item').unbind('click',btnNextPrevPageNav);
-                
+
                 var last = $('#lh-project').find('.lh-img-thumb:last-child').data('idx');
                 init(last);
             })
- 
+
             $('.lh-dimmed').on('click', function(){
                 popupClose();
             });
@@ -577,4 +577,5 @@ var leviGit = new Vue({
 
         });
     }
+    popupHeaderImg();
 });
