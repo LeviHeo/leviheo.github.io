@@ -382,13 +382,11 @@ body {
     width:250px;
     height:100px;
     max-width:50%;
-    margin-bottom:10px;
     border-radius:5px;
     &:nth-child(1) {
         width:100%;
         height:200px;
         max-width:100%;
-        margin-bottom:10px;
         @include res(phones){
             display: block;
             width:300px;

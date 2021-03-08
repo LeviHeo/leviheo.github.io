@@ -14,6 +14,30 @@
         },
         {
             "idx":2,
+            "client":"kinder",
+            "projectId":"2021_kinder_animal",
+            "projectTitle":"Kinder GDN HTML5 Banner",
+            "projectDescription":"<p></p>",
+            "projectType":"Animated HTML Banner",
+            "projectDate":"Mar 2021",
+            "projectSkill":["HTML","JavaScript","CSS","photoshop"],
+            "launchType":"",
+            "launchUrl":""
+        },
+        {
+            "idx":3,
+            "client":"mtr",
+            "projectId":"201904_travelinfo",
+            "projectTitle":"MTR | HSR travel info",
+            "projectDescription":"<p></p>",
+            "projectType":"Minisite",
+            "projectDate":"Apr 2020",
+            "projectSkill":["HTML","vuejs","CSS","photoshop", "json"],
+            "launchType":"live",
+            "launchUrl":"https://mtrhighspeedtraveluat.azurewebsites.net/"
+        },
+        {
+            "idx":4,
             "client":"samsung",
             "projectId":"201908_mobileoffer",
             "projectTitle":"Samsung HK Mobile Offer",
@@ -23,6 +47,18 @@
             "projectSkill":["HTML","JavaScript","CSS","Sass","photoshop", "json", "jQuery"],
             "launchType":"live",
             "launchUrl":"https://www.samsung.com/hk/offer/mobile/"
+        },
+        {
+            "idx":5,
+            "client":"albion",
+            "projectId":"2018_quiz",
+            "projectTitle":"ALBION Skin Test Q&A",
+            "projectDescription":"<p></p>",
+            "projectType":"Minisite",
+            "projectDate":"Jul 2018",
+            "projectSkill":["HTML","JavaScript","CSS","Sass","photoshop", "json", "jQuery"],
+            "launchType":"live",
+            "launchUrl":"https://www.albion-cosmetics.com/seasonal/my/promotion/skintest/st.html"
         }
     ]
 }

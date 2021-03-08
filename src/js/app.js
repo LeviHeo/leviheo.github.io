@@ -577,5 +577,4 @@ var leviGit = new Vue({
 
         });
     }
-    popupHeaderImg();
 });
