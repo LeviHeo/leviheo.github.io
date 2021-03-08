@@ -13,7 +13,7 @@ var leviGit = new Vue({
         subtit: ':: Make The Web Better ::',
         btnload: 'MORE',
     },
-    mounted() {
+    mounted:function() {
         // Cursor Effect - following
         $(document).on('mousemove', function(e){
             $('.lh-cursor').css({
