@@ -10,6 +10,10 @@
 }
 */
 
+.mtk8 {
+    font-family:'Dank Mono', 'DankMono', cursive;
+}
+
 /* .monaco-editor.focused .view-overlays .current-line {} */
 
 .monaco-editor .view-overlays .current-line{
