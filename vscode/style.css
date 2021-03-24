@@ -10,16 +10,18 @@
 }
 */
 
-.mtk8, .mtk10, .mtk12 {
+.mtk8, .mtk10 {
     font-family:'Dank Mono', 'DankMono', cursive;
     font-style:italic;
     font-size:16px;
 }
 
-.view-line .mtki:nth-child(1):before{
+/*
+.view-line .mtki:before{
     content:"*";
     color:red;
 }
+*/
 
 /* .monaco-editor.focused .view-overlays .current-line {} */
 
