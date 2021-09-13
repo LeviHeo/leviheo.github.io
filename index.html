@@ -110,7 +110,7 @@
             </section>
         </div>
         <div class="lh-layout lh-r">
-            <!-- section id="intro">
+            <section id="intro" class="client-only">
                 <article>
                     <h2 class="lh-tit">/* Hi, I'm Levi Heo <i>!</i> */</h2>
                     <p>
@@ -120,23 +120,23 @@
                         My goal is to provide better quality and perfect performance optimized for web and mobile.
                     </p>
                 </article>
-            </section -->
+            </section>
 
-            <!-- <section id="latestwork">
+            <section id="latestwork" class="client-only">
                 <article>
                     <h2 class="lh-tit">/* Latest work */</h2>
                     <div id="lh-project"></div>
                     <button class="lh-btn-encased pj-load-more" v-html="btnload"></button>
                 </article>
-            </section> -->
+            </section>
 
-            <!-- <section id="otherwork">
+            <section id="otherwork" class="client-only">
                 <article>
                     <h2 class="lh-tit">/* Others */</h2>
                     <button class="lh-btn-encased btn-open-gallery" data-fancybox="images" data-caption="test" href=".">View Others</button>
                     <div class="lh-others"></div>
                 </article>
-            </section> -->
+            </section>
 
             <section id="contactme">
                 <article>
@@ -193,6 +193,34 @@
     <script type="text/javascript" src='src/js/fancybox.min.js'></script>
     <script type="text/javascript" src="src/js/iframeResizer.min.js"></script>
     <script type="text/babel" src='src/js/app.js'></script>
+    <script>
+         var QueryString = function (){
+                var query_string ={};
+                var query = window.location.search.substring(1);
+                var vars = query.split("&");
+                for (var i = 0; i < vars.length; i++){
+                    var pair = vars[i].split("=");
+                    if (typeof query_string[pair[0]] === "undefined"){
+                        query_string[pair[0]] = decodeURIComponent(pair[1]);
+                    } else if (typeof query_string[pair[0]] === "string"){
+                        var arr = [query_string[pair[0]], decodeURIComponent(pair[1])];
+                        query_string[pair[0]] = arr;
+                    } else{
+                        query_string[pair[0]].push(decodeURIComponent(pair[1]));
+                    }
+                }
+                return query_string;
+            }();
+
+           if(QueryString.source == "client"){
+               console.log(QueryString.source + 'check!!')
+               $('.client-only').addClass('active');
+           }
+    </script>
+    <style>
+        .client-only {display:none;}
+        .client-only.active {display:block}
+    </style>
 
 </body>
 </html>
