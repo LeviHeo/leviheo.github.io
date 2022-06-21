@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en-HK">
+<head>
+    <meta charset="utf-8" />
+    <script async="" src="https://tagger.opecloud.com/scmp/v2/tagger.js" referrerPolicy="no-referrer-when-downgrade"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta property="fb:app_id" content="282931841805811" />
+    <meta name="author" content="South China Morning Post"/>
+    <link rel="shortcut icon" href="https://assets.i-scmp.com/static/img/icons/favicon.ico"/>
+    <title>SCMP.com | More Than A Story</title>
+    <link rel="canonical" href="https://www.scmp.com/more-than-a-story/"/>
+    <meta name="keywords" content="South China Morning Post, The Trust Project, More than a story, scmp, Hong Kong, journalism">
+    <meta name="description" content="Who decides who deserves a house and who deserves a home?" />
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:url" content="https://www.scmp.com/more-than-a-story/"/>
+    <meta name="twitter:title" content="SCMP.com | More Than A Story">
+    <meta name="twitter:description" content="Who decides who deserves a house and who deserves a home?">
+    <meta name="twitter:image:src" content="https://www.scmp.com/more-than-a-story/images/cover.jpg">
+    <meta property="og:url" content="https://www.scmp.com/more-than-a-story/"/>
+    <meta property="og:image" content="https://www.scmp.com/more-than-a-story/images/cover.jpg"/>
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:type" content="website"/>
+    <meta property="og:site_name" content="South China Morning Post"/>
+    <meta property="og:title" content="SCMP.com | More Than A Story">
+    <meta property="og:description" content="Who decides who deserves a house and who deserves a home?"/>
+    <meta property="name" content="South China Morning Post"/>
+    <meta property="image" content="https://www.scmp.com/more-than-a-story/images/cover.jpg"/>
+    <meta property="url" content="https://www.scmp.com/more-than-a-story/"/>
+    <meta property="description" content="Who decides who deserves a house and who deserves a home?"/>
+    <meta property="keywords" content="South China Morning Post, The Trust Project, More than a story, scmp, Hong Kong, journalism"/>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-6891676-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-6891676-1');
+    </script>
+    <link rel="stylesheet" href="./css/app.min.css">
+</head>
+
+<body>
+
+    <div id="scmp-app">
+
+        <div class="scmp-head head-toggle">
+            <div class="head-bar">
+                <div class="head-bar-inner">
+                    <h2 class="head-logo-scmp">
+                        <a href="https://www.scmp.com/" title="Back to SCMP.com">
+                            <img src="./images/logo-scmp.svg" data-media-desktop="./images/logo-scmp.svg" data-media-mobile="./images/logo-scmp-flag.png" alt="South China Morning Post">
+                        </a>
+                    </h2>
+
+                    <div class="head-title">
+                        <div class="head-title-inner">
+                            <h1>
+                                More than <span>A Story</span>
+                            </h1>
+                        </div>
+                    </div>
+
+                    <div class="head-sns">
+                        <div class="head-sns-inner">
+                            <div class="share-mob">
+                                <div class="btn-share-open" @click="openShareBtn" :class="isShare?'active':''">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 658.78 700"><g id="a"/><g id="b"><g id="c"><path class="d" d="M577.58,537.58c-19.72,0-37.79,7.03-51.86,18.72L227.64,403.93c1.34-7.02,2.05-14.26,2.05-21.67,0-11.58-1.72-22.76-4.91-33.3l307.72-200.2c12.9,8.62,28.4,13.66,45.08,13.66,44.85,0,81.21-36.36,81.21-81.21S622.43,0,577.58,0s-81.21,36.36-81.21,81.21c0,4.72,.43,9.33,1.2,13.83L189.81,295.26c-20.12-17.35-46.32-27.85-74.97-27.85C51.42,267.41,0,318.83,0,382.26s51.42,114.84,114.85,114.84c32.96,0,62.67-13.89,83.61-36.12l298.11,152.39c-.12,1.79-.2,3.6-.2,5.42,0,44.85,36.36,81.21,81.21,81.21s81.21-36.36,81.21-81.21-36.36-81.21-81.21-81.21h0Z"/></g></g></svg>
+                                </div>
+                            </div>
+                            <div class="share-btns" :class="isShare?'active':''">
+                                <span class="share-label">Share</span>
+                                <ul>
+                                    <li><a href="javascript:void(0)" @click="openWindowAndShare('twitter')" class="sns-share sns-twitter">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"/></svg>
+                                    </a></li>
+                                    <li><a href="javascript:void(0)" @click="openWindowAndShare('facebook')" class="sns-share sns-facebook">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"/></svg>
+                                    </a></li>
+                                    <li><a href="javascript:void(0)" @click="openWindowAndShare('linkedin')" class="sns-share sns-linkedin">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/></svg>
+                                    </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <main id="content">
+
+            <div class="main-message">
+                <div class="message-inner">
+
+                    <div class="morethan-title">
+                        <div class="morethan-title-logo">
+                            <img src="./images/logo-scmp.svg" alt="South Chian Morning Post">
+                        </div>
+                        <div class="morethan-title-inner">
+                            <div class="title-first">
+                                <div>More</div>
+                                <div>&nbsp;than</div>
+                            </div>
+                            <div class="title-change">
+                                <div class="change-item">
+                                    <div class="swiper kewords">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <div class="text-wrap">
+                                                    <div>&nbsp;a&nbsp;</div>
+                                                    <div>story</div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="text-wrap">
+                                                    <div>&nbsp;just&nbsp;</div>
+                                                    <div>reporting</div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="text-wrap">
+                                                    <div>&nbsp;just&nbsp;</div>
+                                                    <div>words&nbsp;</div>
+                                                    <div>on&nbsp;</div>
+                                                    <div>a&nbsp;</div>
+                                                    <div>page</div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div class="text-wrap">
+                                                    <div>&nbsp;just&nbsp;</div>
+                                                    <div>the&nbsp;</div>
+                                                    <div>facts</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="morethan-desc">
+                        <div class="morethan-desc-inner">
+                            <div class="swiper morethandesc">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <p class="desc-wrap">
+                                            With misinformation everywhere and our trust in institutions being eroded, now, more than ever before, the <i>South China Morning Post</i> needs to show our dedication to communicating fact-based and trusted reporting to our Hong Kong readers.
+                                        </p>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="desc-wrap">
+                                            Independent fact-based journalism requires resources, time and commitment, which is why we go beyond simply reporting the news. Our 800+ team is made up of local and international people who genuinely care about our (and their) home city, and report on it with insight and nuance.
+                                        </p>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="desc-wrap">
+                                            Our editorial narrative is more than just words on a page. SCMP’s reporting builds on our 118+ years of experience to deliver quality journalism that digs deep and goes further.
+                                        </p>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <p class="desc-wrap">
+                                            We strive to question answers and seek the truth, constantly aware of the role we play in rebuilding trust in the media, and help our readers better understand the pressing issues facing our city and the world.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="morethan-bg">
+                        <div class="morethan-bg-inner">
+                            <div class="swiper morethanbg">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="bg-item">
+                                            <div class="bg-item-inner"><img src="./images/bg_01.jpg" alt=""></div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="bg-item">
+                                            <div class="bg-item-inner"><img src="./images/bg_02.jpg" alt=""></div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="bg-item">
+                                            <div class="bg-item-inner"><img src="./images/bg_03.jpg" alt=""></div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="bg-item">
+                                            <div class="bg-item-inner"><img src="./images/bg_04.jpg" alt=""></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div class="morethan-bg">
+                        <div class="morethan-bg-inner">
+                            <div class="bg-item">
+                                <div class="bg-item-inner"><img src="./images/bg_01.jpg" data-media-desktop="./images/bg_01.jpg" data-media-mobile="./images/bg_01_mo.jpg" alt=""></div>
+                            </div>
+                            <div class="bg-item">
+                                <div class="bg-item-inner"><img src="./images/bg_02.jpg" data-media-desktop="./images/bg_02.jpg" data-media-mobile="./images/bg_02_mo.jpg"  alt=""></div>
+                            </div>
+                            <div class="bg-item">
+                                <div class="bg-item-inner"><img src="./images/bg_03.jpg" data-media-desktop="./images/bg_03.jpg" data-media-mobile="./images/bg_03_mo.jpg"  alt=""></div>
+                            </div>
+                            <div class="bg-item">
+                                <div class="bg-item-inner"><img src="./images/bg_04.jpg" data-media-desktop="./images/bg_04.jpg" data-media-mobile="./images/bg_04_mo.jpg"  alt=""></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ico-scrolldown">
+                        <svg viewBox="0 0 80 33" fill="none" xmlns="http://www.w3.org/2000/svg" class="sc-1cioexf-9 eIlFah"><path d="M1 1l39 30L79 1" stroke="#fff" stroke-width="2"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="area-content">
+                <section id="kv">
+                    <div class="panel"></div>
+                </section>
+
+                <section>
+                    <div class="panel">
+                    </div>
+                </section>
+
+                <section>
+                    <div class="panel">
+                    </div>
+                </section>
+                <section>
+                    <div class="panel">
+                    </div>
+                </section>
+                <section class="area-conntent-btm">
+                    <div class="panel">
+                        <div id="video1">
+                            <div class="video-wrap">
+                                <div class="video-wrap-inner">
+                                    <div class="video-holder" data-video="1">
+                                        <div class="video-holder-inner"></div>
+                                    </div>
+
+                                    <div class="video-desc">
+                                        <div class="video-desc-inner">
+                                            <div>
+                                                <div class="video-ep-label">
+                                                    Episode 1
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <p>
+                                                    Fiona Sun, Emily Tsang, and Zuraidah Ibrahim, introduce us to the city’s housing crisis. With 220,000 Hongkongers living in tiny and cramped subdivided flats, what are the key issues they face and how has it got to this point? Part one takes a closer look and talks to the people impacted.
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="">
+
+                <div id="video-n-article">
+                    <div class="video-n-article-inner">
+                        <!-- <div class="videoarticle-navigation">
+                            <ul>
+                                <li class="active">
+                                    <a href="javascript:void(0)">
+                                        <span>Episode 1</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">
+                                        <span>Episode 2</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">
+                                        <span>Episode 3</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">
+                                        <span>Episode 4</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="javascript:void(0)">
+                                        <span>Episode 5</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>-->
+                        <section id="article-list1">
+                            <div class="article-wrap">
+                                <div class="article-wrap-inner">
+
+                                    <div class="article-group" :id="edi.id" v-for="(edi, order) in articles[0].editor">
+                                        <div class="article-group-inner">
+                                            <div class="article-editor">
+                                                <div class="article-editor-inner">
+                                                    <div class="editor-info">
+                                                        <div class="eidtor-name" v-html="edi.name"></div>
+                                                        <div class="editor-subtit" v-html="edi.title"></div>
+                                                    </div>
+                                                    <div class="editor-photo"><img
+                                                            :src="'./images/bg_editor_'+edi.id+'.jpg'" :data-media-desktop="'./images/bg_editor_'+edi.id+'.jpg'" :data-media-mobile="'./images/bg_editor_'+edi.id+'_mob.jpg'"
+                                                            :alt="edi.name"></div>
+                                                </div>
+                                            </div>
+                                            <div class="article-lists">
+                                                <div class="article-lists-inner">
+                                                    <div class="article-entry-item"
+                                                        v-for="(item, idx) in edi.article">
+                                                        <div class="entry-item-inner">
+                                                            <div class="entry-thumb"><a :href="item.link"
+                                                                    target="_blank"><img
+                                                                        :src="'./images/articles/ep'+articles[0].episode+'/'+edi.id+'/'+(idx+1)+'.jpg'"
+                                                                        :data-media-desktop="'./images/articles/ep'+articles[0].episode+'/'+edi.id+'/'+(idx+1)+'.jpg'"
+                                                                        :data-media-mobile="'./images/articles/ep'+articles[0].episode+'/'+edi.id+'/'+(idx+1)+'_mo.jpg'"
+                                                                        alt=""></a></div>
+                                                            <div class="entry-detail"><a :href="item.link"
+                                                                    target="_blank">
+                                                                    <div class="entry-title"
+                                                                        v-html="item.title"></div>
+                                                                    <div class="entry-desc"
+                                                                        v-html="item.desc"></div>
+                                                                </a></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </section>
+
+                    </div>
+
+
+                </div>
+
+                <section id="trustproject">
+                    <div class="content-inner">
+                        <div class="info-ttp">
+                            <div class="info-ttp-inner">
+                                <div class="ttp-logo">
+                                    <a href="https://www.scmp.com/announcements/article/3075726/south-china-morning-post-joins-trust-project-becoming-first-news" target="_blank"><img src="./images/logo-the-trust-project.svg" alt="The Trust Project"/></a>
+                                </div>
+                                <div class="ttp-desc">
+                                    <p>
+                                        Unpacking all parts of a story and rigorous fact-checking requires the highest levels of editorial integrity. That’s why in March 2020, the Post was proud to be the first Asian news organisation to join the Trust Project, a global network of leading media organisations committed to high levels of transparency and credible reporting.
+                                    </p>
+                                    <p>
+                                        “The Trust Project provides us with transparent standards of news production to help readers around the world who come to us for quality, trustworthy journalism” Tammy Tam, Editor in Chief.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer>
+            <div class="footer-inner">
+                <div class="footer-link">
+                    <div>
+                        <a href="https://www.scmp.com" target="_blank">
+                            <img src="./images/logo-scmp.svg" alt="South China Morning Post">
+                        </a>
+                    </div>
+                    <div>
+                        <ul class="link-list">
+                            <li>
+                                <a href="https://www.scmp.com/announcements/article/3075726/south-china-morning-post-joins-trust-project-becoming-first-news" target="_blank">The Trust Project</a>
+                            </li>
+                            <li>
+                                <a href="https://corp.scmp.com/about-us/" target="_blank">About Us</a>
+                            </li>
+                            <li>
+                                <a href="https://www.scmp.com/faqs" target="_blank">Subscription FAQ</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-link-sub">
+                    <div>
+                       <ul class="link-list">
+                           <li>
+                               <a href="https://www.scmp.com/privacy-policy">Privacy Policy</a>
+                           </li>
+                           <li>
+                               <a href="https://www.scmp.com/terms-conditions">Terms & Conditions</a>
+                           </li>
+                       </ul>
+                    </div>
+                    <div>
+                        © 2022 South China Morning Post all rights reserved.
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <div class="scmp-backtotop">
+            <a href="#kv">
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" alt="Back To Top"><path d="M20 30.002v-20M12.5 17.502l7.5-7.5 7.5 7.5" stroke="#000" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            </a>
+        </div>
+        <div id="progress" max="100" value="0"><span></span></div>
+    </div>
+    <script src="./js/jquery.min.js" type="text/jscript"></script>
+    <script src="./js/vue.min.js" type="text/jscript"></script>
+    <script src="./js/gsap.min.js" type="text/jscript"></script>
+    <script src="./js/scrolltrigger.min.js" type="text/jscript"></script>
+    <script src="./js/ScrollToPlugin.min.js" type="text/jscript"></script>
+    <script src="./js/swiper.min.js" type="text/jscript"></script>
+    <script src="./js/app.min.js" type="text/jscript"></script>
+</body>
+</html>
