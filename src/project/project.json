@@ -2,6 +2,30 @@
     "project":[
         {
             "idx":1,
+            "client":"scmp",
+            "projectId":"202210_ro50ya",
+            "projectTitle":"SCMP Multimedia Infographic - AP Royal Oak 50th Anniversary",
+            "projectDescription":"<p></p>",
+            "projectType":"Desktop / Mobile Website",
+            "projectDate":"Sept 2022",
+            "projectSkill":["HTML","Vuejs","json", "CSS","Sass","photoshop"],
+            "launchType":"live",
+            "launchUrl":"https://multimedia.scmp.com/native/infographics/article/3190231/legendary-watch-was-born-50-years-ago/"
+        },
+        {
+            "idx":2,
+            "client":"scmp",
+            "projectId":"202110_hsbc",
+            "projectTitle":"SCMP Multimedia Infographic - HSBC",
+            "projectDescription":"<p></p>",
+            "projectType":"Desktop / Mobile Website",
+            "projectDate":"Sept 2022",
+            "projectSkill":["HTML","Vuejs","json", "CSS","Sass","photoshop"],
+            "launchType":"live",
+            "launchUrl":"https://multimedia.scmp.com/native/infographics/article/3160919/cleaning-hong-kong-waters/"
+        },
+        {
+            "idx":3,
             "client":"samsung",
             "projectId":"2021_vote21",
             "projectTitle":"Samsung HK 21s Golden Video Awards",
@@ -13,7 +37,7 @@
             "launchUrl":"https://www.samsung.com/hk_en/smartphones/galaxy-s21-5g/hong-kong-21-sec-video-award/"
         },
         {
-            "idx":2,
+            "idx":4,
             "client":"kinder",
             "projectId":"2021_kinder_animal",
             "projectTitle":"Kinder GDN HTML5 Banner",
@@ -25,7 +49,7 @@
             "launchUrl":""
         },
         {
-            "idx":3,
+            "idx":5,
             "client":"mtr",
             "projectId":"201904_travelinfo",
             "projectTitle":"MTR | HSR travel info",
@@ -34,10 +58,10 @@
             "projectDate":"Apr 2020",
             "projectSkill":["HTML","vuejs","CSS","photoshop", "json"],
             "launchType":"live",
-            "launchUrl":"https://mtrhighspeedtraveluat.azurewebsites.net/"
+            "launchUrl":"https://www.highspeed.mtr.com.hk/tc/travel/"
         },
         {
-            "idx":4,
+            "idx":6,
             "client":"samsung",
             "projectId":"201908_mobileoffer",
             "projectTitle":"Samsung HK Mobile Offer",
@@ -49,7 +73,7 @@
             "launchUrl":"https://www.samsung.com/hk/offer/mobile/"
         },
         {
-            "idx":5,
+            "idx":7,
             "client":"albion",
             "projectId":"2018_quiz",
             "projectTitle":"ALBION Skin Test Q&A",
