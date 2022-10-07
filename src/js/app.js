@@ -79,7 +79,7 @@ var leviGit = new Vue({
         $('#lh-pj-navi').append(pagenaviIn)
 
         function loadPjList(idx) {
-            var max = idx + 3,
+            var max = idx + 7,
                 thumb = "",
                 pagenavi = "",
                 limit = projectList.project.length,
