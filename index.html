@@ -70,6 +70,31 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-NQWNPRD');</script>
     <!-- End Google Tag Manager -->
+
+     <!-- Start Single Page Apps for GitHub Pages -->
+     <script type="text/javascript">
+        // Single Page Apps for GitHub Pages
+        // MIT License
+        // https://github.com/rafgraph/spa-github-pages
+        // This script checks to see if a redirect is present in the query string,
+        // converts it back into the correct url and adds it to the
+        // browser's history using window.history.replaceState(...),
+        // which won't cause the browser to attempt to load the new url.
+        // When the single page app is loaded further down in this file,
+        // the correct url will be waiting in the browser's history for
+        // the single page app to route accordingly.
+        (function(l) {
+          if (l.search[1] === '/' ) {
+            var decoded = l.search.slice(1).split('&').map(function(s) { 
+              return s.replace(/~and~/g, '&')
+            }).join('?');
+            window.history.replaceState(null, null,
+                l.pathname.slice(0, -1) + decoded + l.hash
+            );
+          }
+        }(window.location))
+      </script>
+      <!-- End Single Page Apps for GitHub Pages -->
 </head>
 <body>
 
@@ -111,7 +136,7 @@
             </section>
         </div>
         <div class="lh-layout lh-r">
-            <section id="intro" class="">
+            <!-- <section id="intro" class="">
                 <article>
                     <h2 class="lh-tit">/* Hi, I'm Levi Heo <i>!</i> */</h2>
                     <p>
@@ -121,7 +146,7 @@
                         My goal is to provide better quality and perfect performance optimized for web and mobile.
                     </p>
                 </article>
-            </section>
+            </section> -->
 
             <!-- <section id="latestwork" class="">
                 <article>
@@ -139,7 +164,7 @@
                 </article>
             </section -->
 
-            <section id="contactme" style="display:none !important;">
+            <!-- <section id="contactme" style="display:none !important;">
                 <article>
                     <h2 class="lh-tit">/* Getting in touch */</h2>
                     <p>Do you have a project you want to discuss in detail? What about a quick question? </p>
@@ -168,7 +193,7 @@
                         <button class="lh-btn-encased">SEND</button>
                     </div>
                 </article>
-            </section>
+            </section> -->
 
             <sns class="view1023"></sns>
         </div>
