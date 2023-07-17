@@ -1,0 +1,401 @@
+/*
+.mtk13 {
+    font-family: 'Consolas';
+}
+*/
+
+/*
+.mtk14 {
+    font-size:12px;
+}
+*/
+
+.mtk8, .mtk10 {
+    /*font-family:'Dank Mono', 'DankMono', cursive;*/
+    /*font-style:italic;*/
+}
+
+/*
+.view-line .mtki:before{
+    content:"*";
+    color:red;
+}
+*/
+
+/* .monaco-editor.focused .view-overlays .current-line {} */
+
+.monaco-editor .view-overlays .current-line{
+    overflow:hidden;
+}
+
+.monaco-editor .view-overlays .current-line:before {
+    content:"";
+    display:block;
+    width:300px;
+    height:100%;
+    position: relative;
+    top:0;
+    left:0;
+    opacity:0.2;
+    background: rgba(241,231,103,0.4);
+    background: -moz-linear-gradient(left, rgba(241,231,103,0.4) 0%, rgba(254,182,69,0) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(241,231,103,0.4)), color-stop(100%, rgba(254,182,69,0)));
+    background: -webkit-linear-gradient(left, rgba(241,231,103,0.4) 0%, rgba(254,182,69,0) 100%);
+    background: -o-linear-gradient(left, rgba(241,231,103,0.4) 0%, rgba(254,182,69,0) 100%);
+    background: -ms-linear-gradient(left, rgba(241,231,103,0.4) 0%, rgba(254,182,69,0) 100%);
+    background: linear-gradient(to right, rgba(241,231,103,0.4) 0%, rgba(254,182,69,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1e767', endColorstr='#feb645', GradientType=1 );
+}
+
+.monaco-editor .view-overlays .current-line:after {
+    content:"";
+    display:block;
+    width:300px;
+    height:1px;
+    position:absolute;
+    bottom:0px;
+    background: rgba(25,25,25,0);
+    background: -moz-linear-gradient(left, rgba(25,25,25,0) 0%, rgba(94,94,94,1) 50%, rgba(25,25,25,0) 100%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(25,25,25,0)), color-stop(50%, rgba(94,94,94,1)), color-stop(100%, rgba(25,25,25,0)));
+    background: -webkit-linear-gradient(left, rgba(25,25,25,0) 0%, rgba(94,94,94,1) 50%, rgba(25,25,25,0) 100%);
+    background: -o-linear-gradient(left, rgba(25,25,25,0) 0%, rgba(94,94,94,1) 50%, rgba(25,25,25,0) 100%);
+    background: -ms-linear-gradient(left, rgba(25,25,25,0) 0%, rgba(94,94,94,1) 50%, rgba(25,25,25,0) 100%);
+    background: linear-gradient(to right, rgba(25,25,25,0) 0%, rgba(94,94,94,1) 50%, rgba(25,25,25,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#191919', endColorstr='#191919', GradientType=1 );
+    -moz-animation: crrLine infinite 3s ease;
+	-webkit-animation: crrLine infinite 3s ease;
+	animation: crrLine infinite 3s ease;
+}
+
+.monaco-editor .currentFindMatch, .monaco-editor .findMatch{
+    border-radius:5px;
+    padding:0 2px;
+    transform: translateX(-2px);
+}
+
+.monaco-editor .currentFindMatch{
+    -moz-animation: cfindMatch infinite 5s ease-out;
+	-webkit-animation: cfindMatch infinite 5s ease-out;
+    animation: cfindMatch infinite 5s ease-out;
+}
+
+/* .monaco-editor .findMatch {
+    border-bottom:2px dotted red;
+} */
+
+/* .monaco-editor .selected-text {
+    border:1px solid white;
+    border-radius:5px;
+    padding:0 2px;
+    transform: translateX(-3px) translateY(-1px);
+    background-color:#000000;
+} */
+
+/* .monaco-editor .wordHighlight */
+
+.monaco-editor .wordHighlight {
+    border-bottom:1px solid #ffff00;
+    background-color:rgba(87, 87, 87, 0);
+}
+
+.monaco-editor .selectionHighlight, .monaco-editor .findMatch {
+    border-radius:5px;
+    padding:0 2px;
+    border:1px dotted red;
+    transform: translateX(-3px) translateY(-1px);
+}
+
+/* .monaco-editor .lines-content .cigra { */
+
+.cigra {
+    position: relative;
+    box-shadow: 1px 0 0 0 transparent inset !important;
+    -moz-animation: cigraLine infinite 3s ease;
+	-webkit-animation: cigraLine infinite 3s ease;
+    animation: cigraLine infinite 3s ease;
+    box-sizing: border-box;
+}
+
+/* .cigra:before {
+    display: block;
+    content:"";
+    position: absolute;
+    top:0;
+    left:0;
+    z-index:0;
+    pointer-events: none;
+    width:4px;
+    height:1px;
+    background-color: #1b1b1b;
+} */
+
+.cigra:after {
+    display: block;
+    content:"";
+    position: absolute;
+    z-index:0;
+    pointer-events: none;
+    width:300%;
+    height:100%;
+    background: rgba(255,174,75,0.05);
+    background: -moz-linear-gradient(left, rgba(255,174,75,0.05) 0%, rgba(255,174,75,0) 83%);
+    background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,174,75,0.05)), color-stop(83%, rgba(255,174,75,0)));
+    background: -webkit-linear-gradient(left, rgba(255,174,75,0.05) 0%, rgba(255,174,75,0) 83%);
+    background: -o-linear-gradient(left, rgba(255,174,75,0.05) 0%, rgba(255,174,75,0) 83%);
+    background: -ms-linear-gradient(left, rgba(255,174,75,0.05) 0%, rgba(255,174,75,0) 83%);
+    background: linear-gradient(to right, rgba(255,174,75,0.05) 0%, rgba(255,174,75,0) 83%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffae4b', endColorstr='#ffae4b', GradientType=1 );
+}
+
+.view-line:hover {
+    background:rgba(255,255,255,0.02);
+}
+
+.view-line:hover .mtk14 {
+    -moz-animation: hovertxt infinite 1s ease-out;
+	-webkit-animation: hovertxt infinite 1s ease-out;
+	animation: hovertxt infinite 1s ease-out;
+}
+
+.mtk14 {
+    color: rgba(133, 165, 140, 0.548);
+}
+
+.mtk1 {
+    color:#717171;
+}
+
+.view-line:hover .mtk1 {
+    color:#ffffff;
+}
+
+.monaco-editor .current-line ~ .line-numbers {
+    -moz-animation: crrLineNum infinite 3s ease-out;
+	-webkit-animation: crrLineNum infinite 3s ease-out;
+    animation: crrLineNum infinite 3s ease-out;
+}
+
+@-moz-keyframes cfindMatch {
+	from {
+       background-color: goldenrod;
+    }
+    20% {
+        background-color: green;
+    }
+    40% {
+        background-color: crimson;
+    }
+    60% {
+        background-color: purple;
+    }
+    80% {
+        background-color: aqua;
+    }
+	to {
+        background-color: goldenrod;
+	}
+}
+
+@-webkit-keyframes cfindMatch {
+	from {
+        background-color: goldenrod;
+     }
+     20% {
+         background-color: green;
+     }
+     40% {
+         background-color: crimson;
+     }
+     60% {
+         background-color: purple;
+     }
+     80% {
+         background-color: aqua;
+     }
+     to {
+         background-color: goldenrod;
+     }
+}
+
+@keyframes cfindMatch {
+	from {
+        background-color: goldenrod;
+     }
+     20% {
+         background-color: green;
+     }
+     40% {
+         background-color: crimson;
+     }
+     60% {
+         background-color: purple;
+     }
+     80% {
+         background-color: aqua;
+     }
+     to {
+         background-color: goldenrod;
+     }
+}
+
+@-moz-keyframes hovertxt {
+	from {
+        color:black;
+    }
+    50% {
+        color:yellow;
+    }
+	to {
+        color:black;
+	}
+}
+
+@-webkit-keyframes hovertxt {
+	from {
+        color:black;
+    }
+    50% {
+        color:yellow;
+    }
+	to {
+        color:black;
+	}
+}
+
+@keyframes hovertxt {
+	from {
+        color:black;
+    }
+    50% {
+        color:yellow;
+    }
+	to {
+        color:black;
+	}
+}
+
+@-moz-keyframes crrLine {
+	from {
+        left:-300px;
+    }
+	to {
+        left:110%;
+	}
+}
+
+@-webkit-keyframes crrLine {
+	from {
+        left:-300px;
+    }
+	to {
+        left:110%;
+	}
+}
+
+@keyframes crrLine {
+	from {
+        left:-300px;
+    }
+	to {
+        left:110%;
+	}
+}
+
+@-moz-keyframes crrLineNum {
+	from {
+        color:#ffffff;
+    }
+    50% {
+        color:#499d3b;
+    }
+	to {
+        color:#ffffff;
+	}
+}
+
+@-webkit-keyframes crrLineNum {
+	from {
+        color:#ffffff;
+    }
+    50% {
+        color:#499d3b;
+    }
+	to {
+        color:#ffffff;
+	}
+}
+
+@keyframes crrLineNum {
+	from {
+        color:#ffffff;
+    }
+    50% {
+        color:#499d3b;
+    }
+	to {
+        color:#ffffff;
+	}
+}
+
+@-moz-keyframes cigraLine {
+	from {
+        border:1px solid #499d3b;
+        border-top: 0;
+        border-right: 0;
+        border-bottom: 0;
+    }
+	50% {
+        border:1px solid white;
+        border-top: 0;
+        border-right: 0;
+        border-bottom: 0;
+    }
+    to {
+        border:1px solid #499d3b;
+        border-top: 0;
+        border-right: 0;
+        border-bottom: 0;
+    }
+}
+
+@-webkit-keyframes cigraLine {
+	from {
+        border:1px solid #499d3b;
+        border-top: 0;
+        border-right: 0;
+        border-bottom: 0;
+    }
+	50% {
+        border:1px solid white;
+        border-top: 0;
+        border-right: 0;
+        border-bottom: 0;
+    }
+    to {
+        border:1px solid #499d3b;
+        border-top: 0;
+        border-right: 0;
+        border-bottom: 0;
+    }
+}
+
+@keyframes cigraLine {
+	from {
+        border:1px solid #499d3b;
+        border-top: 0;
+        border-right: 0;
+        border-bottom: 0;
+    }
+	50% {
+        border:1px solid white;
+        border-top: 0;
+        border-right: 0;
+        border-bottom: 0;
+    }
+    to {
+        border:1px solid #499d3b;
+        border-top: 0;
+        border-right: 0;
+        border-bottom: 0;
+    }
+}
