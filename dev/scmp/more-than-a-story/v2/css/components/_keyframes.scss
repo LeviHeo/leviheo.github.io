@@ -1,0 +1,42 @@
+.fade-enter-active, .fade-leave-active {
+    transition: opacity .3s;
+}
+.fade-enter, .fade-leave-to {
+    opacity: 0;
+}
+
+@-moz-keyframes scrolldownico {
+    from {
+        bottom:10%;
+    }
+    50% {
+        bottom:7%;
+    }
+    to {
+        bottom:10%;
+    }
+}
+
+@-webkit-keyframes scrolldownico {
+    from {
+        bottom:10%;
+    }
+    50% {
+        bottom:7%;
+    }
+    to {
+        bottom:10%;
+    }
+}
+
+@keyframes scrolldownico {
+    from {
+        bottom:10%;
+    }
+    50% {
+        bottom:7%;
+    }
+    to {
+        bottom:10%;
+    }
+}

@@ -1,0 +1,42 @@
+$pc:1024px;
+$tablet:1023px;
+$mobile:767px;
+$se:350px;
+$inner-content:1192px;
+
+// color
+$scmp-yellow:#ffca05;
+$scmp-dark:#222222;
+$scmp-dark-blue:#001246;
+$scmp-text-hover:#2c4692;
+$scmp-light-blue:#4585ff;
+$scmp-light-blue-active:#4585ff;
+$scmp-grey:#a1a1a1;
+$scmp-cyan:#34b8b5;
+
+$scmp-font-title:"Merriweather", serif;
+$scmp-font-desc:"Roboto", sans-serif;
+$scmp-font-robotoc:'Roboto Condensed', sans-serif;
+
+$img:"../images/";
+
+:root {
+    --color-scmp-yello: $scmp-yellow;
+    --color-scmp-dark: $scmp-dark-blue;
+    --font-title: $scmp-font-title;
+    --font-desc: $scmp-font-desc;
+}
+
+::-moz-selection {
+    color: $scmp-dark-blue;
+    background:$scmp-yellow;
+    text-shadow: none;
+}
+
+::selection {
+    color: $scmp-dark-blue !important;
+    background:$scmp-yellow !important;
+    text-shadow: none;
+    -webkit-background-clip:initial;
+	-webkit-text-fill-color: initial;
+}
