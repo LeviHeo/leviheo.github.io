@@ -6,7 +6,7 @@
   "theme_color": "#000000",
   "id": "leviheo",
   "description": "leviheo's web app.",
-  "start_url": ".",
+  "start_url": "https://leviheo.app/",
   "dir": "ltr",
   "lang": "en",
   "orientation": "natural",
@@ -458,6 +458,16 @@
     {
       "src": "ios/1024.png",
       "sizes": "1024x1024"
+    },
+    {
+      "src": "ios/512.png",
+      "sizes": "512x512",
+      "purpose": "any"
+    },
+    {
+      "src": "ios/512.png",
+      "sizes": "512x512",
+      "purpose": "maskable"
     }
   ]
 }
