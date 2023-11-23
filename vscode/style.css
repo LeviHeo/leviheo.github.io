@@ -403,3 +403,9 @@
 .window-appicon {display:none;}
 .minimap-slider {border:1px solid #499d3b;}
 
+
+.monaco-workbench{background-color:var(--vscode-editor-background)}.lightBulbWidget{transition:top 200ms}.monaco-hover:not(.hidden){animation:hoverFadeIn 200ms}@keyframes hoverFadeIn{from{opacity:0}to{opacity:1}}.action-label{transition:color 200ms}/*# sourceMappingURL=Default-Transitions.min.css.map */
+:root{--active-duration: /*<Duration>*/ 300ms}.monaco-list-row:not(.explorer-folders-view .monaco-list-row,.code-cell-row){transition:scale var(--active-duration);scale:.98}.monaco-list-row:not(.explorer-folders-view .monaco-list-row,.code-cell-row).focused{scale:1}/*# sourceMappingURL=Scale.min.css.map */
+:root{--scrolling-duration: /*<Duration>*/ 300ms}.monaco-list-row:not(.explorer-folders-view .monaco-list-row){animation:scrollingAnimation var(--scrolling-duration)}.quick-input-widget .monaco-list-rows[style*="top: 0px;"] .monaco-list-row,.settings-tree-container .monaco-list-rows[style*="top: 0px;"] .monaco-list-row{animation-duration:0ms}@keyframes scrollingAnimation{from{opacity:.5;transform:scale(0.5)}to{opacity:1}}/*# sourceMappingURL=Scale.min.css.map */
+:root{--command-palette-duration: /*<Duration>*/ 300ms}.quick-input-widget{transform-origin:top;animation:openPopup var(--command-palette-duration)}.quick-input-widget[style*="display: none;"]{display:block !important;transform-origin:top;animation:closePopup var(--command-palette-duration);opacity:0;transform:scaleY(0);pointer-events:none}@keyframes openPopup{from{opacity:0;transform:scaleY(0)}to{opacity:1;transform:scaleY(1)}}@keyframes closePopup{from{opacity:1;transform:scaleY(1)}to{opacity:0;transform:scaleY(0)}}/*# sourceMappingURL=Scale.min.css.map */
+
